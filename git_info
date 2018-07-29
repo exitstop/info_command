@@ -1,3 +1,5 @@
+git diff --cached # показать дифф того что в индексе
+
 git stash # спрятать ваши изменения в карман
 git stash --kepp-index # поместить в stash только то что не находится в индексе
 git stash -u # -u = --include-untracked поместить в stash то что не трекается
@@ -29,3 +31,8 @@ git rebase --continue
 git filter-branch --tree-filter 'rm -f passwords.txt' HEAD # удалить файл passwords.txt из всех коммитов
 
 git reset --soft HEAD~ # удалит предыдущий комит и добавить его в индекс, после чего его можно отредактировать и закомитить снова
+
+git merge --abort # отменить попытку слияния
+git merge-file -p hello.ours.rb hello.common.rb hello.theirs.rb > hello.rb
+git merge -Xours b1 # при конфликте выбирать наши изменения
+git merge -Xtheirs b1 # при конфликте выбирать их изменения
