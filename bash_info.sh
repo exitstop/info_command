@@ -4,3 +4,13 @@
 #и не затирать конец файла two (conv=notrunc)
 
 dd bs=1 count=5 if=one of=two skip=0 seek=1 conv=notrunc
+
+#conver webm to mpr
+FILE="the-file-you-want-to-process.webm";
+ffmpeg -i "${FILE}" -vn -ab 128k -ar 44100 -y "${FILE%.webm}.mp3";
+
+#тоже самое но в цикле
+for FILE in *.webm; do
+    echo -e "Processing video '\e[32m$FILE\e[0m'";
+    ffmpeg -i "${FILE}" -vn -ab 128k -ar 44100 -y "${FILE%.webm}.mp3";
+done;
