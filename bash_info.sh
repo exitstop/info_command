@@ -23,3 +23,7 @@ strip program
 
 #посмотреть имена функций которые есть в программе
 nm program
+
+#установить ssh и включить
+sudo apt install ssh
+sudo systemctl enable ssh
