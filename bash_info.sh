@@ -27,3 +27,12 @@ nm program
 #установить ssh и включить
 sudo apt install ssh
 sudo systemctl enable ssh
+
+#рекурсиваня замена во всех файлах
+a=hello&&b=hello2&& grep -rl "$a" | xargs sed -i "s/$a/$b/g"
+
+#посмотреть сколько места в системе
+df -h
+
+#посмотерть сколько весят папки и файлы в текущей дериктории и отсортировать
+du -hs * | sort -h
