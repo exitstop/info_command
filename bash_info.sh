@@ -26,3 +26,5 @@ a=hello&&b=hello2&& grep -rl "$a" | xargs sed -i "s/$a/$b/g"
 df -h
 #посмотерть сколько весят папки и файлы в текущей дериктории и отсортировать
 du -hs * | sort -h
+#включить чтобы дампился segfault в файл core для отладки в gdb
+unlimit -c unlimited
