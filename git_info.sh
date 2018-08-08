@@ -36,3 +36,4 @@ git merge --abort # отменить попытку слияния
 git merge-file -p hello.ours.rb hello.common.rb hello.theirs.rb > hello.rb
 git merge -Xours b1 # при конфликте выбирать наши изменения
 git merge -Xtheirs b1 # при конфликте выбирать их изменения
+git merge myBranch --no-commit --no-ff #делаем мерж без комита, изменения будут в индексе
