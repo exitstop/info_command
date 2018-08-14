@@ -1,6 +1,6 @@
 typedef struct
 {
-  unsigned char	e_ident[EI_NIDENT];	/* Индефикатор ELF-файла: 7А 45 4С - Magic number and other info */
+  unsigned char	e_ident[EI_NIDENT = 16];	/* Индефикатор ELF-файла: 7А 45 4С - Magic number and other info */
   Elf32_Half	e_type;			/* Тип файла - Object file type */
   Elf32_Half	e_machine;		/* Архитектура - Architecture */
   Elf32_Word	e_version;		/* Версия объектного файла - Object file version */
