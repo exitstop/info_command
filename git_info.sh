@@ -50,3 +50,5 @@ git log --all --full-history -- <path-to-file>
 git config --global alias.tree "log --oneline --decorate --all --graph"
 
 git cherry-pick 7958482 # 7958482 <- хеш коммита который нужно преместить в свою ветку
+
+git checkout develop -- file.cpp # получить версию файла из develop
