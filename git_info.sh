@@ -1,5 +1,6 @@
 git diff --cached # показать дифф того что в индексе
 git diff HEAD myfile.cpp # сравнить файл между коммитами
+git diff develop --name-only # сравнить текущую ветку с веткой develop и показать только имена файлов
 
 git stash # спрятать ваши изменения в карман
 git stash --kepp-index # поместить в stash только то что не находится в индексе

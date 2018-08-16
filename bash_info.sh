@@ -39,3 +39,6 @@ ctrl+u #удалить символы до курсора
 ctrl+k #удалить символы после курсора 
 
 ctrl+p #вставить удаленное
+
+#конфертирование line end recursive
+find . -type f -print0 | xargs -0 dos2unix
