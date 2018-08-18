@@ -1,6 +1,7 @@
 git diff --cached # показать дифф того что в индексе
 git diff HEAD myfile.cpp # сравнить файл между коммитами
 git diff develop --name-only # сравнить текущую ветку с веткой develop и показать только имена файлов
+git diff -w # игнорировать пробелы
 
 git stash # спрятать ваши изменения в карман
 git stash --kepp-index # поместить в stash только то что не находится в индексе
@@ -20,23 +21,31 @@ git grep -c "#include"  # покажет количество совпадени
 git grep -pn "std" # в каких функциях есть это совпадение и на какой строке
 git grep -n -e "^void v(" --and -e ";" # искать чтобы совпадало и первое и второе выражение в одной строке
 
-git log --graph --oneline --all # вывести лог ввиде графа
+git log --oneline --graph # для своей ветки
+git log --graph --oneline --all # вывести лог ввиде графа, для всех веток
 git log --oneline --decorate --all --graph # вывести лог ввиде графа и показать stash и мена веток
 git log --pretty=oneline # вывести log компактно по одной строчке на коммит
 git log --author=exitstop # посмотреть комиты автора
 git log -S vector --oneline # найти в истории где создавалась или удалялось это слово "vector"
 git log -L :main:main.cpp  # увидеть все изменения функции main в файле main.cpp
 git log -p myFile.cpp # посмотреть историю одного файла
+git log --no-merges master # показать не смерженное с master
+git log -L 1,1:some-file.txt # показать изменения для некоторых строк в файле
+git log --pretty="%h - %s" --author=exitstop # посмотреть которкие хеши 
+#если хотим найти потерянный файл в истории
+git log --all --full-history -- **/thefile.* # если не знаем путь к искомому файлу
+git log --all --full-history -- <path-to-file> # если знаем полный путь к искомому файлу
 
 git commit --amend -m "my new message" # изменить сообщение последнего коммита если вы еще на сделали push
+git commit --amend
 
 git rebase -i HEAD~3 # изменить в интерактивном режиме последние три коммита
-git commit --amend
 git rebase --continue
 
 git filter-branch --tree-filter 'rm -f passwords.txt' HEAD # удалить файл passwords.txt из всех коммитов
 
 git reset --soft HEAD~ # удалит предыдущий комит и добавить его в индекс, после чего его можно отредактировать и закомитить снова
+git reset --hard HEAD  # жосткис брос всех изменений, после этого можно потерять свои наработки навсегда 
 
 git merge --abort # отменить попытку слияния
 git merge-file -p hello.ours.rb hello.common.rb hello.theirs.rb > hello.rb
@@ -44,13 +53,6 @@ git merge -Xours b1 # при конфликте выбирать наши изм
 git merge -Xtheirs b1 # при конфликте выбирать их изменения
 git merge myBranch --no-commit --no-ff #делаем мерж без комита, изменения будут в индексе
 
-#если хотим найти потерянный файл в истории
-#если не знаем путь к искомому файлу
-git log --all --full-history -- **/thefile.*
-#если знаем полный путь к искомому файлу
-git log --all --full-history -- <path-to-file>
-#посмотреть которкие хеши 
-git log --pretty="%h - %s" --author=exitstop
 
 #сделать сокращение для команды
 git config --global alias.tree "log --oneline --decorate --all --graph"
@@ -58,3 +60,9 @@ git config --global alias.tree "log --oneline --decorate --all --graph"
 git cherry-pick 7958482 # 7958482 <- хеш коммита который нужно преместить в свою ветку
 
 git checkout develop -- file.cpp # получить версию файла из develop
+
+git show develop:some-file.js # извлекает файл из другой ветки
+
+git revert -n 0fxf077 # создать новый комит который будет отменять другой и добавит его в индекс без коммита
+
+git add -p # добавить только некоторые изменения из файла
