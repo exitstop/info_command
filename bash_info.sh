@@ -22,6 +22,8 @@ sudo apt install ssh
 sudo systemctl enable ssh
 #рекурсиваня замена во всех файлах
 a=hello&&b=hello2&& grep -rl "$a" | xargs sed -i "s/$a/$b/g"
+#рекурсиваня замена в файлах *.h 
+a=hello&&b=hello2&& grep "$a" `find -name "*.h"` | xargs sed -i "s/$a/$b/g"
 #посмотреть сколько места в системе
 df -h
 #посмотерть сколько весят папки и файлы в текущей дериктории и отсортировать
