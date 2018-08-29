@@ -19,3 +19,8 @@ zr
 :TagsGenerate! # генерим таги и после этого можно ctrl+] -> прыгнуть на определение функции ctrl+[ -> декларация функции
 :TagsGenerate
 :tags
+ctrl+] # перейти ко определению функции 
+ctrl+[ # забиндино мной вручную под команду YcmCompleter GoToDefinition
+g+] # позволяет выбрать на какое определение перейти
+
+ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ .
