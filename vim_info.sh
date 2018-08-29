@@ -25,3 +25,11 @@ g+] # позволяет выбрать на какое определение �
 
 sudo apt install exuberant-ctags
 ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ .
+
+# двикатся по буферам которые находятся в air-line
+:bnext
+:bprevious
+:bfirst
+:blast
+:b10
+:b <buffer-name>
