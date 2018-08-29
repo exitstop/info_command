@@ -44,3 +44,6 @@ ctrl+p #вставить удаленное
 
 #конфертирование line end recursive
 find . -type f -print0 | xargs -0 dos2unix
+
+#поиск по исходному коду
+ack functionName
