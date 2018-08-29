@@ -15,3 +15,7 @@ zM # свернуть все
 zm
 zr
 
+# vim tags https://github.com/szw/vim-tags
+:TagsGenerate! # генерим таги и после этого можно ctrl+] -> прыгнуть на определение функции ctrl+[ -> декларация функции
+:TagsGenerate
+:tags
