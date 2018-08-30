@@ -33,3 +33,17 @@ ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ .
 :blast
 :b10
 :b <buffer-name>
+
+# в режиме вставки
+ctrl+r=5+5+5 # вставится число 15
+
+# cscope https://habr.com/post/54470/ 
+sudo apt install cscope
+#find ./ -type f \( -iname \*.cpp -o -iname \*.hpp -o -iname \*.h -o -iname \*.cl -o -iname \*.c \)
+find /home/user/project -name '*.h' -o -name '*.c' -o -name '*.cpp' -o -name '*.hpp' -o -name '*.cl' -o -name '*.asm' -o -name '*.s' > ./cscope.files
+cscope -b
+rm ./cscope.files
+:cs add cscope.out
+
+# делаем скрипт исполняемым если он начинается на #!
+au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent !chmod a+x | endif | endif
