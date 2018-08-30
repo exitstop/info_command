@@ -47,3 +47,8 @@ find . -type f -print0 | xargs -0 dos2unix
 
 #поиск по исходному коду
 ack functionName
+
+# монтирование флешки
+sudo fdisk -l
+sudo mount
+sudo mount /dev/sdb3/ /mnt/my_dir
