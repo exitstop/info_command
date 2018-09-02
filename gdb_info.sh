@@ -27,8 +27,8 @@ b ./source/main.cpp:58 # поставить break point на строке 58 в 
 p/x *(uint8_t *)input@13 # вывести 13 байт из переменной input
 p/x (uint8_t[5])input # вывести 5 байт
 
-# установить переменную окружения через gdb
-set environment LimitMEMLOCK = 256M
-# посмотреть переменную окружения через gdb
-show environment LimitMEMLOCK
-
+set environment LimitMEMLOCK = 256M # установить переменную окружения через gdb
+show environment LimitMEMLOCK # посмотреть переменную окружения через gdb
+unset environment LimitMEMLOCK # без комментарием
+path directory # добавить directory в path
+show paths
