@@ -23,3 +23,12 @@ l +50 # показать +50 строчек от текущей
 i b # показать break point list
 del 1 # удалить break point number 1
 b ./source/main.cpp:58 # поставить break point на строке 58 в файле, файл может не находится если выполнилась до этого файла
+
+p/x *(uint8_t *)input@13 # вывести 13 байт из переменной input
+p/x (uint8_t[5])input # вывести 5 байт
+
+# установить переменную окружения через gdb
+set environment LimitMEMLOCK = 256M
+# посмотреть переменную окружения через gdb
+show environment LimitMEMLOCK
+
