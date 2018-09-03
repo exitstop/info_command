@@ -11,7 +11,7 @@ dashboard -layout source stack threads
 #посмотреть динамические библиотеки приложения
 i shared
 # изменить приглашение promt
-ard -style prompt '(gdb)'
+dashboard -style prompt '(gdb)'
 #чтобы изменения были постоянными
 mkdir -p ~/.gdbinit.d
 dashboard -configuration ~/.gdbinit.d/auto
