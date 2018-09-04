@@ -60,3 +60,7 @@ rm ./cscope.files
 
 # делаем скрипт исполняемым если он начинается на #!
 au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent !chmod a+x | endif | endif
+
+# перемещение по вкладкам
+nmap <Left> gT
+nmap <Right> gt
