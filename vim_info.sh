@@ -65,3 +65,7 @@ au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent !ch
 # перемещение по вкладкам
 nmap <Left> gT
 nmap <Right> gt
+
+# code_complete.vim 
+# скачиваем в папку ~/,vim/plugin и с помошью таба дополняем C/C++
+# https://www.vim.org/scripts/script.php?script_id=1764
