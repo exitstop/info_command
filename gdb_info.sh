@@ -16,6 +16,8 @@ dashboard -style prompt '(gdb)'
 mkdir -p ~/.gdbinit.d
 dashboard -configuration ~/.gdbinit.d/auto
 
+r # run или рестарт
+c # continue продолжить выполнение
 s # шаг внутрь функции
 n # шаг через функцию
 l # показать листинг
