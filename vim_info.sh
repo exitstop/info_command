@@ -70,4 +70,5 @@ nmap <Right> gt
 # скачиваем в папку ~/,vim/plugin и с помошью таба дополняем C/C++
 # https://www.vim.org/scripts/script.php?script_id=1764
 
-ctrl+e # переместить страницу на 1 в низ
+ctrl+e # переместить страницу на 1 вниз
+ctrl+y # переместить страницу на 1 вверх 
