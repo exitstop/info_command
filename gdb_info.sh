@@ -30,6 +30,7 @@ p/x *(uint8_t *)input@13 # вывести 13 байт из переменной 
 p/x (uint8_t[5])input # вывести 5 байт
 
 set environment LimitMEMLOCK = 256M # установить переменную окружения через gdb
+set ctx0->hash[0] = 0 # установить значение переменной
 show environment LimitMEMLOCK # посмотреть переменную окружения через gdb
 unset environment LimitMEMLOCK # без комментарием
 path directory # добавить directory в path
