@@ -30,6 +30,10 @@ b ./source/main.cpp:58 # поставить break point на строке 58 в 
 p/x *(uint8_t *)input@13 # вывести 13 байт из переменной input
 p/x (uint8_t[5])input # вывести 5 байт
 
+x/224b var # вывести 224 байта
+x/224h var # вывести 224 half 
+x/224w var # вывести 224 word 
+
 set environment LimitMEMLOCK = 256M # установить переменную окружения через gdb
 set ctx0->hash[0] = 0 # установить значение переменной
 show environment LimitMEMLOCK # посмотреть переменную окружения через gdb
