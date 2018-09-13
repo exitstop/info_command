@@ -10,3 +10,10 @@ set cuda software_preemption on
 set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS}; --device-debug; -keep)
 
 # иструкция для cuda-gdb http://developer.download.nvidia.com/GTC/PDF/1062_Satoor.pdf
+# http://www.cs.cmu.edu/afs/cs/academic/class/15668-s11/www/cuda-doc/cuda-gdb.pdf
+info cuda +<tab> # выдает подсказку
+info cuda devices
+info cuda kernels
+info cuda threads kernel 2
+set cuda memcheck on
+where
