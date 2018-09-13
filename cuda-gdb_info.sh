@@ -9,3 +9,4 @@ set cuda software_preemption on
 # опции для nvcc https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html#options-for-altering-compiler-linker-behavior
 set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS}; --device-debug; -keep)
 
+# иструкция для cuda-gdb http://developer.download.nvidia.com/GTC/PDF/1062_Satoor.pdf
