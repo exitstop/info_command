@@ -8,6 +8,8 @@ dashboard -output /dev/pts/2
 dashboard source -style context 17
 #оставляем включенным только некоторые окна
 dashboard -layout source stack threads
+# то что с восклицательныйм знаком будет отключено
+dashboard -layout source stack !assembly !expressions !history !memory !registers !threads
 #посмотреть динамические библиотеки приложения
 i shared
 # изменить приглашение promt
