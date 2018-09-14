@@ -31,6 +31,7 @@ b ./source/main.cpp:58 # поставить break point на строке 58 в 
 
 p/x *(uint8_t *)input@13 # вывести 13 байт из переменной input
 p/x (uint8_t[5])input # вывести 5 байт
+p/t input # bin 01010010110101010
 
 x/224b var # вывести 224 байта
 x/224h var # вывести 224 half 
