@@ -17,3 +17,4 @@ info cuda kernels
 info cuda threads kernel 2
 set cuda memcheck on
 where
+CUDA_VISIBLE_DEVICES=0,1
