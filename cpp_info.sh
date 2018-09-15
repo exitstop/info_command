@@ -7,3 +7,9 @@ g++ -std=c++11 cpuload.cpp -o cpuload
 valgrind --tool=callgrind ./cpuload
 # open profile.callgrind with kcachegrind
 kcachegrind profile.callgrind
+
+# разбор argc  
+man 3
+#inlucde <getopt.h>
+int getopt_long
+int getopt_long_only
