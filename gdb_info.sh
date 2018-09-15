@@ -10,25 +10,39 @@ dashboard source -style context 17
 dashboard -layout source stack threads
 # то что с восклицательныйм знаком будет отключено
 dashboard -layout source stack !assembly !expressions !history !memory !registers !threads
-#посмотреть динамические библиотеки приложения
-i shared
-# изменить приглашение promt
-dashboard -style prompt '(gdb)'
+dashboard -style prompt '(gdb)' # изменить приглашение promt
+
+i shared # посмотреть динамические библиотеки приложения
+
 #чтобы изменения были постоянными
 mkdir -p ~/.gdbinit.d
 dashboard -configuration ~/.gdbinit.d/auto
 
-r # run или рестарт
-c # continue продолжить выполнение
-s # шаг внутрь функции
-n # шаг через функцию
-l # показать листинг
+r/run # run или рестарт
+c/continue # continue продолжить выполнение
+s/step # шаг внутрь функции
+stepi # ходить по асемблерным иструкциям
+nexti # ходить по асемблерным иструкциям
+n/next # шаг через функцию
+l/list # показать листинг
 finish # выйти из функции
+kill # убить
+q # выйти из gdb
 l +50 # показать +50 строчек от текущей
 i b # показать break point list
 del 1 # удалить break point number 1
-b ./source/main.cpp:58 # поставить break point на строке 58 в файле, файл может не находится если выполнилась до этого файла
+where # показать стек и где мы сейчас находимся
+b ./source/main.cpp:58 # поставить break point на строке 58 в файле ./source/main.cpp
+b ./source/main.cpp:60 if a == 5 # условная точка останова
+bt/backtrace
+f/frame
+backtrace full
+up/down number # перемещение по стеку
+i/info
+info frame
 
+#p/print
+#p/(x,o,d,f,c,t)
 p/x *(uint8_t *)input@13 # вывести 13 байт из переменной input
 p/x (uint8_t[5])input # вывести 5 байт
 p/t input # bin 01010010110101010
@@ -43,3 +57,4 @@ show environment LimitMEMLOCK # посмотреть переменную окр
 unset environment LimitMEMLOCK # без комментарием
 path directory # добавить directory в path
 show paths
+ulimit -c unlimited # gdb core dump

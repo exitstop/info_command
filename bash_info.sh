@@ -55,3 +55,6 @@ sudo mount /dev/sdb3/ /mnt/my_dir
 
 # tab to space recursive
 find . -type f -exec sed -i.orig 's/\t/    /g' {} +
+
+# gdb core dump
+ulimit -c unlimited
