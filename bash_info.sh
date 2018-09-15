@@ -58,3 +58,7 @@ find . -type f -exec sed -i.orig 's/\t/    /g' {} +
 
 # gdb core dump
 ulimit -c unlimited
+
+# ld чтобы библиотека нашлась в текущем каталоге
+export LD_LIBRARY_PATH=.
+export LD_PRELOAD=. # или это
