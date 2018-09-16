@@ -45,6 +45,7 @@ backtrace full
 up/down number # перемещение по стеку
 i/info
 info frame
+display var0 # будет показывать перменную var0 всегда
 
 set environment LD_BIND_NOW=1 # если будет ошибка dl-trampoline.h при записи
 record full # чтобы записать пошаговое выполнение а потом перематывать
