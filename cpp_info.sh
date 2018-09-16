@@ -13,3 +13,13 @@ man 3
 #inlucde <getopt.h>
 int getopt_long
 int getopt_long_only
+
+# ставим выравнивае 1 байт, вы потом восстанавлием настроку обязательно
+#pragma pack(push,1)
+stuct MyBitStruct
+{
+    uint16_t a:4;
+    uint16_t b:4;
+    uint16_t c;
+};
+#pragma pack(pop)

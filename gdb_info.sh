@@ -18,7 +18,7 @@ i shared # посмотреть динамические библиотеки п
 mkdir -p ~/.gdbinit.d
 dashboard -configuration ~/.gdbinit.d/auto
 
-r/run # run или рестарт
+r/run [args] # run или рестарт
 c/continue # continue продолжить выполнение
 s/step # шаг внутрь функции
 si/stepi # ходить по асемблерным иструкциям
@@ -32,6 +32,7 @@ q # выйти из gdb
 l +50 # показать +50 строчек от текущей
 i b # показать break point list
 i proc m # memory maping
+i locals # вывести локальные перменные
 del 1 # удалить break point number 1
 disable 2 # отключить break point 2 но не удалять
 where # показать стек и где мы сейчас находимся
