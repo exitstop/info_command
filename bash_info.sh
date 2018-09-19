@@ -55,6 +55,8 @@ sudo mount /dev/sdb3/ /mnt/my_dir
 
 # tab to space recursive
 find . -type f -exec sed -i.orig 's/\t/    /g' {} +
+# tab to space one file
+sed -i.orig 's/\t/    /g' file.cpp 
 
 # gdb core dump
 ulimit -c unlimited
