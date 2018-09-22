@@ -48,6 +48,7 @@ info frame
 display var0 # будет показывать перменную var0 всегда
 
 set  print array on # выводить массив построчно
+set  print array-indexes off # чтобы не печатались индексы в массиве
 set environment LD_BIND_NOW=1 # если будет ошибка dl-trampoline.h при записи
 record full # чтобы записать пошаговое выполнение а потом перематывать
 record stop # остановить запись
