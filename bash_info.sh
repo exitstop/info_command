@@ -57,6 +57,8 @@ sudo mount /dev/sdb3/ /mnt/my_dir
 find . -type f -exec sed -i.orig 's/\t/    /g' {} +
 # tab to space one file
 sed -i.orig 's/\t/    /g' file.cpp 
+# рекурсивно удалить файлы с расширением txt
+find -name "*.txt" -exec rm -rf {} +
 
 # gdb core dump
 ulimit -c unlimited
