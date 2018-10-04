@@ -45,7 +45,7 @@ git rebase --continue
 git filter-branch --tree-filter 'rm -f passwords.txt' HEAD # удалить файл passwords.txt из всех коммитов
 
 git reset --soft HEAD~ # удалит предыдущий комит и добавить его в индекс, после чего его можно отредактировать и закомитить снова
-git reset --hard HEAD  # жосткис брос всех изменений, после этого можно потерять свои наработки навсегда 
+git reset --hard HEAD  # жесткий брос всех изменений, после этого можно потерять свои наработки навсегда 
 
 git merge --abort # отменить попытку слияния
 git merge-file -p hello.ours.rb hello.common.rb hello.theirs.rb > hello.rb
@@ -60,6 +60,7 @@ git config --global alias.tree "log --oneline --decorate --all --graph"
 git cherry-pick 7958482 # 7958482 <- хеш коммита который нужно преместить в свою ветку
 
 git checkout develop -- file.cpp # получить версию файла из develop
+git checkout -p file.cpp # построчная отмена
 
 git show develop:some-file.js # извлекает файл из другой ветки
 

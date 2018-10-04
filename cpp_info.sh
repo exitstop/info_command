@@ -23,3 +23,5 @@ stuct MyBitStruct
     uint16_t c;
 };
 #pragma pack(pop)
+
+gcc -E main.cpp -o main_def.cpp # выполнить препроцессор
