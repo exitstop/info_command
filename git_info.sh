@@ -35,6 +35,7 @@ git log --pretty="%h - %s" --author=exitstop # посмотреть которк
 #если хотим найти потерянный файл в истории
 git log --all --full-history -- **/thefile.* # если не знаем путь к искомому файлу
 git log --all --full-history -- <path-to-file> # если знаем полный путь к искомому файлу
+git log --name-status develop # помотреть какие файлы были изменены в коммите
 
 git commit --amend -m "my new message" # изменить сообщение последнего коммита если вы еще на сделали push
 git commit --amend
