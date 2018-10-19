@@ -72,3 +72,9 @@ arandr
 
 # создать ярлык для приложения
 /usr/share/applications # здесь лежат другие ярлыки, нужно скопировать и переделать для своего приложения
+
+# получить полный путь к файлу
+readlink -f k1-tmp
+
+# офлай диффер offline differ
+sudo apt install meld
