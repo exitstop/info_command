@@ -80,7 +80,8 @@ readlink -f k1-tmp
 sudo apt install meld
 
 # ssh ipv6 подключаемся к удаленному ssh по ipv6 с опцией -X x-сервера чтобы не было проблем с буфером обмена
-sshpass -p "password" ssh -X -6 user@1001:0:11a1:61c:3171:8611:410c:f112
+# StrictHostKeyChecking=no - чтобы ssh не проверяло ключ если мы еще не подключались к данному хосту
+sshpass -p "password" ssh -X -6 -o "StrictHostKeyChecking=no" user@2001:0:11a1:61c:3171:8611:410c:f112
 
 # вывести только строки от 1 до 18
 sed -n 1,18p file.cpp
