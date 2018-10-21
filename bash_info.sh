@@ -84,3 +84,6 @@ sshpass -p "password" ssh -X -6 user@1001:0:11a1:61c:3171:8611:410c:f112
 
 # вывести только строки от 1 до 18
 sed -n 1,18p file.cpp
+
+# кракозябры 
+iconv -f WINDOWS-1251 -t UTF-8 -o converted.txt original.txt
