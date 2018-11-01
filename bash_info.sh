@@ -94,3 +94,5 @@ iconv -f WINDOWS-1251 -t UTF-8 -o converted.txt original.txt
 youtube-dl -F "https://www.youtube.com/watch?v=2Mi3MRKtg2M"
 # 2. Скачиваем видео и звук 
 youtube-dl -f 160+250 "https://www.youtube.com/watch?v=2Mi3MRKtg2M"
+youtube-dl -F "https://www.youtube.com/watch?v=2Mi3MRKtg2M"
+
