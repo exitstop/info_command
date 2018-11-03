@@ -96,3 +96,6 @@ youtube-dl -F "https://www.youtube.com/watch?v=2Mi3MRKtg2M"
 youtube-dl -f 160+250 "https://www.youtube.com/watch?v=2Mi3MRKtg2M"
 youtube-dl -F "https://www.youtube.com/watch?v=2Mi3MRKtg2M"
 
+sudo ldconfig
+# обновить db locate
+sudo updatedb
