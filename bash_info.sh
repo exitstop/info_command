@@ -99,3 +99,8 @@ youtube-dl -F "https://www.youtube.com/watch?v=2Mi3MRKtg2M"
 sudo ldconfig
 # обновить db locate
 sudo updatedb
+
+# kill x11 x-server; убить иксы
+sudo service lightdm stop
+# включить иксы
+sudo service lightdm start
