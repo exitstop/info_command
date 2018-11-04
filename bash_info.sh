@@ -109,3 +109,6 @@ sudo service lightdm start
 ctrl+alt+F1
 # which is your current xorg session
 ctrl+alt+F7
+
+# переустановка пакета через pip
+sudo pip install --ignore-installed dlib

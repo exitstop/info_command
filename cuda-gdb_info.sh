@@ -28,3 +28,5 @@ CUDA_VISIBLE_DEVICES=0,1
 nvidia-smi -i 0 -q | grep -i "Persistence Mode"
 sudo nvidia-smi -i 0 -pm ENABLED
 sudo nvidia-smi -i 0 -pm DISABLED
+
+nvidia-persistenced --user user
