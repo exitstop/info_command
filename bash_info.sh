@@ -104,3 +104,8 @@ sudo updatedb
 sudo service lightdm stop
 # включить иксы
 sudo service lightdm start
+
+# to switch to terminal
+ctrl+alt+F1
+# which is your current xorg session
+ctrl+alt+F7
