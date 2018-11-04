@@ -20,3 +20,11 @@ info cuda threads kernel 2
 set cuda memcheck on
 where
 CUDA_VISIBLE_DEVICES=0,1
+
+# табличка соответствия драйверов и версии CUDA
+# https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html
+
+# https://docs.nvidia.com/deploy/driver-persistence/
+nvidia-smi -i 0 -q | grep -i "Persistence Mode"
+sudo nvidia-smi -i 0 -pm ENABLED
+sudo nvidia-smi -i 0 -pm DISABLED
