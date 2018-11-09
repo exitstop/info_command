@@ -112,3 +112,7 @@ ctrl+alt+F7
 
 # переустановка пакета через pip
 sudo pip install --ignore-installed dlib
+
+# profile c++ cpu
+valgrind --tool=callgrind ./myprog
+kcachegrind
