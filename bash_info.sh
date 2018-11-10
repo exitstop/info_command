@@ -116,3 +116,6 @@ sudo pip install --ignore-installed dlib
 # profile c++ cpu
 valgrind --tool=callgrind ./myprog
 kcachegrind
+
+# diff hex
+dhex one.bin two.bin
