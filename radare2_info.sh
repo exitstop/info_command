@@ -108,3 +108,8 @@ du # undef this
 shfit+o # можно менять jz на c-style if(!var) goto 0x1232;
 o # можно прыгнуть на адресс goto
 u/U # undo redo
+
+# hash
+rahash2 -amd5 hash1
+rahash2 -asha256 hash1
+rahash2 -L # hash list
