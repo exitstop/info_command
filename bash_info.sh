@@ -119,3 +119,6 @@ kcachegrind
 
 # diff hex
 dhex one.bin two.bin
+
+# diff каталогово рекурсивно
+diff -r folder1 folder2
