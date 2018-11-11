@@ -113,3 +113,20 @@ u/U # undo redo
 rahash2 -amd5 hash1
 rahash2 -asha256 hash1
 rahash2 -L # hash list
+
+# convert type
+int   ->  hex    rax2 10
+hex   ->  int    rax2 0xa
+-int  ->  hex    rax2 -77
+-hex  ->  int    rax2 0xffffffb3
+int   ->  bin    rax2 b30
+bin   ->  int    rax2 1010d
+float ->  hex    rax2 3.33f
+hex   ->  float  rax2 Fx40551ed8
+oct   ->  hex    rax2 35o
+hex   ->  oct    rax2 Ox12 (O is a letter)
+bin   ->  hex    rax2 1100011b
+hex   ->  bin    rax2 Bx63
+
+# распаковать строку
+rax2 -s 41 42 43
