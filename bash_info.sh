@@ -124,3 +124,8 @@ dhex one.bin two.bin
 diff -r folder1 folder2
 # игнорируя изменения, связанные с добавлением пустых строк, пробелов, табуляции, а также используем шаблоны имен файлов в excludeFiles, чтобы исключить из сравнения ненужные файлы
 diff -rwBd -X excludeFiles mydir1 mydir2
+
+# поиск измененных файлов за последние 2 дня
+find / -type f -mtime -2 -depth -3 | sort -r
+find / -type f -mmin -60 | sort -r
+find / -type f -printf '%TY-%Tm-%Td %TT %p\n' -mmin -60 | sort -r
