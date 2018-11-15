@@ -19,3 +19,5 @@ CTRL+B :joinp -t :1<CR> move the current pane into a new pane in window 1
 CTRL+B t # big clock
 CTRL+B ? # list shortcuts
 CTRL+B : # prompt
+
+ctrl+a s # вызывается какое окно
