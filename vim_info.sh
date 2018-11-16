@@ -128,3 +128,6 @@ Ctrl-R 2 # вставить второе копирование
 # узнать путь и имя файла
 ctrl+g
 
+# CCTree plugin info
+CCTreeLoadDB cscope.out # загружаем базу данных cscope.out
+CCTreeTraceForward main # трассируем функуию мейн
