@@ -134,3 +134,9 @@ rax2 -s 41 42 43
 # декомпилирование
 $dec # способ 1
 pdda # показывает в два столбца в первом asm во втором C++
+
+# продолжить процесс пока не случилась вилка fork
+dcf
+
+# гоярчик кавиши и команды
+https://radare.gitbooks.io/radare2book/debugger/migration.html
