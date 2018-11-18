@@ -1,3 +1,6 @@
+# https://r2wiki.readthedocs.io
+# https://radare.gitbooks.io
+
 r2 -d ./main # запускаем программу в radare2
 aaa # проводим анализ программы
 / hello world # чтобы найти строку в программе
@@ -38,7 +41,8 @@ afv # показать переменные в текущей функции 'va
 drr # Display in colors and words all the refs from registers or memory
 dbt # Display backtrace based on dbg.btdepth and dbg.btalgo
 dm= # List memory maps of target process (ascii-art bars)
-afvn local_8h unknowvariable_0 # rename variable
+afvn local_8h unknowvariable_0 # переименовать переменную
+afn funtionName # переименовать функцию
 
 # shortcut
 F2 or b toggle breakpoint
@@ -98,6 +102,9 @@ Po <file> #  открыть проект;
 q #  выйти из Radare2;
 
 /x ff..300 # бинарный поиск
+f- hit* # удалить все что найдено
+f- * # удалить все что найдено
+f # показать найденое hit
 
 # анализ hit
 af @@ hit* # если hit дал сбой можно переанализировать
@@ -135,8 +142,43 @@ rax2 -s 41 42 43
 $dec # способ 1
 pdda # показывает в два столбца в первом asm во втором C++
 
-# продолжить процесс пока не случилась вилка fork
-dcf
+dcf # продолжить процесс пока не случилась вилка fork
+dcs ptrace # продолжить до системного выхова ptrace
 
 # гоярчик кавиши и команды
 https://radare.gitbooks.io/radare2book/debugger/migration.html
+
+# print info section
+iS=
+# 01  0x00000238 |-#--------------------------------------------------| 0x00000254    28 r--  .interp
+# 02  0x00000254 |-##-------------------------------------------------| 0x00000274    32 r--  .note.ABI_tag
+
+# показать библиотеки текущего процесса
+il # только имена
+dmm # адреса и имена
+dm= # в графическом виде имена и адреса lib
+
+dmS libmylib.so # показать секции либы из этого процесса
+dmi libmylib.so # показать сиволы выбранной либы
+
+p=e # энтропия не в режиме дебага
+
+/R [expr] # search for ROP gadgets #
+/r sym.imp.printf # find references to this address #
+/m # search for magic headers #
+Yara # identify crypto algorithms #
+/a [asm] # assemble code and search bytes #
+/A [type] # find instructions of this type #
+/c [code] # find strstr matching instructions #
+/v4 1234 # search for this number in memory #
+pxa # disasm all possible instructions #
+e asm.emustr=true pD $SS @ $S~Hello #
+e asm.emu=true
+
+e??dbg # 
+
+Ps projectName # сохранить проект
+
+shift+( # вызвать снег
+
+m[k] # устанавлиаем метку жмем m + любая клавина затем 'k чтобы перейти к этой метке. Символ ' <- одинарная кавычка
