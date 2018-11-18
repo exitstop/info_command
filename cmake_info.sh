@@ -4,3 +4,7 @@ set_target_properties(project PROPERTIES COMPILE_FLAGS "-O3 -march=native")
 
 # чтобы сделать verbose output при компиляции. 
 set_target_properties(project PROPERTIES COMPILE_FLAGS "-save-temps")
+
+# чтобы cuda можно было отлаживать и хранить промежуточный результат компиляуии
+set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS}; --device-debug; -keep)
+
