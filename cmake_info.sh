@@ -8,3 +8,8 @@ set_target_properties(project PROPERTIES COMPILE_FLAGS "-save-temps")
 # чтобы cuda можно было отлаживать и хранить промежуточный результат компиляуии
 set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS}; --device-debug; -keep)
 
+cmake .. -DCMAKE_VERBOSE_MAKEFILE=ON
+
+cmake .. -DCMAKE_BUILD_TYPE=Release
+cmake .. -DCMAKE_BUILD_TYPE=Debug
+cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo
