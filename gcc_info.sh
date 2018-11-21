@@ -8,4 +8,4 @@ export LD_PRELOAD=. # или это
 # соглашение об именах
 extern "C" void hello(const int a);
 
-gcc -march=native -Q --help=target
+gcc -march=native -mtune=native -Q --help=target
