@@ -129,3 +129,6 @@ diff -rwBd -X excludeFiles mydir1 mydir2
 find / -type f -mtime -2 -depth -3 | sort -r
 find / -type f -mmin -60 | sort -r
 find / -type f -printf '%TY-%Tm-%Td %TT %p\n' -mmin -60 | sort -r
+
+# узнать путь до самого себя под линуксом
+ll /proc/self/exe

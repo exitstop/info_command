@@ -47,3 +47,6 @@ cscope -b -i "$CSCOPE_DIR/cscope.files"
 export CSCOPE_DB="$PWD/cscope.out"
 echo "Exported CSCOPE_DB to: '$CSCOPE_DB'"
 }
+
+# узнать путь до самого себя под линуксом
+ll /proc/self/exe
