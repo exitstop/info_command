@@ -187,3 +187,12 @@ dts+ # запись трассировки
 dsb # сделаь шаг назад
 
 drx 0 0x080480b5 1 x # hardware brakpoint на исполнение
+
+# ассемблерный diff
+radiff2 -D main main_old
+
+# дизассемблировать в перменную
+$dis='af;pdf'
+
+# показать какие функция различаются
+radiff2 -AC main main_old

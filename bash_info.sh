@@ -132,3 +132,9 @@ find / -type f -printf '%TY-%Tm-%Td %TT %p\n' -mmin -60 | sort -r
 
 # узнать путь до самого себя под линуксом
 ll /proc/self/exe
+
+# просмотр системного лога
+tail -f /var/log/syslog
+
+# версия usbasp
+avrdude -c usbasp -p attiny84 -vvvv
