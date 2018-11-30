@@ -138,3 +138,5 @@ tail -f /var/log/syslog
 
 # версия usbasp
 avrdude -c usbasp -p attiny84 -vvvv
+
+strace --tt -ff -D -o /tmp/log.txt programm
