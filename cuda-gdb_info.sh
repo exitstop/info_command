@@ -21,6 +21,8 @@ set cuda memcheck on
 where
 CUDA_VISIBLE_DEVICES=0,1
 
+kernel <\<<40, 32>>> # gridDim.x = 40 blockDim.x = 32  ( blockIdx.x = "текущий блок" threadIdx.x =  "текущий тред" )
+
 # табличка соответствия драйверов и версии CUDA
 # https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html
 
