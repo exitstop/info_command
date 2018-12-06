@@ -140,3 +140,6 @@ tail -f /var/log/syslog
 avrdude -c usbasp -p attiny84 -vvvv
 
 strace --tt -ff -D -o /tmp/log.txt programm
+
+# Armoney for linux scanmem
+sudo apt install scanmem
