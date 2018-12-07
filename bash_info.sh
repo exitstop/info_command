@@ -143,3 +143,6 @@ strace --tt -ff -D -o /tmp/log.txt programm
 
 # Armoney for linux scanmem
 sudo apt install scanmem
+
+# HIEW под linux и windows тоже
+sudo apt install biew
