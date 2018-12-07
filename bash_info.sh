@@ -146,3 +146,6 @@ sudo apt install scanmem
 
 # HIEW под linux и windows тоже
 sudo apt install biew
+
+# просто подсветить с помощью grep
+ldd * | grep --color=auto -B100000 -A100000 "utils"
