@@ -196,3 +196,22 @@ $dis='af;pdf'
 
 # показать какие функция различаются
 radiff2 -AC main main_old
+
+# call stack
+pxr @ rsp
+
+pxa @ rsp # to show annotated hexdump
+pxw @ rsp # to show hexadecimal words dump (32bit)
+pxq @ rsp # to show hexadecimal quad-words dump (64bit)
+ad@r:SP   # to analyze the stack data
+
+# поиск хексов в бинарных файлах
+# -c = count
+grep -Pcr "\x0f\x84\x5d\x01\x00\x00" 
+
+# трассировка trace
+#https://r2wiki.readthedocs.io/en/latest/options/e/values-that-e-can-modify/dbg/
+e asm.trace=true
+e dbg.trace=true
+e asm.tracespace=true
+

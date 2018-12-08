@@ -149,3 +149,18 @@ sudo apt install biew
 
 # просто подсветить с помощью grep
 ldd * | grep --color=auto -B100000 -A100000 "utils"
+
+# поиск хексов в бинарных файлах
+grep -Pcr "\x0f\x84\x5d\x01\x00\x00" 
+
+# авто отключени мышки фикс
+echo 2 | sudo tee /sys/bus/usb/devices/*/power/autosuspend >/dev/null
+echo on | sudo tee /sys/bus/usb/devices/*/power/level >/dev/null
+
+# hex редактор хексредактор
+bless
+
+# трассировка lib ; See LD_DEBUG=help for more options or man ld.so
+# http://www.bnikolic.co.uk/blog/linux-ld-debug.html
+LD_DEBUG=libs ./main
+LD_DEBUG=all ./main
