@@ -9,6 +9,7 @@ s sys.main # прыгаем в функцию main
 ax~str.hello_world # чтобы найти где вызываетя искомая строка
 axt @ 0x55e281369784 # xref например на андресс строки
 /c 41218c # Lets search for xrefs to the virtual address
+/c jmp # поиск ROP search assebmle
 e search.in=raw # установить поиск по всему пространсту
 pd 10 # вывести десять строк # вывести асемблерый листинг
 iS # Показать секции 
@@ -172,6 +173,7 @@ Yara # identify crypto algorithms #
 /c [code] # find strstr matching instructions #
 /v4 1234 # search for this number in memory #
 pxa # disasm all possible instructions #
+# https://monosource.gitbooks.io/radare2-explorations/content/tut3/tut3_-_esil.html
 e asm.emustr=true pD $SS @ $S~Hello #
 e asm.emu=true
 
@@ -214,4 +216,13 @@ grep -Pcr "\x0f\x84\x5d\x01\x00\x00"
 e asm.trace=true
 e dbg.trace=true
 e asm.tracespace=true
+# трассировка call , ret
+# https://r2wiki.readthedocs.io/en/latest/options/d/dt/dtc/
 
+# get physical addres; virtual, физический адрес, виртуальный адресс
+# https://monosource.gitbooks.io/radare2-explorations/content/intro/basics.html
+?p addr
+
+# print opcode
+pi~mov eax
+pd~mov eax

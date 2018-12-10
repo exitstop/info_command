@@ -50,3 +50,6 @@ echo "Exported CSCOPE_DB to: '$CSCOPE_DB'"
 
 # узнать путь до самого себя под линуксом
 ll /proc/self/exe
+
+# генерация графа вызова gen call graph
+https://github.com/onlyuser/gen-callgraph

@@ -139,9 +139,9 @@ tail -f /var/log/syslog
 # версия usbasp
 avrdude -c usbasp -p attiny84 -vvvv
 
-strace --tt -ff -D -o /tmp/log.txt programm
+strace -tt -ff -D -o /tmp/log.txt programm
 
-# Armoney for linux scanmem
+# Artmoney for linux scanmem
 sudo apt install scanmem
 
 # HIEW под linux и windows тоже
