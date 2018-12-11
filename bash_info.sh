@@ -164,3 +164,7 @@ bless
 # http://www.bnikolic.co.uk/blog/linux-ld-debug.html
 LD_DEBUG=libs ./main
 LD_DEBUG=all ./main
+
+# следим за процессам, смотрим какие программы запускаись
+https://github.com/brendangregg/perf-tools
+https://github.com/brendangregg/perf-tools
