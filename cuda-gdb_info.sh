@@ -32,3 +32,6 @@ sudo nvidia-smi -i 0 -pm ENABLED
 sudo nvidia-smi -i 0 -pm DISABLED
 
 nvidia-persistenced --user user
+
+# автоматически поставить точку останова на вызов cuda ядра
+set cuda break_on_launch

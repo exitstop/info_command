@@ -168,3 +168,6 @@ LD_DEBUG=all ./main
 # следим за процессам, смотрим какие программы запускаись
 https://github.com/brendangregg/perf-tools
 https://github.com/brendangregg/perf-tools
+
+# включить адресс барк address bar строку path в selcet file
+Ctrl + L

@@ -226,3 +226,6 @@ e asm.tracespace=true
 # print opcode
 pi~mov eax
 pd~mov eax
+
+# найти все call
+/c call 0x~call~[4]| sort | uniq -u
