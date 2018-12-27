@@ -7,3 +7,6 @@
 # Если make[2]: cc: Command not found
 export CC=gcc && make
 
+# build compile xpenology
+https://xpenology.com/wiki/en/building_xpenology
+https://github.com/evolver56k/xpenology

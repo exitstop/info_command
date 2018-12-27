@@ -23,6 +23,7 @@ axt @ sym.bufio.__Reader_.ReadString # xref function
 pxw @ local_4h # print variable
 pc @ rsp+0x8 # print local_8h
 
+# си style с++ С++ СИ 
 https://radare.gitbooks.io/radare2book/content/basic_commands/print_modes.html
 pc # C
 pc* # print 'wx' r2 commands
@@ -145,6 +146,7 @@ pdda # показывает в два столбца в первом asm во в
 
 dcf # продолжить процесс пока не случилась вилка fork
 dcs ptrace # продолжить до системного выхова ptrace
+dcr — # Продолжить до возврата ret
 
 # гоярчик кавиши и команды
 https://radare.gitbooks.io/radare2book/debugger/migration.html
@@ -229,3 +231,24 @@ pd~mov eax
 
 # найти все call
 /c call 0x~call~[4]| sort | uniq -u
+
+# пересканировать аргументы и переменные
+afCa @ main
+
+# change section изменить секцию
+rabin2 -O help
+rabin2 -iO r/.got.plt/100 main
+
+# если рада не собирается
+make V=1
+
+# exploit https://www.megabeets.net/a-journey-into-radare-2-part-2/
+# the address of puts@plt:
+?v sym.imp.puts
+
+# the address of puts@got:
+?v reloc.puts_20
+
+ri # relocation sumbol
+
+iO r/.text/1200 # resize section

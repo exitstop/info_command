@@ -76,12 +76,17 @@ arandr
 # получить полный путь к файлу
 readlink -f k1-tmp
 
+# compare, сравнение
 # офлай диффер offline differ
 sudo apt install meld
 
 # ssh ipv6 подключаемся к удаленному ssh по ipv6 с опцией -X x-сервера чтобы не было проблем с буфером обмена
 # StrictHostKeyChecking=no - чтобы ssh не проверяло ключ если мы еще не подключались к данному хосту
 sshpass -p "password" ssh -X -6 -o "StrictHostKeyChecking=no" user@2001:0:11a1:61c:3171:8611:410c:f112
+
+# Передача файлов
+sshpass -p "password" scp -6 user@\[2001:0:00aa:04c:0f3:e000:0300:f312\]:/home/user/project/test/libethash/main.go .
+
 
 # вывести только строки от 1 до 18
 sed -n 1,18p file.cpp
@@ -171,3 +176,6 @@ https://github.com/brendangregg/perf-tools
 
 # включить адресс барк address bar строку path в selcet file
 Ctrl + L
+
+# редактор binary бираный elf
+hte prog

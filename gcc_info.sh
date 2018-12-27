@@ -9,3 +9,19 @@ export LD_PRELOAD=. # или это
 extern "C" void hello(const int a);
 
 gcc -march=native -mtune=native -Q --help=target
+
+
+sudo apt-get install gcc-4.5 gcc-4.5-multilib g++-4.5 g++-4.5-multilib
+
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.4 50
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.4 50
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.5 40
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.5 40
+
+# посмотреть какие gcc есть в системе
+sudo update-alternatives --config gcc
+sudo update-alternatives --config g++
+
+sudo update-alternatives --remove gcc /usr/bin/gcc-4.5
+
+

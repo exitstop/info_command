@@ -53,3 +53,13 @@ ll /proc/self/exe
 
 # генерация графа вызова gen call graph
 https://github.com/onlyuser/gen-callgraph
+
+#http://tldp.org/HOWTO/Program-Library-HOWTO/miscellaneous.html
+# сработает при игициализации библиотеки
+void __attribute__ ((constructor)) my_init(void);
+# сработает при отключении библиотеки
+void __attribute__ ((destructor)) my_fini(void);
+
+# на старыъ системаъ
+void _init(void);
+void _fini(void);
