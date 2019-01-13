@@ -24,3 +24,5 @@ http://blender.filenko.ru/modeling/hot-key-edit-mode.html
 
 p # отделить выделенные вершины от объекта
 alt+m # объеденить две точки
+
+s y 0 # выровнять точки по линии
