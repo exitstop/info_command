@@ -179,3 +179,9 @@ Ctrl + L
 
 # редактор binary бираный elf
 hte prog
+
+для VR nvc
+# запускаем и подключаемся к своему рабочему столу 192.168.0.102:5900
+x11vnc -display :0
+# чтобы не выключался
+x11vnc -usepw -display :0 -q -forever
