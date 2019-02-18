@@ -185,3 +185,21 @@ hte prog
 x11vnc -display :0
 # чтобы не выключался
 x11vnc -usepw -display :0 -q -forever
+
+# qemu
+qemu-system-x86_64 -m 1024 -cdrom lubuntu-16.04.5-desktop-amd64.iso
+# Загрузиться с флешки в эмуляторе
+# Способ 1:
+qemu-system-x86_64 -m 512 -hda /dev/sdx
+# Способ 2:
+lsusb
+#Вывод (пример):
+#Bus 002 Device 007: ID 8564:1000 Transcend Information, Inc. JetFlash
+sudo qemu-system-x86_64 -usb -usbdevice host:8564:1000
+
+# Создание виртульаного обрза жесткого диска
+qemu-img create lubuntu.img 20G
+# Запуск с этим вирутальным жестким диском
+qemu-system-x86_64 -hda lubuntu.img -boot d -cdrom lubuntu-16.04.5-desktop-amd64.iso -m 1024 -smp 2 -machine type=pc,accel=kvm
+# После того как все будет установлено систему можно запустить так
+qemu-system-x86_64 -hda lubuntu.img -m 1024 -smp 2 -machine type=pc,accel=kvm
