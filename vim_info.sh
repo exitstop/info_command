@@ -142,3 +142,17 @@ set expandtab       # Expand TABs to spaces
 autocmd BufRead, BufNewFile *.cl set filetype=cpp
 
 set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
+
+# plugin
+nerdtree
+nerdcommenter
+vim-surround
+vim-easymotion
+gundo.vim # Undo redo like a boss
+ultisnips
+vimwiki
+bufexplorer
+vim-glsl # подсветка для openCL
+complcache
+ctrlp.vim
+vim-easy-align

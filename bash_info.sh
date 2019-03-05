@@ -203,3 +203,48 @@ qemu-img create lubuntu.img 20G
 qemu-system-x86_64 -hda lubuntu.img -boot d -cdrom lubuntu-16.04.5-desktop-amd64.iso -m 1024 -smp 2 -machine type=pc,accel=kvm
 # После того как все будет установлено систему можно запустить так
 qemu-system-x86_64 -hda lubuntu.img -m 1024 -smp 2 -machine type=pc,accel=kvm
+
+# посмотерть информацию о файле, и времени модификации, и создания
+stat file.sh 
+
+# с какими атрибутами будет создаваться файл
+umask
+# смотреть атрибуты
+lsattr
+
+# Мониторим поступление новых данных в файл, мониторим дозапись, следим за файлом, непрерывно читаем
+tail -f file
+
+# информация о пароле пользователя
+sudo passwd -S user
+sudo chage -l user
+
+# не дать менять пароль 30 дней
+sudo passw  -n 30 user
+sudo chage -m 30 user
+
+# изменить срок действия пароля пользователя
+sudo passw  -x 40 user
+sudo chage -M 40 user
+
+# предупредить об истекании срока действия пароля
+sudo passw  -W 5 user
+sudo chage -w 5 user
+
+# в какой день заблокировать пользователя
+sudo chage -E 2019-03-18 user
+
+# удалить пользователя но оставить доманюю дерикторию
+sudo userdel user
+# удалить пользователя с домашней дерикторией
+sudo userdel -r user
+
+# как сменить пароль суперпользователя ubuntu без флешки
+# чтобы попасть в gpub жмем esc и держим
+# нажать e во время загрузки дописать в linux сделать rw init=/bin/sh и удалить все что было до ro
+# перемонтировать раздел на чтение запись 
+mount -o remount,rw /
+# поменяем пароль
+passwd user
+# заставим систему загрузить
+exec /sbin/init
