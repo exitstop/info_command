@@ -138,7 +138,7 @@ find / -type f -printf '%TY-%Tm-%Td %TT %p\n' -mmin -60 | sort -r
 # узнать путь до самого себя под линуксом
 ll /proc/self/exe
 
-# просмотр системного лога
+# просмотр системного лога; хвост
 tail -f /var/log/syslog
 
 # версия usbasp
@@ -248,3 +248,56 @@ mount -o remount,rw /
 passwd user
 # заставим систему загрузить
 exec /sbin/init
+
+# serial port
+sudo screen /dev/ttyUSB0 115200
+
+# генерация листа перебора паролей
+# от 3 символов до 9 с символами qwertyuiopasdfghjklzxcvbnm
+crunch 3 9 qwertyuiopasdfghjklzxcvbnm
+
+# перегрузить интренет
+/etc/init.d/networking restart
+
+# смотреть кто какие порты использует
+lsof
+# Перехват и модификация трафика аналог charles
+# Может подменить обновление приложения на свой код
+burpsuite
+
+# программа для создания обратных соедениений, можно сделать чат
+ncat
+
+# serial port
+dmesg | grep tty
+dmesg | egrep --color 'serial|ttyS'
+picocom -b 115200 /dev/ttyUSB0 --imap lfcrlf
+#setserial -g /dev/ttyUSB0
+#stty -F /dev/ttyUSB0 inlcr
+#stty -F /dev/ttyUSB0 onlcr
+#cu -l /dev/ttyUSB0 -s 115200
+#screen /dev/ttyUSB0 115200
+#screen /dev/ttyUSB0 115200,cs8
+#minicom
+#putty
+#tip -115200 ttyUSB0 
+
+# ип калькулятор
+ipcalc 192.168.0.102
+
+nmap -F 192.168.0.0/24
+sudo nmap -sS 192.168.0.102
+# определить версию
+sudo nmap -sV 192.168.0.100
+
+sshpass -p "password" sudo sshfs -o allow_other -o "StrictHostKeyChecking=no" root@192.168.0.100:/home/user/ /mnt/sshmount2
+
+# проверка монтирования удаленной файловой системы
+df -hT
+# размонтировать
+sudo umount /mnt/folder
+
+echo "password" | sudo sshfs -o password_stdin -o allow_other -o "StrictHostKeyChecking=no" root@192.168.0.150:/home/user/ /mnt/sshmount
+
+systemctl list-units --type=service
+systemctl list-units --type=target
