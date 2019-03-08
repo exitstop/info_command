@@ -301,3 +301,40 @@ echo "password" | sudo sshfs -o password_stdin -o allow_other -o "StrictHostKeyC
 
 systemctl list-units --type=service
 systemctl list-units --type=target
+
+
+# превратить пробелы в табы
+unexpand
+# превратить табы в пробелы
+expand
+
+# управление процессами
+sleep 60&
+# показать фоновые и активные процессы текущей консоли
+jobs
+# вернуть в активный режим
+fg 1
+# вернуть в фоновый режим
+bg 1
+
+# застопорить процесс
+ctrl+z
+
+# чтобы процесс остался после выхода из системы
+nohup sleep 60&
+
+# полное удалие файла, затирание
+shred -u -n 35 /path/to/file
+
+# должен удалять катологи
+wipe -rf /path/to/catalog
+
+# восстановление удаленных файлов
+debugfs
+
+# здесь монтируются диски
+cat /etc/fstab
+# монтируется командой
+echo "/dev/sdb1 /mnt/hard_drive auto rw,user,auto,noexec 0 2" >> /etc/fstab
+# или UUID
+echo "UUID=bbbf3ffd-bca1-1235-1231-141321acb221 /mnt/hard_drive auto rw,user,auto,noexec 0 2" >> /etc/fstab
