@@ -338,3 +338,25 @@ cat /etc/fstab
 echo "/dev/sdb1 /mnt/hard_drive auto rw,user,auto,noexec 0 2" >> /etc/fstab
 # или UUID
 echo "UUID=bbbf3ffd-bca1-1235-1231-141321acb221 /mnt/hard_drive auto rw,user,auto,noexec 0 2" >> /etc/fstab
+
+# узнать версию дистрибутива
+cat /etc/issue
+
+# создать папку в виртуальной памяти
+# супер быстрая память
+mkdir -p /mnt/ram
+mount -t tmpfs tmpfs /mnt/ram -o size=8192M
+
+# редактировать предыдущую команду в редакторе
+fc
+ctrl+x+e
+
+# создать кучу папок с подпапками с нумерацией
+mkdir -p folder/{sub1,sub2}/{sub1,sub2,sbu3}
+mkdir -p folder/{1..100}/{1..100}
+
+# взять аргумент предыдущией команды
+!$
+
+# слуашет tcp и upd
+nc -lp 1337
