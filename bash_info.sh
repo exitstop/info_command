@@ -182,9 +182,9 @@ hte prog
 
 для VR nvc
 # запускаем и подключаемся к своему рабочему столу 192.168.0.102:5900
-x11vnc -display :0
+x11vnc -display :0 -rfbport 5901
 # чтобы не выключался
-x11vnc -usepw -display :0 -q -forever
+x11vnc -usepw -display :0 -q -forever -rfbport 5901
 
 # qemu
 qemu-system-x86_64 -m 1024 -cdrom lubuntu-16.04.5-desktop-amd64.iso
@@ -360,3 +360,6 @@ mkdir -p folder/{1..100}/{1..100}
 
 # слуашет tcp и upd
 nc -lp 1337
+
+# вывести uuid
+sudo blkid
