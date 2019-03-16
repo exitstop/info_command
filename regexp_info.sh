@@ -1,3 +1,6 @@
+# debug regexp
+https://www.debuggex.com/
+
 # 850-555-1234
 ^[0-9]{3}-[0-9]{3}-[0-9]{3}$
 

@@ -361,5 +361,65 @@ mkdir -p folder/{1..100}/{1..100}
 # слуашет tcp и upd
 nc -lp 1337
 
+# ncat из пакета nmap, ждет соединения
+ncat -l 5555
+
 # вывести uuid
 sudo blkid
+
+# проверить скорость между узлами локальной сети
+# на сервере
+iperf -s -i 1
+
+# на клиенте
+iperf -c 192.168.0.102
+
+# ixondif
+ip addr
+ip maddr
+
+# Пробрасываем удаленный порт к локальному
+ssh -R 1234:localhost:5555 192.168.0.102
+
+# посмотреть открытые порты
+netstat -ntulp
+lsof -i
+
+sudo sysctl -w net.ipv4.ip_forward=1
+# редирект порта с удаленного 1234 на наш локальный
+sudo iptables -t nat -A PREROUTING -p udp --dport 1234 -j REDIRECT --to-port 5555
+# Удалить редирект
+sudo iptables -t nat -D PREROUTING -p udp --dport 1234 -j REDIRECT --to-port 5555
+
+iptables -t nat -A PREROUTING -p udp -d 192.168.0.102 --dport 1234 -j DNAT --to-destination 192.168.0.102:5555
+
+# смотреть конфиг iptable
+sudo iptables -t nat -L
+sudo iptables -L -v -n --line-numbers
+
+# Удалить все правила
+sudo iptables -t nat -F
+
+sshpass -p "password" ssh root@192.168.0.102 -p5555 -L 1234:localhost:1234 -N -C -o "CompressionLevel=9"
+
+# сработало
+sshpass -p "passowrd" ssh user@192.168.0.102 -L 5555:localhost:1234 -N -C&
+# слушать
+nc -l -t 1234
+# послать
+echo hellow | ncat -v -t localhost 5555
+
+# перенаправить с udp на другой udp
+socat -T15 udp4-recvfrom:1234,reuseaddr,fork udp:127.0.0.1:5555
+socat -T15 udp4-recvfrom:1234,reuseaddr,fork udp:192.168.0.150:5555
+
+# 11ac wifi improve ускоряем wifi 5g
+# в файл /etc/modprobe.d/iwlwifi.conf
+options iwlwifi 11n_disable=1
+options iwlwifi swcrypto=1
+options iwlwifi 11n_disable=8
+options iwlwifi bt_coex_active=0
+
+# временные изменения до перезагрузки
+sudo modprobe -r iwlwifi
+sudo modprobe iwlwifi 11n_disable=8
