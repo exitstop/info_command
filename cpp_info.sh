@@ -63,3 +63,7 @@ void __attribute__ ((destructor)) my_fini(void);
 # на старыъ системаъ
 void _init(void);
 void _fini(void);
+
+# источник https://proglib.io/p/cpp-tricks/
+# макрос для быстрого сброса контейнера
+#define dbg(v) copy(v.begin(), v.end(), ostream_iterator<typeof(*v.begin())>(cout, " "))
