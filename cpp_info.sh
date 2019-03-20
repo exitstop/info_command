@@ -8,7 +8,7 @@ valgrind --tool=callgrind ./cpuload
 # open profile.callgrind with kcachegrind
 kcachegrind profile.callgrind
 
-# разбор argc  
+# разбор argc
 man 3
 #inlucde <getopt.h>
 int getopt_long
@@ -26,28 +26,6 @@ stuct MyBitStruct
 
 gcc -E main.cpp -o main_def.cpp # выполнить препроцессор
 
-{
-#!/bin/bash
-
-CSCOPE_DIR="$PWD/cscope"
-
-if [ ! -d "$CSCOPE_DIR" ]; then
-  mkdir "$CSCOPE_DIR"
-fi
-
-echo "Finding files ..."
-find "$PWD" -name '*.[ch]' \
-  -o -name '*.cpp' \
-  -o -name '*.cc' \
-  -o -name '*.hpp' > "$CSCOPE_DIR/cscope.files"
-
-echo "Adding files to cscope db: $PWD/cscope.db ..."
-cscope -b -i "$CSCOPE_DIR/cscope.files"
-
-export CSCOPE_DB="$PWD/cscope.out"
-echo "Exported CSCOPE_DB to: '$CSCOPE_DB'"
-}
-
 # узнать путь до самого себя под линуксом
 ll /proc/self/exe
 
@@ -60,10 +38,14 @@ void __attribute__ ((constructor)) my_init(void);
 # сработает при отключении библиотеки
 void __attribute__ ((destructor)) my_fini(void);
 
-# на старыъ системаъ
+# на старых системах
 void _init(void);
 void _fini(void);
 
 # источник https://proglib.io/p/cpp-tricks/
+# https://en.wikibooks.org/wiki/C%2B%2B_Programming/Templates/Template_Meta-Programming
 # макрос для быстрого сброса контейнера
+#include <iostream>
+#include <iterator>
+#include <typeinfo>
 #define dbg(v) copy(v.begin(), v.end(), ostream_iterator<typeof(*v.begin())>(cout, " "))
