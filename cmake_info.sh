@@ -21,3 +21,6 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pg")
 # GCC Profile-guided optimization
 --fprofile-generate
 --fprofile-use
+
+# скомпилить только один таргет
+cmake --build . --target main

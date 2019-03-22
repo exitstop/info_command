@@ -8,3 +8,11 @@ lib.exe /def:lib.def /OUT:lib.lib /MACHINE:x64
 EXPORTS
 MyFunction
 
+switch item {
+    case 1:
+        fallthrough // Позволяет провалиться в следующий case
+    case 2:
+        ...
+    default:
+        ...
+}

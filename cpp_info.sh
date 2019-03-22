@@ -45,7 +45,28 @@ void _fini(void);
 # источник https://proglib.io/p/cpp-tricks/
 # https://en.wikibooks.org/wiki/C%2B%2B_Programming/Templates/Template_Meta-Programming
 # макрос для быстрого сброса контейнера
+gcc -std=gnu++14 main.cpp -o main
 #include <iostream>
 #include <iterator>
 #include <typeinfo>
 #define dbg(v) copy(v.begin(), v.end(), ostream_iterator<typeof(*v.begin())>(cout, " "))
+
+# замер времени выполнения участка кода
+#include <chrono>
+auto start = chrono:high_resolution_clock::now();
+auto end = chrono:high_resolution_clock::now();
+chrono::duration<double> duration = end - start;
+
+# или так
+double getMonotonicTime()
+{
+    using namespace std::chrono;
+
+    steady_clock::time_point currTime = steady_clock::now();
+    steady_clock::duration dur = currTime.time_since_epoch();
+
+    double ticksPerSecond = static_cast<double>(system_clock::period::num) / steady_clock::period::den;
+
+    return ticksPerSecond * dur.count();
+}
+
