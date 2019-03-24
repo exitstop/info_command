@@ -49,7 +49,7 @@ gcc -std=gnu++14 main.cpp -o main
 #include <iostream>
 #include <iterator>
 #include <typeinfo>
-#define dbg(v) copy(v.begin(), v.end(), ostream_iterator<typeof(*v.begin())>(cout, " "))
+#define DBG(v) copy((v).begin(), (v).end(), ostream_iterator<typeof(*(v).begin())>(cout, " "))
 
 # замер времени выполнения участка кода
 #include <chrono>

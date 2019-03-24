@@ -13,6 +13,11 @@ cmake .. -DCMAKE_VERBOSE_MAKEFILE=ON
 cmake .. -DCMAKE_BUILD_TYPE=Release
 cmake .. -DCMAKE_BUILD_TYPE=Debug
 cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo
+cmake .. -DCMAKE_BUILD_TYPE=MinSizeRel
+
+# curses-интерфейс
+# Посмотреть с какими опция можно собрать проект
+ccmake .
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pg")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -pg")
@@ -24,3 +29,12 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pg")
 
 # скомпилить только один таргет
 cmake --build . --target main
+
+# multi line comments
+#[==[
+#]==]
+
+# для проведения статического анализа
+# sudo apt install clang-tools-6.0
+/usr/bin/scan-build-6.0 cmake -DCMAKE_CXX_STANDARD=14 -DCMAKE_CXX_COMPILER=clang++-6.0 .
+/usr/bin/scan-build-6.0 ninja

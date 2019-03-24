@@ -70,3 +70,5 @@ git revert -n 0fxf077 # создать новый комит который бу
 git add -p # добавить только некоторые изменения из файла
 
 git submodule update --init --recursive # без коментариев
+
+git clone --depth 1 # чтобы не скачивать весь репо
