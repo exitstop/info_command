@@ -38,3 +38,7 @@ cmake --build . --target main
 # sudo apt install clang-tools-6.0
 /usr/bin/scan-build-6.0 cmake -DCMAKE_CXX_STANDARD=14 -DCMAKE_CXX_COMPILER=clang++-6.0 .
 /usr/bin/scan-build-6.0 ninja
+
+# cross compile from linux to Windows x64n
+set(CMAKE_C_COMPILER "/usr/bin/x86_64-w64-mingw32-gcc")
+set(CMAKE_CXX_COMPILER "/usr/bin/x86_64-w64-mingw32-g++")

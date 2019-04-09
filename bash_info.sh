@@ -170,9 +170,9 @@ bless
 LD_DEBUG=libs ./main
 LD_DEBUG=all ./main
 
-# следим за процессам, смотрим какие программы запускаись
+# следим за процессам, смотрим какие программы запускаись trace
 https://github.com/brendangregg/perf-tools
-https://github.com/brendangregg/perf-tools
+
 
 # включить адресс барк address bar строку path в selcet file
 Ctrl + L
@@ -367,12 +367,15 @@ ncat -l 5555
 # вывести uuid
 sudo blkid
 
+# speed test
 # проверить скорость между узлами локальной сети
 # на сервере
 iperf -s -i 1
+watch -n 12 iperf3 -s -i 1
 
 # на клиенте
 iperf -c 192.168.0.102
+iperf3 -c 192.168.0.102
 
 # ixondif
 ip addr
@@ -423,3 +426,10 @@ options iwlwifi bt_coex_active=0
 # временные изменения до перезагрузки
 sudo modprobe -r iwlwifi
 sudo modprobe iwlwifi 11n_disable=8
+
+# trouble volume sound
+pulseaudio --check
+# If any instance is running:
+pulseaudio -k
+# Finally, start pulseaudio again as a daemon:
+pulseaudio -D

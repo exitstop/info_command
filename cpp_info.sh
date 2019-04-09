@@ -70,3 +70,14 @@ double getMonotonicTime()
     return ticksPerSecond * dur.count();
 }
 
+
+# аналог defer в golang
+# 1
+std::unique_ptr<std::ofstream,
+                std::function<void(std::ofstream*)>> 
+        fp(new std::ofstream("demo.txt"), [](std::ofstream * fs) {
+         fp->close();
+        } );
+# 2
+void close_file(std::ofstream *fp) { fp->close(); }
+std::unique_ptr<std::ofstream, decltype(&close_file)> fp(new std::ofstream("demo.txt"), &close_file);
