@@ -81,3 +81,7 @@ std::unique_ptr<std::ofstream,
 # 2
 void close_file(std::ofstream *fp) { fp->close(); }
 std::unique_ptr<std::ofstream, decltype(&close_file)> fp(new std::ofstream("demo.txt"), &close_file);
+
+# алгоритмы и всякое
+http://rosettacode.org/wiki/Rosetta_Code
+https://github.com/tayllan/awesome-algorithms
