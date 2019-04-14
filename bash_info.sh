@@ -433,3 +433,6 @@ pulseaudio --check
 pulseaudio -k
 # Finally, start pulseaudio again as a daemon:
 pulseaudio -D
+
+# Сборка deb пакета
+sudo apt-get install autoconf automake libtool autotools-dev dpkg-dev fakeroot
