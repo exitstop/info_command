@@ -69,6 +69,13 @@ git revert -n 0fxf077 # создать новый комит который бу
 
 git add -p # добавить только некоторые изменения из файла
 
+git submodule add git@github.com:exitstop/lfs_test0.git # добавить submodule
 git submodule update --init --recursive # без коментариев
 
 git clone --depth 1 # чтобы не скачивать весь репо
+
+# git store large file image png jpg binary bin; хранение больших файлов в гит
+# git-lfs
+git lfs install # в каждом новом проекте где нужны большие файлы
+git lfs track "*.psd" # помечаем какие файлы нужно конролировать
+git add .gitattributes
