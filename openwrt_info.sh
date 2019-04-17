@@ -6,6 +6,7 @@
 
 # Если make[2]: cc: Command not found
 export CC=gcc && make
+#env CC=cc CXX=CC ./bootstrap
 
 # build compile xpenology
 https://xpenology.com/wiki/en/building_xpenology
