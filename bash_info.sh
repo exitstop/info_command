@@ -204,6 +204,9 @@ qemu-system-x86_64 -hda lubuntu.img -boot d -cdrom lubuntu-16.04.5-desktop-amd64
 # После того как все будет установлено систему можно запустить так
 qemu-system-x86_64 -hda lubuntu.img -m 1024 -smp 2 -machine type=pc,accel=kvm
 
+# power pc
+qemu-ppc -cpu e500v2 hello
+
 # посмотерть информацию о файле, и времени модификации, и создания
 stat file.sh 
 
