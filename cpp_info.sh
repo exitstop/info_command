@@ -113,3 +113,27 @@ void __builtin_prefetch( const void *addr, int rw, int locality );
 
 # Выравнивани gcc
 char __nosavedata swsusp_pg_dir[PAGE_SIZE] __attribute__ ((aligned (PAGE_SIZE)));
+
+# perf профилируем
+sudo -i
+echo -1 >/proc/sys/kernel/perf_event_paranoid
+echo 0 > /proc/sys/kernel/kptr_restrict
+
+# Или
+sudo sh -c "echo 0 > /proc/sys/kernel/kptr_restrict"
+sudo sh -c "echo -1 >/proc/sys/kernel/perf_event_paranoid"
+
+perf record -g ./main
+perf report -g "graph,0.5,caller"
+
+# cache hierarchy; иерархия кеша
+# https://www.youtube.com/watch?v=ugBE79lcuP8
+# Оперативка 100ns 4G-1Tb
+# L3         30ns  10-30Mb
+# L2         10ns  256kb-1Mb
+# L1         3ns   32kb
+# CPU        0.5ns
+
+# размер строки кеш памяти к примеру cpu 64byte; используйте нечетные реквесты
+# Никогда не пишите разными тредами в один cache line
+
