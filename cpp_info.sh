@@ -12,6 +12,8 @@ kcachegrind profile.callgrind
 # кэш кеш cache
 valgrind --tool=cachegrind ./prog
 
+# Профейлер intell Linux and Windows Intel® VTune™ Amplifier
+
 # разбор argc
 man 3
 #inlucde <getopt.h>
@@ -89,3 +91,25 @@ std::unique_ptr<std::ofstream, decltype(&close_file)> fp(new std::ofstream("demo
 # алгоритмы и всякое
 http://rosettacode.org/wiki/Rosetta_Code
 https://github.com/tayllan/awesome-algorithms
+
+# определить откуда была взывана функция gcc
+# https://www.ibm.com/developerworks/ru/library/l-gcc-hacks/index.html
+int addr = __builtin_return_address(0); # получим текущее значение из вершины стека
+
+# define __inline__     __inline__      __attribute__((always_inline))
+# define __deprecated           __attribute__((deprecated))
+# define __attribute_used__     __attribute__((__used__))
+# define __attribute_const__     __attribute__((__const__))
+# define __must_check            __attribute__((warn_unused_result))
+
+# оптимизация ветвлений в ручную gcc
+# https://www.youtube.com/watch?v=nXaxk27zwlk  # CppCon 2015: Chandler Carruth "Tuning C++: Benchmarks, and CPUs, and Compilers! Oh My!"
+#define likely(x)   __builtin_expect(!!(x), 1)
+#define unlikely(x) __builtin_expect(!!(x), 0)
+
+# Предварительная выборка кэша
+void __builtin_prefetch( const void *addr, int rw, int locality );
+#define prefetch(x) __builtin_prefetch(x)
+
+# Выравнивани gcc
+char __nosavedata swsusp_pg_dir[PAGE_SIZE] __attribute__ ((aligned (PAGE_SIZE)));
