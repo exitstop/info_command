@@ -125,6 +125,7 @@ sudo sh -c "echo -1 >/proc/sys/kernel/perf_event_paranoid"
 
 perf record -g ./main
 perf report -g "graph,0.5,caller"
+# буква 'a' открое ассемблерный код
 
 # cache hierarchy; иерархия кеша
 # https://www.youtube.com/watch?v=ugBE79lcuP8
@@ -133,6 +134,8 @@ perf report -g "graph,0.5,caller"
 # L2         10ns  256kb-1Mb
 # L1         3ns   32kb
 # CPU        0.5ns
+# Узнать сколько кеша на твоей системе
+lscpu | grep cache
 
 # размер строки кеш памяти к примеру cpu 64byte; используйте нечетные реквесты
 # Никогда не пишите разными тредами в один cache line; Читать можно, писать нельзя
