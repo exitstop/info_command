@@ -30,6 +30,12 @@ stuct MyBitStruct
 };
 #pragma pack(pop)
 
+# Выровнять структуру под 64byte
+struct alignas(64) At {
+    char a;
+    int i;
+}
+
 gcc -E main.cpp -o main_def.cpp # выполнить препроцессор
 
 # узнать путь до самого себя под линуксом
@@ -127,6 +133,9 @@ perf record -g ./main
 perf report -g "graph,0.5,caller"
 # буква 'a' открое ассемблерный код
 
+pref list # показать список дополнительных команд
+perf stat -e L1-icache-load-misses ./map_test
+
 # cache hierarchy; иерархия кеша
 # https://www.youtube.com/watch?v=ugBE79lcuP8
 # Оперативка 100ns 4G-1Tb
@@ -139,3 +148,14 @@ lscpu | grep cache
 
 # размер строки кеш памяти к примеру cpu 64byte; используйте нечетные реквесты
 # Никогда не пишите разными тредами в один cache line; Читать можно, писать нельзя
+
+# рекомендумемая литература по cache cpu
+# intel architectures optimization reference manual
+quick-bench.com
+godbolt.org
+
+
+# Модель памяти С++ https://www.youtube.com/watch?v=SIZmLPtcZiE
+# Не пропускающие барьеры 
+std::atomic_thread_fence(std::memory_order_acquire);
+std::atomic_thread_fence(std::memory_order_release);
