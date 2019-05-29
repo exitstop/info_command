@@ -442,3 +442,13 @@ sudo apt-get install autoconf automake libtool autotools-dev dpkg-dev fakeroot
 
 # fonts шрифты
 xlsfonts
+
+# микрофон подавление шума
+sudo vim /etc/pulse/default.pa
+# Добавить в конец файла
+load-module module-echo-cancel source_name=baresip aec_method=webrtc format=s16le rate=8000 channels=1
+set-default-source baresip
+set-default-sink 2
+
+# температура sensors psensors
+sudo apt install psensor
