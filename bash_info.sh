@@ -339,7 +339,7 @@ debugfs
 cat /etc/fstab
 # монтируется командой
 echo "/dev/sdb1 /mnt/hard_drive auto rw,user,auto,noexec 0 2" >> /etc/fstab
-# или UUID
+# или UUID монтирование
 echo "UUID=bbbf3ffd-bca1-1235-1231-141321acb221 /mnt/hard_drive auto rw,user,auto,noexec 0 2" >> /etc/fstab
 
 # узнать версию дистрибутива
@@ -452,3 +452,49 @@ set-default-sink 2
 
 # температура sensors psensors
 sudo apt install psensor
+
+# очистка журналов
+# https://shpargalki.org.ua/199/journalctl-where-are-logs-and-how-much-they-take
+sudo journalctl --vacuum-size=100M
+
+# Список wifi сетей
+nmcli device wifi 
+
+# посмотреть mac
+ifconfig -a | grep ether | gawk '{print $2}'
+ip link show
+# парсинг mac address
+ifconfig | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'
+
+# change mac
+
+# get temp температура sensors
+sudo add-apt-repository ppa:fossfreedom/indicator-sysmonitor
+sudo apt-get update
+sudo apt-get install indicator-sysmonitor
+
+sensors | grep "Core 0" | grep -o -E '([[:digit:]]{1,3}\.[[:digit:]])' | head -n 1
+
+# exiftool метаданные
+sudo apt-get install libimage-exiftool-perl
+exiftool file
+
+# узнать внешний ip
+curl ifconfig.me
+
+# создать торрент torrent
+sudo apt-get install ctorrent
+ctorrent -t -u "http://tracker.example.com:6969/announce" -s example.torrent file_or_dir_to_upload
+
+crontab -e
+# прописать примерно вот это
+#SHELL=/bin/bash
+#HOME=~/
+#MAILTO=”user@andreyex.ru”
+##This is a comment
+##* * * * * sudo -u user vboxmanage list vms > /home/user/Documents/local/source/virtualbox/time
+## Каждые пять минуть выполнять это
+#*/5 * * * * sudo -u user VBoxManage controlvm "Windows 7" pause > /home/user/Documents/local/source/virtualbox/err
+
+# clang-format
+find . -regex '.*\.\(cpp\|hpp\|cc\|cxx\|c\|h\)' -exec clang-format-6 -style=file -i {} \;

@@ -159,3 +159,6 @@ godbolt.org
 # Не пропускающие барьеры 
 std::atomic_thread_fence(std::memory_order_acquire);
 std::atomic_thread_fence(std::memory_order_release);
+
+# гунерация гарфика вызовов
+https://github.com/namhyung/uftrace
