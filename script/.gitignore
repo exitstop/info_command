@@ -1,0 +1,20 @@
+# ignore all
+*
+!*/
+*release/
+
+# C/C++ source files
+!*.c
+!*.cc
+!*.cpp
+!*.h
+!*.hpp
+!*.sh
+!*.bat
+!*.ini
+!*.pro
+!*.ui
+!CMakeLists.txt
+!.clang-format
+!.gitignore
+!*.cmake
