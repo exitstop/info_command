@@ -498,3 +498,10 @@ crontab -e
 
 # clang-format
 find . -regex '.*\.\(cpp\|hpp\|cc\|cxx\|c\|h\)' -exec clang-format-6 -style=file -i {} \;
+
+# запись звука 10 секунд
+arecord -vv -fdat -d 10 stackoverflow.wav
+
+# internet monitor монитор трафика bandwidth
+sudo iftop -i wlo1 -P -f "dst port 1234"
+sudo iftop -i wlo1 -P -f "src host 192.168.0.168"

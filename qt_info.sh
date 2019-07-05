@@ -48,3 +48,26 @@ cd mxe && make qtbase
 export PATH=<mxe root>/usr/bin:$PATH
 <mxe root>/usr/i686-pc-mingw32/qt/bin/qmake && make
 wine release/foo.exe
+
+
+# pipe qt эмитируем команную строку ниже
+# cat wav.wav | ffmpeg -hide_banner -loglevel quiet -i - -f wav - | ffplay -i - -nodisp -autoexit -loglevel quiet
+{
+    QProcess *P = new QProcess();
+    QProcess *P2 = new QProcess();
+    P->setReadChannelMode(QProcess::MergedChannels);
+    P->setStandardOutputProcess(P2);
+    // cat wav.wav | ffmpeg -hide_banner -loglevel quiet -i - -f wav - | ffplay -i - -nodisp -autoexit -loglevel quiet
+    // QString path_extern_player = "/mnt/hard_drive/home/user/Documents/save/sources/qt/build-player-Desktop-Release/extern-player";
+    P->start("ffmpeg", QStringList() << "-hide_banner" <<  "-loglevel" << "quiet" << "-i" << "-" << "-f" << "wav"  << "-" , QProcess::ReadWrite);
+    P->start("mplayer", QStringList() << "-af" <<  "scaletempo" << "-speed" << "2.1" << "-" , QProcess::ReadWrite);
+    P->write(dataForPlay);
+    P2->start("ffplay", QStringList() << "-i" << "-" << "-nodisp" << "-autoexit" << "-loglevel" << "quiet"  , QProcess::ReadWrite);
+
+    P->closeWriteChannel();
+    P->waitForFinished();
+    qDebug() << "Stop1";
+    P2->waitForFinished();
+    //QTextCodec *Cp866 = QTextCodec::codecForName("IBM 866");
+    //qDebug() << Cp866->toUnicode(P->readAllStandardOutput());
+}

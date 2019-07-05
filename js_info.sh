@@ -60,3 +60,13 @@ chromedriver --version
 # прокрутить окно 
 window.scrollTo(0,document.body.scrollHeight);
 window.scrollTo(0,document.querySelector(".scrollingContainer").scrollHeight);
+
+# получить имя
+this.constructor.toString()
+
+# Получить прослушивателя событий
+getEventListeners(document.getElementsByClassName("video-stream html5-main-video")[0])
+
+# получить функции которые можно запустить
+document.querySelector("#movie_player > div.html5-video-container > video");
+video.__proto__

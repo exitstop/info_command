@@ -30,3 +30,9 @@ dep ensure
 dep ensure -update github.com/user/project
 # обвноть все зависимости
 dep ensure -update
+
+
+# Передать русский текст в C++
+cStr = C.CString("Привет")
+ret, _, _ = Speak.Call(uintptr(unsafe.Pointer(cStr)))
+C.free(unsafe.Pointer(cStr))

@@ -162,3 +162,16 @@ std::atomic_thread_fence(std::memory_order_release);
 
 # гунерация гарфика вызовов
 https://github.com/namhyung/uftrace
+
+#Конвертировать русский текст полученный из golang
+#include <locale>  
+#include <codecvt> 
+
+std::wstring utf8_to_utf16(std::string utf8_string)
+{
+    return std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>, wchar_t>{}.from_bytes(utf8_string);
+}
+
+const size_t SIZE_STRING = strlen(strChar);
+string u8(strChar, strChar + SIZE_STRING);
+wstring wstr = utf8_to_utf16(u8);
