@@ -175,3 +175,6 @@ std::wstring utf8_to_utf16(std::string utf8_string)
 const size_t SIZE_STRING = strlen(strChar);
 string u8(strChar, strChar + SIZE_STRING);
 wstring wstr = utf8_to_utf16(u8);
+
+# Если юникод UNICODE не отображается в винде в консоли
+setlocale(LC_CTYPE,"");

@@ -146,7 +146,7 @@ avrdude -c usbasp -p attiny84 -vvvv
 
 strace -tt -ff -D -o /tmp/log.txt programm
 
-# Artmoney for linux scanmem
+# Artmoney for linux scanmem artmoney
 sudo apt install scanmem
 
 # HIEW под linux и windows тоже
@@ -505,3 +505,15 @@ arecord -vv -fdat -d 10 stackoverflow.wav
 # internet monitor монитор трафика bandwidth
 sudo iftop -i wlo1 -P -f "dst port 1234"
 sudo iftop -i wlo1 -P -f "src host 192.168.0.168"
+
+$1, $2, $3, ... are the positional parameters.
+"$@" is an array-like construct of all positional parameters, {$1, $2, $3 ...}.
+"$*" is the IFS expansion of all positional parameters, $1 $2 $3 ....
+$# is the number of positional parameters.
+$- current options set for the shell.
+$$ pid of the current shell (not subshell).
+$_ most recent parameter (or the abs path of the command to start the current shell immediately after startup).
+$IFS is the (input) field separator.
+$? is the most recent foreground pipeline exit status.
+$! # pid last process ; pid последнего процесса; is the PID of the most recent background command.
+$0 is the name of the shell or shell script.
