@@ -65,8 +65,8 @@ gcc -std=gnu++14 main.cpp -o main
 
 # замер времени выполнения участка кода
 #include <chrono>
-auto start = chrono:high_resolution_clock::now();
-auto end = chrono:high_resolution_clock::now();
+auto start = chrono::high_resolution_clock::now();
+auto end = chrono::high_resolution_clock::now();
 chrono::duration<double> duration = end - start;
 
 # или так

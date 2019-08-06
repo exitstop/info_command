@@ -517,3 +517,13 @@ $IFS is the (input) field separator.
 $? is the most recent foreground pipeline exit status.
 $! # pid last process ; pid последнего процесса; is the PID of the most recent background command.
 $0 is the name of the shell or shell script.
+
+# sound bluetooth android to pc
+pulseaudio --check
+pulseaudio -k
+pulseaudio -D
+sudo apt-get install pulseaudio pulseaudio-module-bluetooth
+sudo apt-get install blueman
+
+# windows usb create
+sudo woeusb --device /home/user/Downloads/ru-en_win7_sp1_ie11+_x86-x64_8in1_KMS-activation_v5.iso /dev/sdb

@@ -156,3 +156,6 @@ vim-glsl # подсветка для openCL
 complcache
 ctrlp.vim
 vim-easy-align
+
+# vim realod
+source ~/.vimrc
