@@ -5,3 +5,4 @@ https://docs.unrealengine.com/en-US/Engine/Deployment/Releasing/index.html
 make BomberUE4Editorcd 
 # Запустить проект
 ./UE4Editor "/home/user/Documents/Unreal\ Projects/MyProject/MyProject.uproject"
+./UE4Editor "/home/user/Documents/Unreal_Projects/MiningLoto/MiningLoto.uproject"

@@ -15,3 +15,7 @@ https://github.com/RaMMicHaeL/Textify
 
 # Приложухи инспектирования приложений
 https://github.com/blackrosezy/gui-inspect-tool
+
+# редактор PE фалов
+Stud_PE
+CFF Explorer
