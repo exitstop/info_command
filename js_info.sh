@@ -70,3 +70,6 @@ getEventListeners(document.getElementsByClassName("video-stream html5-main-video
 # получить функции которые можно запустить
 document.querySelector("#movie_player > div.html5-video-container > video");
 video.__proto__
+
+json beautify
+jq . test.json

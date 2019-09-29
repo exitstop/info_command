@@ -8,6 +8,9 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -s USE_PTHREADS=1 -s PTHREAD_POOL_SIZE=2
 #compile
 emconfigure cmake ..
 emmake make VERBOSE=1
+#
+EMCC_DEBUG=1
+cmake --build .
 
 # Чтобы генерился html
 set(CMAKE_EXECUTABLE_SUFFIX ".html")

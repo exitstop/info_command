@@ -159,3 +159,6 @@ vim-easy-align
 
 # vim realod
 source ~/.vimrc
+
+#for format html
+!tidy -mi -html -wrap 0 %
