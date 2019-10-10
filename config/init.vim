@@ -3,10 +3,10 @@ filetype off
 
 call plug#begin()
 Plug 'roxma/nvim-completion-manager'
-Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips' "Golang
 Plug 'honza/vim-snippets'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'mattn/emmet-vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } "Golang
+Plug 'mattn/emmet-vim' "Html completer
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -14,10 +14,13 @@ Plug 'sCRooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 filetype plugin indent on    " requiredn
-let mapleader = ','
+filetype plugin on    " requiredn
+set omnifunc=syntaxcomplete#Complete
+"let mapleader = ','
 colorscheme slate 
 
 set tabstop=4
@@ -85,7 +88,7 @@ set path=$PWD/**
 let g:CCTreeRecursiveDepth = 3
 
 filetype indent on
-let g:user_emmet_leader_key=','
+"let g:user_emmet_leader_key=','
 "for format html
 "!tidy -mi -html -wrap 0 %
 set undofile
