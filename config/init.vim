@@ -13,6 +13,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'sCRooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'AndrewRadev/splitjoin.vim'
 call plug#end()
 
 filetype plugin indent on    " requiredn
@@ -93,3 +94,12 @@ nnoremap ]e  :<c-u>execute 'move +'. v:count1<cr>
 nnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
 nnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
 
+let g:go_fmt_command = "goimports"
+let g:go_fmt_fail_silently = 1
+let g:go_addtags_transform = "camelcase"
+let g:go_highlight_types = 1
+"let g:go_highlight_fields = 1
+"let g:go_highlight_functions = 1
+"let g:go_highlight_function_calls = 1
+"let g:go_highlight_operators = 1
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
