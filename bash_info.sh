@@ -527,3 +527,16 @@ sudo apt-get install blueman
 
 # windows usb create
 sudo woeusb --device /home/user/Downloads/ru-en_win7_sp1_ie11+_x86-x64_8in1_KMS-activation_v5.iso /dev/sdb
+
+# mmv mvq rename
+rename -n -v 's/4_(\d+)/"6_".($1 + 1)/e' 3_*
+#rename(3_0.png, 6_1.png)
+#rename(3_1.png, 6_2.png)
+#rename(3_2.png, 6_3.png)
+
+# аунтификация по паролю
+curl -X POST -F 'username="hello"' -F 'password="itsme"' localhost:8080/login
+# сохранить coockie
+curl -X POST -F 'username="hello"' -F 'password="itsme"' -c cookie.txt localhost:8080/login
+# использовать сохраненные куки
+curl -b cookie.txt http://localhost:8081/private/status
