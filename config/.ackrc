@@ -1,0 +1,6 @@
+# Always use color
+--color
+
+# Ignore PhpStorm and NPM
+--ignore-dir=.idea/
+--ignore-dir=node_modules/
