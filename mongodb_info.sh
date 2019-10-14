@@ -156,3 +156,10 @@ db.users.aggregate([
     { $match: {name: "mike"} },
     { $group: {_id: "$name", age: { $sum: "$age" } } }
 ])
+
+# показать все базы данных
+show dbs
+# создать базу данных
+use socmed
+# показать всю коллекцию profile
+db.profile.find().pretty()
