@@ -2,6 +2,7 @@ set nocompatible
 filetype off
 
 call plug#begin()
+"Golang Plugin ---------------------------------------------------------
 Plug 'roxma/nvim-completion-manager'
 Plug 'SirVer/ultisnips' "Golang
 Plug 'honza/vim-snippets'
@@ -15,12 +16,22 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ap/vim-css-color'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
+
+" Github Gist
+"Plug 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
+"Plug 'mattn/webapi-vim'
+
+"Python plugin ---------------------------------------------------------
+Plug 'vim-python/python-syntax'
+"Plug 'davidhalter/jedi-vim'
 call plug#end()
 
 filetype plugin indent on    " requiredn
 filetype plugin on    " requiredn
 set omnifunc=syntaxcomplete#Complete
-"let mapleader = ','
+let mapleader = ','
 colorscheme slate 
 
 set tabstop=4
@@ -50,6 +61,7 @@ autocmd BufRead,BufNewFile *.cu set filetype=cpp
 autocmd BufRead,BufNewFile *.cuh set filetype=cpp
 autocmd BufRead,BufNewFile *.cl set filetype=cpp
 autocmd BufRead,BufNewFile *.ts set filetype=javascript
+autocmd BufRead,BufNewFile *.gohtml set filetype=html
 set clipboard=unnamedplus
 
 let g:vim_tags_use_language_field = 1
@@ -97,6 +109,7 @@ nnoremap ]e  :<c-u>execute 'move +'. v:count1<cr>
 nnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
 nnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
 
+
 let g:go_fmt_command = "goimports"
 let g:go_fmt_fail_silently = 1
 let g:go_addtags_transform = "camelcase"
@@ -106,3 +119,10 @@ let g:go_highlight_types = 1
 "let g:go_highlight_function_calls = 1
 "let g:go_highlight_operators = 1
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+
+" Python plugins
+" ------------------------------------------------------------------------
+let g:python_highlight_all = 1
+
+" Github Gist
+let g:gist_clip_command = 'xclip -selection clipboard'
