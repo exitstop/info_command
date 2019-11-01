@@ -134,3 +134,8 @@ let g:python_highlight_all = 1
 let g:gist_clip_command = 'xclip -selection clipboard'
 
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+
+set colorcolumn=110
+highlight ColorColumn ctermbg=darkgray
+
+let &path.=" /usr/include/boost, /usr/include/c++/7/,"
