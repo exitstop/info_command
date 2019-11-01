@@ -30,6 +30,9 @@ dep ensure
 dep ensure -update github.com/user/project
 # обвноть все зависимости
 dep ensure -update
+# фик go dep
+# Удаляем закешированый репозиторий
+rm -rf $GOPATH/pkg/dep/sources/https---github.com-mediocregopher-radix
 
 
 # Передать русский текст в C++

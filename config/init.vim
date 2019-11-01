@@ -24,8 +24,14 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 "Plug 'mattn/webapi-vim'
 
 "Python plugin ---------------------------------------------------------
-Plug 'vim-python/python-syntax'
+"Plug 'vim-python/python-syntax'
 "Plug 'davidhalter/jedi-vim'
+
+" C-Family
+"Plug 'bbchung/Clamp' "not work
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+Plug 'tweekmonster/deoplete-clang2'
+
 call plug#end()
 
 filetype plugin indent on    " requiredn
@@ -126,3 +132,5 @@ let g:python_highlight_all = 1
 
 " Github Gist
 let g:gist_clip_command = 'xclip -selection clipboard'
+
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
