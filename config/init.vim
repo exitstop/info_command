@@ -32,6 +32,9 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'tweekmonster/deoplete-clang2'
 
+" Git
+Plug 'tpope/vim-fugitive'
+
 call plug#end()
 
 filetype plugin indent on    " requiredn
@@ -139,3 +142,17 @@ set colorcolumn=110
 highlight ColorColumn ctermbg=darkgray
 
 let &path.=" /usr/include/boost, /usr/include/c++/7/,"
+nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+"Qargs рефакторинг
+command! -nargs=0 -bar Qargs execute 'args' QuickfixFilenames()
+
+" populate the argument list with each of the files named in the quickfix list
+function! QuickfixFilenames()
+  let buffer_numbers = {}
+  for quickfix_item in getqflist()
+    let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
+  endfor
+  return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
+endfunction
+"

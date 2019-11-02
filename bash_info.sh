@@ -540,3 +540,7 @@ curl -X POST -F 'username="hello"' -F 'password="itsme"' localhost:8080/login
 curl -X POST -F 'username="hello"' -F 'password="itsme"' -c cookie.txt localhost:8080/login
 # использовать сохраненные куки
 curl -b cookie.txt http://localhost:8081/private/status
+
+#ack поиск 
+# найти точное совпадение слова profile чтобы в строке не было слова github
+ack '^(?!.*github).(\bprofile\b)'
