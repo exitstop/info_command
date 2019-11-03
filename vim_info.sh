@@ -162,3 +162,10 @@ source ~/.vimrc
 
 #for format html
 !tidy -mi -html -wrap 0 %
+
+# copy to rigister a or b
+"ay
+"by
+# past from register a or b
+"ap
+"bp
