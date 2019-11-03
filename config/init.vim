@@ -34,6 +34,7 @@ Plug 'tweekmonster/deoplete-clang2'
 
 " Git
 Plug 'tpope/vim-fugitive'
+"Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -141,7 +142,8 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/
 set colorcolumn=110
 highlight ColorColumn ctermbg=darkgray
 
-let &path.=" /usr/include/boost, /usr/include/c++/7/,"
+let &path.=" /usr/include/boost, /usr/include/c++/7/, /usr/local/include/opencv4, "
+
 nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 "Qargs рефакторинг
@@ -155,4 +157,6 @@ function! QuickfixFilenames()
   endfor
   return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
 endfunction
-"
+
+"let g:fugitive_git_executable = 'LANG=en_US.UTF-8 git'
+map <F6> :setlocal spell! spelllang=ru_ru<CR>
