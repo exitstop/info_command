@@ -9,7 +9,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 
 # рефакторинг :args :argsdo
 # Найти все файлы в которых слово profile не находится на одной строке с github
-args `ack -l '^(?!.*github).(\bprofile\b)'`
+args `ack -l '^(?!.*github).(\bprofile\b)' *`
 # Посмотреть какие файлы находятся в args
 args
 # Заменить во всех файлах находящихся в args
