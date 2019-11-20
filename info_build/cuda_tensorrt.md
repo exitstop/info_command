@@ -3,8 +3,8 @@
 Если не устанавливается из за уже установленной версии можно удалить стару командами из этого форума
 https://devtalk.nvidia.com/default/topic/1056325/linux/problems-installing-cuda-10-1-on-my-computer/
 
--`sudo apt-get --purge remove "*cublas*" "cuda*" "nvidia-cuda*"`
--`sudo apt-get --purge remove "*nvidia*"`
+- `sudo apt-get --purge remove "*cublas*" "cuda*" "nvidia-cuda*"`
+- `sudo apt-get --purge remove "*nvidia*"`
 
 И установить по новой
 
