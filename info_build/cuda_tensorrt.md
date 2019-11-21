@@ -29,3 +29,12 @@ https://github.com/NVIDIA/TensorRT
 - `export TRT_SOURCE=/home/user/Documents/save/sources/cpp/tensorrt_test/TensorRT`
 - `export TRT_RELEASE=/home/user/Documents/save/sources/cpp/tensorrt_test/TensorRT-5.1.5.0`
 - `export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$TRT_RELEASE/lib`
+
+# Ошибки
+Ошибка shutdownProtobufLibrary()
+
+в файле `sampleEngines.cpp` закоментить
+
+- `//nvcaffeparser1::shutdownProtobufLibrary();`
+- `//nvcaffeparser1::shutdownProtobufLibrary();`
+- `//parser.uffParser.reset(createUffParser());`
