@@ -5,7 +5,11 @@ https://devtalk.nvidia.com/default/topic/1056325/linux/problems-installing-cuda-
 
 - `sudo apt-get --purge remove "*cublas*" "cuda*" "nvidia-cuda*"`
 - `sudo apt-get --purge remove "*nvidia*"`
+- `sudo apt --purge remove libcudnn7`
+
 - `sudo apt install libcudnn7`
+
+https://developer.nvidia.com/cuda-10.1-download-archive-update2?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=deblocal
 
 И установить по новой
 
@@ -17,11 +21,20 @@ https://devtalk.nvidia.com/default/topic/1056325/linux/problems-installing-cuda-
 cd TensorRT-5.1.5.0/python
 sudo pip2 install tensorrt-5.1.5.0-cp27-none-linux_x86_64.whl
 
+# Установить CUDNN
+- `https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html#install-linux`
+- Проверить установилась ли cudnn `ls /usr/local/cuda/lib64/libcudnn*`
+
 # Следующая инструкция 
 https://github.com/NVIDIA/TensorRT
 Выполнить пункты:
 - Downloading The TensorRT Components
 - Building The TensorRT OSS Components
+
+~/.zshrc
+`export CUDA_PATH=/usr/local/cuda`
+
+`cmake .. -DTRT_LIB_DIR=$TRT_RELEASE/lib -DTRT_BIN_DIR=`pwd`/out  -DCUDNN_LIB=/usr/local/cuda/lib64`
 
 # Перед компиляцией
 добавить в `~/.bashrc` или `~/.zshrc` или свой конфиг shell
