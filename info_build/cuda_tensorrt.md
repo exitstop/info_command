@@ -5,6 +5,7 @@ https://devtalk.nvidia.com/default/topic/1056325/linux/problems-installing-cuda-
 
 - `sudo apt-get --purge remove "*cublas*" "cuda*" "nvidia-cuda*"`
 - `sudo apt-get --purge remove "*nvidia*"`
+- `sudo apt install libcudnn7`
 
 И установить по новой
 
