@@ -49,3 +49,16 @@ https://github.com/NVIDIA/TensorRT
 - `//nvcaffeparser1::shutdownProtobufLibrary();`
 - `//nvcaffeparser1::shutdownProtobufLibrary();`
 - `//parser.uffParser.reset(createUffParser());`
+
+### Проблемы с pycuda
+
+Ошибка `fatal error: cuda.h: No such file or directory`
+
+входим в root `sudo su -`
+И экспортируем переменные
+- `export CPATH=$CPATH:/usr/local/cuda/include`
+- `export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/cuda/lib64`
+
+После устанавливаем pycuda из под рут
+`pip install pycuda`
+`pip3 install pycuda`
