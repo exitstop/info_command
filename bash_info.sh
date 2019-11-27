@@ -544,3 +544,6 @@ curl -b cookie.txt http://localhost:8081/private/status
 #ack поиск 
 # найти точное совпадение слова profile чтобы в строке не было слова github
 ack '^(?!.*github).(\bprofile\b)'
+
+# wifi через консоль
+nmcli dev wifi connect $ACCESS_POINT password $PASSWORD

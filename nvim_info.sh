@@ -16,3 +16,12 @@ args
 argdo %s/\%(github.*\)\@<!\<profile\>\>/profile0000/g
 # Сохранить все изменения в файлах args
 argdo update
+
+sudo apt clean
+sudo apt update
+sudo apt purge cuda
+sudo apt purge nvidia-*
+sudo apt autoremove
+
+sudo apt-get --purge remove "*cublas*" "cuda*" "nvidia-cuda*"
+sudo apt-get --purge remove "*nvidia*"
