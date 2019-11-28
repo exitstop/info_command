@@ -547,3 +547,6 @@ ack '^(?!.*github).(\bprofile\b)'
 
 # wifi через консоль
 nmcli dev wifi connect $ACCESS_POINT password $PASSWORD
+
+# get chmod получить разрешения файла в виде цифр 755
+stat --format '%a' /etc/default/
