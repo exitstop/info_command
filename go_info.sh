@@ -39,3 +39,15 @@ rm -rf $GOPATH/pkg/dep/sources/https---github.com-mediocregopher-radix
 cStr = C.CString("Привет")
 ret, _, _ = Speak.Call(uintptr(unsafe.Pointer(cStr)))
 C.free(unsafe.Pointer(cStr))
+
+# golang arm compile
+# Установить из бинарника
+#gvm install go1.13.3 -B
+cd $(go env GOROOT)/src
+export CC="gcc -Wimplicit-fallthrough=0 -Wno-error=shift-negative-value -Wno-shift-negative-value" && CGO_ENABLED=0 gvm install go1.13.3
+gvm list
+gvm use go1.13.3
+sudo GOROOT_BOOTSTRAP=/home/user/.gvm/gos/go1.13.3 GOOS=linux GOARCH=arm CGO_ENABLED=0 ./make.bash --no-clean
+
+# Компиляци приложения приложение под arm
+GOOS=linux GOARCH=arm go build check_port.go

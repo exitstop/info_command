@@ -42,3 +42,6 @@ cmake --build . --target main
 # cross compile from linux to Windows x64n
 set(CMAKE_C_COMPILER "/usr/bin/x86_64-w64-mingw32-gcc")
 set(CMAKE_CXX_COMPILER "/usr/bin/x86_64-w64-mingw32-g++")
+
+# создать deb
+sudo make package

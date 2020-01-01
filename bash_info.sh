@@ -1,4 +1,4 @@
-#прочитать файл по 1 байту(bs=1), 5 байт подряд(count=5),
+прочитать файл по 1 байту(bs=1), 5 байт подряд(count=5),
 #one(if=one) начиная со смещения 0(skip=0) 
 #и записать в файл two(of=two) начиная со смещения 1(seek=1) 
 #и не затирать конец файла two (conv=notrunc)
@@ -375,6 +375,7 @@ sudo blkid
 # на сервере
 iperf -s -i 1
 watch -n 12 iperf3 -s -i 1
+speedtest-cli
 
 # на клиенте
 iperf -c 192.168.0.102
@@ -430,9 +431,20 @@ options iwlwifi swcrypto=1
 options iwlwifi 11n_disable=8
 options iwlwifi bt_coex_active=0
 
+# Jetson TX2
+# в файл /etc/modprobe.d/iwlmvm.conf
+options iwlmvm 11n_disable=1
+options iwlmvm swcrypto=1
+options iwlmvm 11n_disable=8
+options iwlmvm bt_coex_active=0
+
 # временные изменения до перезагрузки
 sudo modprobe -r iwlwifi
 sudo modprobe iwlwifi 11n_disable=8
+
+# Jetson TX2
+sudo modprobe -r iwlmvm
+sudo modprobe iwlmvm 11n_disable=8
 
 # trouble volume sound
 pulseaudio --check
@@ -554,3 +566,36 @@ nmcli dev wifi connect $ACCESS_POINT password $PASSWORD
 
 # get chmod получить разрешения файла в виде цифр 755
 stat --format '%a' /etc/default/
+
+# поиск java
+grep -l "TODO" *.java
+find . -name "*.java" -exec grep -il "TODO" {} \;
+find . -name "*.java" | xargs -I {} grep -l "TODO" {}
+
+# поиск всех jpg и архивирование их в tar
+tar -cvf images.tar $(find / -type f -name *.jpg)
+tar -rvf images.tar $(find / -type f -name *.jpg)
+find / -type f -name "*.jpg" -exec tar -cvf images.tar {} \;
+
+# найти ip в подсети
+nmap -sn 192.168.1.0/24
+
+# Создать deb
+sudo make package
+
+# watch max speed interface
+ethtool enp3s0
+
+# Настройка wifi 
+nmtui
+
+# bin hex byte search
+sudo apt install binwalk
+
+# get hostname localhost
+nbtscan 192.168.31.0/24
+#mdns-scan
+#mzclient
+
+# Добавить локальный репозиторий
+sudo add-apt-repository 'deb file:///var/nv-tensorrt-repo-cuda10.1-trt5.1.5.0-ga-20190427 /'
