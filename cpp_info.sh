@@ -179,6 +179,9 @@ wstring wstr = utf8_to_utf16(u8);
 # Если юникод UNICODE не отображается в винде в консоли
 setlocale(LC_CTYPE,"");
 
+# C++ викторина тест трюки выкрутасы
+# http://cppquiz.org/quiz/question/133
+
 # Трюк Передать лямду как параметр
 
 #include <functional>
