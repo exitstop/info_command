@@ -178,3 +178,29 @@ wstring wstr = utf8_to_utf16(u8);
 
 # Если юникод UNICODE не отображается в винде в консоли
 setlocale(LC_CTYPE,"");
+
+# Трюк Передать лямду как параметр
+
+#include <functional>
+#include <iostream>
+
+template <typename T>
+struct type_identity
+{
+    typedef T type;
+};
+
+template <typename T>
+void call_with(typename type_identity<std::function<void(T)>>::type f, T val)
+{
+	f(val);
+}
+
+int main()
+{
+	auto print = [] (int x) { std::cout << x; };
+	call_with(print, 42);
+}
+
+# Или просто передать параметр шаблона
+call_with<int>(print, 42);
