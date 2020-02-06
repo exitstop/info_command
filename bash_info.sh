@@ -87,6 +87,7 @@ sshpass -p "password" ssh -X -6 -o "StrictHostKeyChecking=no" user@2001:0:11a1:6
 # Передача файлов
 sshpass -p "password" scp -6 user@\[2001:0:00aa:04c:0f3:e000:0300:f312\]:/home/user/project/test/libethash/main.go .
 
+scp -i id_rsa -P1026 -o "StrictHostKeyChecking=no" Terminal.tar.gz nvidia@localhost:/home/nvidia
 
 # вывести только строки от 1 до 18
 sed -n 1,18p file.cpp
@@ -599,3 +600,6 @@ nbtscan 192.168.31.0/24
 
 # Добавить локальный репозиторий
 sudo add-apt-repository 'deb file:///var/nv-tensorrt-repo-cuda10.1-trt5.1.5.0-ga-20190427 /'
+
+# индефицировать hash what is hash
+hashid -m ''
