@@ -293,6 +293,8 @@ nmap -F 192.168.0.0/24
 sudo nmap -sS 192.168.0.102
 # определить версию
 sudo nmap -sV 192.168.0.100
+# Высветить имена hostname
+sudo nmap -sn 192.168.88.0/24
 
 sshpass -p "password" sudo sshfs -o allow_other -o "StrictHostKeyChecking=no" root@192.168.0.100:/home/user/ /mnt/sshmount2
 
@@ -603,3 +605,14 @@ sudo add-apt-repository 'deb file:///var/nv-tensorrt-repo-cuda10.1-trt5.1.5.0-ga
 
 # индефицировать hash what is hash
 hashid -m ''
+
+# scan local netwrok host name
+sudo nmap -sn 192.168.88.0/24
+
+#Auto login ubuntu command line
+#Add the following line to /etc/pam.d/lightdm
+auth        sufficient  pam_succeed_if.so user ingroup nopasswdlogin
+
+sudo groupadd -r nopasswdlogin
+sudo gpasswd -a <username> nopasswdlogin
+sudo systemctl restart lightdm
