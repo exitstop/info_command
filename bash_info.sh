@@ -616,3 +616,6 @@ auth        sufficient  pam_succeed_if.so user ingroup nopasswdlogin
 sudo groupadd -r nopasswdlogin
 sudo gpasswd -a <username> nopasswdlogin
 sudo systemctl restart lightdm
+
+# Смотировать
+sudo mount -o loop backup.secure.img.raw /mnt/loop
