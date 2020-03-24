@@ -286,8 +286,9 @@ picocom -b 115200 /dev/ttyUSB0 --imap lfcrlf
 #putty
 #tip -115200 ttyUSB0 
 
-# ип калькулятор
+# ип калькулятор subnet
 ipcalc 192.168.0.102
+ipcalc 192.168.0.102/24
 
 nmap -F 192.168.0.0/24
 sudo nmap -sS 192.168.0.102
@@ -567,7 +568,7 @@ ack '^(?!.*github).(\bprofile\b)'
 # wifi через консоль
 nmcli dev wifi connect $ACCESS_POINT password $PASSWORD
 
-# get chmod получить разрешения файла в виде цифр 755
+# get chmod получить разрешения файла в виде цифр 755 777
 stat --format '%a' /etc/default/
 
 # поиск java

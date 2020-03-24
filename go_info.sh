@@ -51,3 +51,6 @@ sudo GOROOT_BOOTSTRAP=/home/user/.gvm/gos/go1.13.3 GOOS=linux GOARCH=arm CGO_ENA
 
 # Компиляци приложения приложение под arm
 GOOS=linux GOARCH=arm go build check_port.go
+
+go mod init
+go mod edit -replace github.com/exitstop/helloworld=../helloworld
