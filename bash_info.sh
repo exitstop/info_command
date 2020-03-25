@@ -620,3 +620,7 @@ sudo systemctl restart lightdm
 
 # Смотировать
 sudo mount -o loop backup.secure.img.raw /mnt/loop
+
+# Включить интернет на кабель
+sudo ip link set dev eth0 down
+sudo dhclient eth0
