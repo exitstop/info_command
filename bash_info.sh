@@ -624,3 +624,7 @@ sudo mount -o loop backup.secure.img.raw /mnt/loop
 # Включить интернет на кабель
 sudo ip link set dev eth0 down
 sudo dhclient eth0
+
+# display
+export DISPLAY=:0.0
+ssh -Y username@remote_hostname_or_ip_address

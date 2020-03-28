@@ -1,0 +1,1 @@
+PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& 'C:\Qt\Qt5.14.1\windows-build-qt-static.ps1' -QtSrcUrl 'https://download.qt.io/official_releases/qt/5.14/5.14.1/single/qt-everywhere-src-5.14.1.zip' -QtStaticDir 'C:\Qt\Qt_Static-5.14.1' -MingwDir 'C:\Qt\Qt5.14.1\Tools\mingw730_64' -QtVersion '5.14.1-Static'"

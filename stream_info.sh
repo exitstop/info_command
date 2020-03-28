@@ -35,6 +35,9 @@ ffmpeg -video_size 1024x768 -framerate 10 -f x11grab -i :0.0+100,200 -vcodec lib
 # zerolatency
 ffmpeg -video_size 1024x768 -framerate 10 -f x11grab -i :0.0+100,200 -preset ultrafast -tune zerolatency -vcodec libx264 -async 1 -acodec libmp3lame -ar 22050  -f mpegts udp://192.168.0.150:5555
 
+ffmpeg -video_size 640x480 -framerate 10 -f x11grab -i -i /dev/video0 -preset ultrafast -tune zerolatency -vcodec libx264 -async 1 -acodec libmp3lame -ar 22050  -f mpegts udp://192.168.0.150:5555
+
+
 # сделать стерео видео из одного
 ffmpeg -i ~/Downloads/dream.mp4 -i ~/Downloads/dream.mp4 -filter_complex "pad=in_w*2:in_h, overlay=main_w/2:0, scale=in_w/2:in_h, scale=-1:540" -vcodec libx264 -r 10 -async 1 -acodec libmp3lame  -b 50k -ar 22050 -f mpegts udp://192.168.0.110:6666
 

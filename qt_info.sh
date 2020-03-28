@@ -71,3 +71,52 @@ wine release/foo.exe
     //QTextCodec *Cp866 = QTextCodec::codecForName("IBM 866");
     //qDebug() << Cp866->toUnicode(P->readAllStandardOutput());
 }
+
+# qt static
+https://dimitris.apeiro.gr/2015/06/24/build-a-static-qt5-for-windows-by-compiling/
+
+windeployqt --quick .
+
+cmd /c "configure.bat -static -debug-and-release -platform win32-g++ -prefix C:\Qt\Qt5_static -qt-zlib -qt-pcre -qt-libpng -qt-libjpeg -qt-freetype  -qtquickcontrols -qtquickcontrols2 -opengl desktop  -no-openssl -opensource -confirm-license -make libs -nomake tools -nomake examples -nomake tests"
+
+cd C:\Qt\Qt5.14.1\5.14.1\Src\qtdeclarative
+
+C:\Qt\Qt5.7.0n\bin\qmake.exe -r qtdeclarative.pro
+C:\mingw32-make.exe
+C:\mingw32-make.exe install
+
+# Построить проект статичестки
+C:\Qt\Qt5_static\bin\qmake.exe gallery.pro -spec win32-g++ "CONFIG+=qtquickcompiler"
+mingw32-make.exe -j6
+# C:\Qt\Qt5_static\bin\qmake.exe Z:\Qt\Examples\Qt-5.14.1\quickcontrols\extras\gallery\gallery.pro -spec win32-g++ "CONFIG+=qtquickcompiler" && C:/Qt/Qt5.14.1/Tools/mingw730_64/bin/mingw32-make.exe qmake_all
+# C:\Qt\Qt5_static\bin\qmake.exe Z:\Qt\Examples\Qt-5.14.1\quickcontrols\extras\gallery\gallery.pro -spec win32-g++ "CONFIG+=qtquickcompiler" && C:\Qt\Qt5_static\bin\qmake.exe qmake_all
+
+################################################################################
+############################# QT STATIC ########################################
+################################################################################
+# QT STATIC !!!!
+# Видео как билдить qt static windows
+https://www.youtube.com/watch?v=lwX_urJJOf8
+https://www.riuson.com/blog/post/qt-static-build-on-windows-with-mingw
+https://wohlsoft.ru/pgewiki/Building_static_Qt_5#Windows
+https://habr.com/ru/sandbox/95171/
+
+# docker
+https://github.com/therecipe/qt/wiki/Deploying-Linux-to-Windows-64-bit-Static
+https://github.com/therecipe/qt/wiki/Getting-Started
+
+http://www.tripleboot.org/?p=138
+https://wiki.qt.io/Build_Standalone_Qt_Application_for_Windows
+https://github.com/fffaraz/docker-qt
+
+
+# qt static QT STATIC cross compile
+https://github.com/therecipe/qt/wiki/Deploying-Linux-to-Windows-64-bit-Static
+
+/usr/lib/mxe/usr/x86_64-w64-mingw32.static/qt5/bin/qmake ..
+make -j$(nproc)
+
+/usr/lib/mxe/usr/x86_64-w64-mingw32.static/qt5/bin/qmake ../gallery.pro -spec win32-g++ "CONFIG+=qtquickcompiler"
+
+C:\Qt\Qt5.14.1\5.14.1\mingw73_64\bin\windeployqt.exe --dir Z:\Qt\Examples\Qt-5.14.1\quickcontrols\extras\build-gallery-Desktop_Qt_5_14_1_MinGW_64_bit-Release --no-translations gallery.exe
+C:\Qt\Qt5.14.1\5.14.1\mingw73_64\bin\windeployqt.exe --no-translations gallery.exe
