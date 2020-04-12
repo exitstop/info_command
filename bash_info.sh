@@ -24,6 +24,13 @@ sudo systemctl enable ssh
 a=hello&&b=hello2&& grep -rl "$a" | xargs sed -i "s/$a/$b/g"
 #рекурсиваня замена в файлах *.h 
 a=hello&&b=hello2&& grep -l "$a" `find -name "*.h"` | xargs sed -i "s/$a/$b/g"
+
+# Замена с raw string
+a="http:\/\/site.com\/beta\/"&&b="/"&& \
+    grep -l "$a" `find -name "*.gohtml"` | xargs sed -i "s#"$a"#"$b"#g"
+a="http:\/\/site.com\/beta\/"&&b="/"&& \
+    grep -l "$a" `find -name "*.gohtml"` | xargs sed -i "s/"$a"/"$b"/g"
+
 #посмотреть сколько места в системе
 df -h
 #посмотерть сколько весят папки и файлы в текущей дериктории и отсортировать
@@ -417,6 +424,9 @@ sudo iptables -t nat -F
 
 sshpass -p "password" ssh root@192.168.0.102 -p5555 -L 1234:localhost:1234 -N -C -o "CompressionLevel=9"
 
+# Перенаправить на собого себя
+ssh -i id_rsa -L 0.0.0.0:9223:localhost:9222 nvidia@localhost -N
+
 # сработало
 sshpass -p "passowrd" ssh user@192.168.0.102 -L 5555:localhost:1234 -N -C&
 # слушать
@@ -628,3 +638,8 @@ sudo dhclient eth0
 # display
 export DISPLAY=:0.0
 ssh -Y username@remote_hostname_or_ip_address
+
+touch -d "1 hours ago" two
+
+# web camera
+sudo apt-get install cheese

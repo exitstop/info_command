@@ -79,27 +79,41 @@ windeployqt --quick .
 
 cmd /c "configure.bat -static -debug-and-release -platform win32-g++ -prefix C:\Qt\Qt5_static -qt-zlib -qt-pcre -qt-libpng -qt-libjpeg -qt-freetype  -qtquickcontrols -qtquickcontrols2 -opengl desktop  -no-openssl -opensource -confirm-license -make libs -nomake tools -nomake examples -nomake tests"
 
+
+cmd /c "configure.bat -static -release -static-runtime -platform win32-g++ -prefix C:\Qt\Qt_Static-5.14.1 -opensource -confirm-license"
+
 cd C:\Qt\Qt5.14.1\5.14.1\Src\qtdeclarative
 
-C:\Qt\Qt5.7.0n\bin\qmake.exe -r qtdeclarative.pro
-C:\mingw32-make.exe
-C:\mingw32-make.exe install
+C:\Qt\Qt_Static-5.14.1\5.14.1-Static\bin\qmake.exe -r qtdeclarative.pro
+C:\Qt\Qt5.14.1\Tools\mingw730_64\bin\mingw32-make.exe
+C:\Qt\Qt5.14.1\Tools\mingw730_64\bin\mingw32-make.exe install
+
+C:\Qt\Qt5.14.1\Tools\mingw730_64\bin\mingw32-make.exe -r qmlscene.pro
+C:\Qt\Qt5.14.1\Tools\mingw730_64\bin\mingw32-make.exe
+C:\Qt\Qt5.14.1\Tools\mingw730_64\bin\mingw32-make.exe install
 
 # Построить проект статичестки
 C:\Qt\Qt5_static\bin\qmake.exe gallery.pro -spec win32-g++ "CONFIG+=qtquickcompiler"
 mingw32-make.exe -j6
 # C:\Qt\Qt5_static\bin\qmake.exe Z:\Qt\Examples\Qt-5.14.1\quickcontrols\extras\gallery\gallery.pro -spec win32-g++ "CONFIG+=qtquickcompiler" && C:/Qt/Qt5.14.1/Tools/mingw730_64/bin/mingw32-make.exe qmake_all
 # C:\Qt\Qt5_static\bin\qmake.exe Z:\Qt\Examples\Qt-5.14.1\quickcontrols\extras\gallery\gallery.pro -spec win32-g++ "CONFIG+=qtquickcompiler" && C:\Qt\Qt5_static\bin\qmake.exe qmake_all
+C:\Qt\Qt5_static\bin\qmake.exe 
+
 
 ################################################################################
 ############################# QT STATIC ########################################
 ################################################################################
+Статическую либу динамически подгрузить по имени нельзя. ХЗ как тебе использовать QML со статической линковкой
 # QT STATIC !!!!
 # Видео как билдить qt static windows
 https://www.youtube.com/watch?v=lwX_urJJOf8
 https://www.riuson.com/blog/post/qt-static-build-on-windows-with-mingw
 https://wohlsoft.ru/pgewiki/Building_static_Qt_5#Windows
 https://habr.com/ru/sandbox/95171/
+https://github.com/alberthdev/alberthdev-misc/wiki/Building-Qt-v5.6-5.7-Statically-on-Windows
+https://bugreports.qt.io/browse/QTBUG-28357
+https://forum.qt.io/topic/53072/qml-with-static-build/4
+BUG https://bugreports.qt.io/browse/QTBUG-72810
 
 # docker
 https://github.com/therecipe/qt/wiki/Deploying-Linux-to-Windows-64-bit-Static
@@ -120,3 +134,11 @@ make -j$(nproc)
 
 C:\Qt\Qt5.14.1\5.14.1\mingw73_64\bin\windeployqt.exe --dir Z:\Qt\Examples\Qt-5.14.1\quickcontrols\extras\build-gallery-Desktop_Qt_5_14_1_MinGW_64_bit-Release --no-translations gallery.exe
 C:\Qt\Qt5.14.1\5.14.1\mingw73_64\bin\windeployqt.exe --no-translations gallery.exe
+
+qtsetup
+# https://github.com/therecipe/qt/issues/991
+'''
+export QT_VERSION=5.14.1
+export QT_API=5.12.0
+https://github.com/therecipe/qt/issues/991
+'''

@@ -54,3 +54,34 @@ GOOS=linux GOARCH=arm go build check_port.go
 
 go mod init
 go mod edit -replace github.com/exitstop/helloworld=../helloworld
+
+# go 1.12
+# https://gophp.io/how-to-install-go-1-12-on-ubuntu-18/
+
+---
+golang уже предварительно установлен на машине. Для примера возьмем go version 1.13.3 но можно взять другую
+
+Установить gwm
+Инструкция взята отсюда https://github.com/moovweb/gvm
+
+source ~/.gvm/scripts/gvm
+source /home/user/.gvm/scripts/gvm
+bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+Соберем toolchain для crosscompile
+cd $(go env GOROOT)/src
+export CC="gcc -Wimplicit-fallthrough=0 -Wno-error=shift-negative-value -Wno-shift-negative-value" && CGO_ENABLED=0 gvm install go1.13.4
+gvm list
+gvm use go1.13.4
+sudo GOROOT_BOOTSTRAP=/home/user/.gvm/gos/go1.13.4 GOOS=linux GOARCH=arm CGO_ENABLED=0 ./make.bash --no-clean
+Команда для компиляции
+GOOS=linux GOARCH=arm go build check_port.go
+Добавить сервис:
+
+cp my_ssh_remote.service /etc/systemd/system/my_ssh_remote.service
+sudo systemctl daemon-reload
+sudo systemctl enable my_ssh_remote
+sudo systemctl start my_ssh_remote
+Подключится к ubuntu aws
+ssh -i id_rsa ubuntu@$host
+
+https://insomnia.rest/
