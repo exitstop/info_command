@@ -25,3 +25,6 @@ sudo apt autoremove
 
 sudo apt-get --purge remove "*cublas*" "cuda*" "nvidia-cuda*"
 sudo apt-get --purge remove "*nvidia*"
+
+# работа с git
+https://github.com/airblade/vim-gitgutter

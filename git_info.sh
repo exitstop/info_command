@@ -79,3 +79,6 @@ git clone --depth 1 # чтобы не скачивать весь репо
 git lfs install # в каждом новом проекте где нужны большие файлы
 git lfs track "*.psd" # помечаем какие файлы нужно конролировать
 git add .gitattributes
+
+# Создать tag
+git tag -a v1.1.002 -m "version 1.1.002"

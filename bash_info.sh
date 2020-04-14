@@ -643,3 +643,7 @@ touch -d "1 hours ago" two
 
 # web camera
 sudo apt-get install cheese
+
+# ssh guard protect
+sudo iptables --list sshguard --line-numbers --numeric
+sudo iptables --delete sshguard
