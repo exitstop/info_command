@@ -82,3 +82,5 @@ git add .gitattributes
 
 # Создать tag
 git tag -a v1.1.002 -m "version 1.1.002"
+# Пушнуть tag
+git push origin v1.1.002

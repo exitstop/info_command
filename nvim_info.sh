@@ -13,7 +13,8 @@ args `ack -l '^(?!.*github).(\bprofile\b)' *`
 # Посмотреть какие файлы находятся в args
 args
 # Заменить во всех файлах находящихся в args
-argdo %s/\%(github.*\)\@<!\<profile\>\>/profile0000/g
+# argdo %s/\%(github.*\)\@<!\<profile\>\>/profile0000/g
+
 # Сохранить все изменения в файлах args
 argdo update
 
@@ -28,3 +29,7 @@ sudo apt-get --purge remove "*nvidia*"
 
 # работа с git
 https://github.com/airblade/vim-gitgutter
+#stage the hunk with 
+<Leader>hs or
+#undo it with 
+<Leader>hu.
