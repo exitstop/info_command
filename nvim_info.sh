@@ -33,3 +33,14 @@ https://github.com/airblade/vim-gitgutter
 <Leader>hs or
 #undo it with 
 <Leader>hu.
+
+# python3 Autocomplete
+https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/
+sudo -H pip3 install pynvim jedi
+Plug 'zchee/deoplete-jedi'
+
+# Прыгать по коду python
+#<leader>d: go to definition
+#K: check documentation of class or method
+#<leader>n: show the usage of a name in current file
+#<leader>r: rename a name

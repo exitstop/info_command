@@ -647,3 +647,12 @@ sudo apt-get install cheese
 # ssh guard protect
 sudo iptables --list sshguard --line-numbers --numeric
 sudo iptables --delete sshguard
+
+sudo vi /etc/lightdm/lightdm.conf.d/20-lubuntu.conf
+```bash
+[SeatDefaults] 
+user-session=LXDE
+autologin-user-timeout=0
+allow-guest=true
+autologin-guest=true
+```

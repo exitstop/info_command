@@ -26,6 +26,12 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 "Python plugin ---------------------------------------------------------
 "Plug 'vim-python/python-syntax'
 "Plug 'davidhalter/jedi-vim'
+" https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/
+Plug 'zchee/deoplete-jedi'
+" pair () "" []
+Plug 'jiangmiao/auto-pairs'
+Plug 'sbdchd/neoformat'
+Plug 'davidhalter/jedi-vim'
 
 " C-Family
 "Plug 'bbchung/Clamp' "not work
@@ -35,11 +41,69 @@ Plug 'tweekmonster/deoplete-clang2'
 " Git
 Plug 'tpope/vim-fugitive'
 "Plug 'airblade/vim-gitgutter'
+"
+" Python
+" Autocomplete
+Plug 'zchee/deoplete-jedi'
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'ncm2/ncm2'
+"Plug 'roxma/nvim-yarp'
+"Plug 'ncm2/ncm2-bufword'
+"Plug 'ncm2/ncm2-path'
+"Plug 'ncm2/ncm2-jedi'
 
 call plug#end()
 
 filetype plugin indent on    " requiredn
 filetype plugin on    " requiredn
+
+" python
+" Enable alignment
+let g:neoformat_basic_format_align = 1
+" Enable tab to spaces conversion
+let g:neoformat_basic_format_retab = 1
+" Enable trimmming of trailing whitespace
+let g:neoformat_basic_format_trim = 1
+" disable autocompletion, cause we use deoplete for completion
+let g:jedi#completions_enabled = 0
+" open the go-to function in split, not another buffer
+let g:jedi#use_splits_not_buffers = "right"
+
+" как прыгать по коду python
+"<leader>d: go to definition
+"K: check documentation of class or method
+"<leader>n: show the usage of a name in current file
+"<leader>r: rename a name
+
+<leader>d: go to definition
+K: check documentation of class or method
+<leader>n: show the usage of a name in current file
+<leader>r: rename a name
+
+"let g:deoplete#enable_at_startup = 1
+
+"" NCM2
+"augroup NCM2
+  "autocmd!
+  "" enable ncm2 for all buffers
+  "autocmd BufEnter * call ncm2#enable_for_buffer()
+  "" :help Ncm2PopupOpen for more information
+  "set completeopt=noinsert,menuone,noselect
+  "" When the <Enter> key is pressed while the popup menu is visible, it only
+  "" hides the menu. Use this mapping to close the menu and also start a new line.
+  "inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+  "" uncomment this block if you use vimtex for LaTex
+  "" autocmd Filetype tex call ncm2#register_source({
+  ""           \ 'name': 'vimtex',
+  ""           \ 'priority': 8,
+  ""           \ 'scope': ['tex'],
+  ""           \ 'mark': 'tex',
+  ""           \ 'word_pattern': '\w+',
+  ""           \ 'complete_pattern': g:vimtex#re#ncm2,
+  ""           \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+  ""           \ })
+"augroup END
+
 set omnifunc=syntaxcomplete#Complete
 let mapleader = ','
 colorscheme slate 
@@ -151,11 +215,11 @@ command! -nargs=0 -bar Qargs execute 'args' QuickfixFilenames()
 
 " populate the argument list with each of the files named in the quickfix list
 function! QuickfixFilenames()
-  let buffer_numbers = {}
-  for quickfix_item in getqflist()
-    let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
-  endfor
-  return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
+    let buffer_numbers = {}
+    for quickfix_item in getqflist()
+        let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
+    endfor
+    return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
 endfunction
 
 "let g:fugitive_git_executable = 'LANG=en_US.UTF-8 git'
