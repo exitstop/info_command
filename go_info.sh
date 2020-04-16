@@ -85,3 +85,6 @@ sudo systemctl start my_ssh_remote
 ssh -i id_rsa ubuntu@$host
 
 https://insomnia.rest/
+
+# gdb for golang https://github.com/derekparker/delve
+
