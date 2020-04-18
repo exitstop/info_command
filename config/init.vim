@@ -29,9 +29,11 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 " https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/
 Plug 'zchee/deoplete-jedi'
 " pair () "" []
-Plug 'jiangmiao/auto-pairs'
+"Plug 'jiangmiao/auto-pairs'
 Plug 'sbdchd/neoformat'
 Plug 'davidhalter/jedi-vim'
+"Plug 'machakann/vim-highlightedyank'
+"Plug 'tmhedberg/SimpylFold'
 
 " C-Family
 "Plug 'bbchung/Clamp' "not work
@@ -51,6 +53,19 @@ Plug 'zchee/deoplete-jedi'
 "Plug 'ncm2/ncm2-bufword'
 "Plug 'ncm2/ncm2-path'
 "Plug 'ncm2/ncm2-jedi'
+"
+" vue js
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}  " Completion as in vscode
+Plug 'editorconfig/editorconfig-vim'                        " Editorconfig file support. see https://editorconfig.org/
+Plug 'herringtondarkholme/yats.vim'
+Plug 'posva/vim-vue'
+Plug 'maxmellon/vim-jsx-pretty'                             " JSX syntax
+Plug 'prettier/vim-prettier'                                " Prettier - automatically format file according to rules/editorconfig
+Plug 'othree/xml.vim'                                       " to work with HTML/XML tags, see https://www.vim.org/scripts/script.php?script_id=1397
+Plug 'othree/html5.vim'                                     " html5
+Plug 'cakebaker/scss-syntax.vim'                            " SCSS syntax
+"Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }} " Markdown preview
+
 
 call plug#end()
 
@@ -71,14 +86,10 @@ let g:jedi#use_splits_not_buffers = "right"
 
 " как прыгать по коду python
 "<leader>d: go to definition
-"K: check documentation of class or method
+"check documentation of class or method
 "<leader>n: show the usage of a name in current file
 "<leader>r: rename a name
-
-<leader>d: go to definition
-K: check documentation of class or method
-<leader>n: show the usage of a name in current file
-<leader>r: rename a name
+hi HighlightedyankRegion cterm=reverse gui=reverse
 
 "let g:deoplete#enable_at_startup = 1
 
@@ -224,3 +235,4 @@ endfunction
 
 "let g:fugitive_git_executable = 'LANG=en_US.UTF-8 git'
 map <F6> :setlocal spell! spelllang=ru_ru<CR>
+
