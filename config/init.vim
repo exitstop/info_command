@@ -64,7 +64,7 @@ Plug 'prettier/vim-prettier'                                " Prettier - automat
 Plug 'othree/xml.vim'                                       " to work with HTML/XML tags, see https://www.vim.org/scripts/script.php?script_id=1397
 Plug 'othree/html5.vim'                                     " html5
 Plug 'cakebaker/scss-syntax.vim'                            " SCSS syntax
-"Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }} " Markdown preview
+Plug 'iamcco/markdown-preview.vim'
 
 
 call plug#end()
@@ -236,3 +236,9 @@ endfunction
 "let g:fugitive_git_executable = 'LANG=en_US.UTF-8 git'
 map <F6> :setlocal spell! spelllang=ru_ru<CR>
 
+
+" markdown
+" do not close the preview tab when switching to other buffers
+let g:mkdp_auto_close = 0
+nnoremap <M-m> :MarkdownPreview<CR>
+let g:mkdp_browser = 'chromium-browser'
