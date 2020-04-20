@@ -35,12 +35,16 @@ https://github.com/airblade/vim-gitgutter
 <Leader>hu.
 
 # python3 Autocomplete
-https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/
+#https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/
 sudo -H pip3 install pynvim jedi
 Plug 'zchee/deoplete-jedi'
+
+# Neovim config for frontend development
+# https://www.bha.ee/neovim-config-for-frontend-development/
 
 # Прыгать по коду python
 #<leader>d: go to definition
 #K: check documentation of class or method
 #<leader>n: show the usage of a name in current file
 #<leader>r: rename a name
+

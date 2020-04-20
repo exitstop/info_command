@@ -16,6 +16,12 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'ctrlpvim/ctrlp.vim'
+" https://github.com/sebdah/vim-delve
+"Plug 'sebdah/vim-delve'
+Plug 'sebdah/vim-delve'
+" DlvAddBreakpoint 
+" DlvDebug
+"Plug 'kien/ctrlp.vim'
 Plug 'ap/vim-css-color'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 

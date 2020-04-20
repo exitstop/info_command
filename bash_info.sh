@@ -653,6 +653,7 @@ sudo vi /etc/lightdm/lightdm.conf.d/20-lubuntu.conf
 [SeatDefaults] 
 user-session=LXDE
 autologin-user-timeout=0
-allow-guest=true
+#allow-guest=true
 autologin-guest=true
+autologin-user=nvidia
 ```
