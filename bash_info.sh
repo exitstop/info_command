@@ -657,3 +657,11 @@ autologin-user-timeout=0
 autologin-guest=true
 autologin-user=nvidia
 ```
+
+# build deb from make install
+https://wiki.debian.org/ru/HowToPackageForDebian
+
+# распаковать deb пакет
+dpkg-deb -R linuxqq_v1.0.2-beta1_i386.deb linuxqq
+# запаковать deb пакет
+dpkg-deb -b linuxqq/ linuxqq.deb
