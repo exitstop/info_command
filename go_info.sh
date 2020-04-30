@@ -88,3 +88,9 @@ https://insomnia.rest/
 
 # gdb for golang https://github.com/derekparker/delve
 
+
+# bug arm
+type Payload struct
+`/home/user/go/pkg/mod/github.com/googollee/go-engine.io@v1.4.3-0.20200220091802-9b2ab104b298/payload/payload.go`
+https://github.com/googollee/go-socket.io/issues/236
+https://github.com/googollee/go-engine.io/pull/86/commits/3d906e43a03fd355d6f60c6ce103acf7cafd0159#diff-fff052930dc3dc5b0639def327826223
