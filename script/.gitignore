@@ -1,7 +1,8 @@
 # ignore all
-*
-!*/
-*release/
+/*
+!src/
+!cert/
+!script/
 
 # C/C++ source files
 !*.c
@@ -18,3 +19,10 @@
 !.clang-format
 !.gitignore
 !*.cmake
+!*.go
+!*.gohtml
+!*.js
+!*.vue
+!*.css
+!*.mod
+!*.json
