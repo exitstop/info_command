@@ -169,3 +169,8 @@ source ~/.vimrc
 # past from register a or b
 "ap
 "bp
+
+# vim delete spaces at end of line
+```bash
+%s/\s\+$//e
+```
