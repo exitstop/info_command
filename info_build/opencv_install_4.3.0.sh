@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# arm
+#sudo add-apt-repository ppa:deadsnakes/ppa
+#sudo apt-get update
+#sudo apt-get install python3.5
+
+sudo apt install build-essential cmake unzip
+
 ARCH_BIN=6.2
 INSTALL_DIR=/usr/local
 #OPENCV_SOURCE_DIR=${HOME}

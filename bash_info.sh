@@ -665,3 +665,6 @@ https://wiki.debian.org/ru/HowToPackageForDebian
 dpkg-deb -R linuxqq_v1.0.2-beta1_i386.deb linuxqq
 # запаковать deb пакет
 dpkg-deb -b linuxqq/ linuxqq.deb
+
+# удалить dpkg
+sudo dpkg -r $(dpkg-deb -f foo.deb Package)
