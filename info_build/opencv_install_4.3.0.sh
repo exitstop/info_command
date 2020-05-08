@@ -4,6 +4,12 @@
 #sudo add-apt-repository ppa:deadsnakes/ppa
 #sudo apt-get update
 #sudo apt-get install python3.5
+#sudo apt-get install build-essential
+#sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+#sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+
+# Иснтрукция по насйтрока Cmake
+# https://docs.opencv.org/3.4/d7/d9f/tutorial_linux_install.html
 
 sudo apt install build-essential cmake unzip
 
@@ -37,6 +43,12 @@ time cmake -D CMAKE_BUILD_TYPE=RELEASE \
     -D WITH_OPENCL=ON \
     -D CPACK_BINARY_DEB=ON \
     -D OPENCV_GENERATE_PKGCONFIG=ON \
+    -D PYTHON3_EXECUTABLE=/usr/bin/python3.5 \
+    -D PYTHON_INCLUDE_DIR=/usr/include/python3.5 \
+    -D PYTHON_INCLUDE_DIR2=/usr/include/aarch64-linux-gnu/python3.5m/ \
+    -D PYTHON_LIBRARY=/usr/lib/aarch64-linux-gnu/libpython3.5m.so \
+    -D PYTHON2_NUMPY_INCLUDE_DIRS=/usr/lib/python2.7/dist-packages/numpy/core/include/numpy \
+    -D PYTHON3_NUMPY_INCLUDE_DIRS=/usr/lib/python3/dist-packages/numpy/core/include/ \
     -D BUILD_PERF_TESTS=OFF \
     -D BUILD_opencv_python2=0 \
     -D BUILD_opencv_python3=1 \
