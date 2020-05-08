@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# CPackConfig.cmake
+# CPackSourceConfig.cmake
+# SET(CPACK_PACKAGE_VERSION "4.3.0")
+
+exit
+
 dpkg-deb -R OpenCV-unknown-aarch64-dev.deb OpenCV-unknown-aarch64-dev
 dpkg-deb -R OpenCV-unknown-aarch64-libs.deb OpenCV-unknown-aarch64-libs
 dpkg-deb -R OpenCV-unknown-aarch64-licenses.deb OpenCV-unknown-aarch64-licenses

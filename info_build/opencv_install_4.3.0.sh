@@ -1,19 +1,26 @@
 #!/bin/bash
 
 # arm
-#sudo add-apt-repository ppa:deadsnakes/ppa
-#sudo apt-get update
-#sudo apt-get install python3.5
-#sudo apt-get install build-essential
-#sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
-#sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
+sudo apt install python3.5
+wget https://bootstrap.pypa.io/get-pip.py
+python3.5 get-pip.py
+sudo -H pip3.5 install numpy
 
-# Иснтрукция по насйтрока Cmake
+sudo apt install build-essential
+sudo apt install libgtk2.0-dev libgtk-3-dev ffmpeg
+sudo apt install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
+sudo apt install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+sudo apt install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+sudo apt install libavcodec-dev libavformat-dev libavutil-dev libswscale-dev libavresample-dev
+
+# Иснтрукция по настройкe Cmake
 # https://docs.opencv.org/3.4/d7/d9f/tutorial_linux_install.html
 
 sudo apt install build-essential cmake unzip
 
-ARCH_BIN=6.2
+ARCH_BIN=4.3.0
 INSTALL_DIR=/usr/local
 #OPENCV_SOURCE_DIR=${HOME}
 OPENCV_SOURCE_DIR=`pwd`
