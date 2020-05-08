@@ -5,7 +5,7 @@ sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt update
 sudo apt install python3.5
 wget https://bootstrap.pypa.io/get-pip.py
-python3.5 get-pip.py
+sudo python3.5 get-pip.py
 sudo -H pip3.5 install numpy
 
 sudo apt install build-essential
