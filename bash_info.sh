@@ -668,3 +668,7 @@ dpkg-deb -b linuxqq/ linuxqq.deb
 
 # удалить dpkg
 sudo dpkg -r $(dpkg-deb -f foo.deb Package)
+
+# загрузить cpu на 100%
+sudo apt-get install stress-ng
+stress-ng --cpu 6 --cpu-method matrixprod  --metrics-brief --perf -t 60Osudo apt-get install stress-ng
