@@ -4,22 +4,46 @@
 # CPackSourceConfig.cmake
 # SET(CPACK_PACKAGE_VERSION "4.3.0")
 
-exit
+NAME=OpenCV-unknown-aarch64
+VERSION=4.3.0
+NAME_NEW=OpenCV-$VERSION-aarch64
 
-dpkg-deb -R OpenCV-unknown-aarch64-dev.deb OpenCV-unknown-aarch64-dev
-dpkg-deb -R OpenCV-unknown-aarch64-libs.deb OpenCV-unknown-aarch64-libs
-dpkg-deb -R OpenCV-unknown-aarch64-licenses.deb OpenCV-unknown-aarch64-licenses
-dpkg-deb -R OpenCV-unknown-aarch64-main.deb OpenCV-unknown-aarch64-main
-dpkg-deb -R OpenCV-unknown-aarch64-python.deb OpenCV-unknown-aarch64-python
-dpkg-deb -R OpenCV-unknown-aarch64-scripts.deb OpenCV-unknown-aarch64-scripts
+rm -rf $NAME-dev
+rm -rf $NAME-libs
+rm -rf $NAME-licenses
+rm -rf $NAME-main
+rm -rf $NAME-python
+rm -rf $NAME-scripts
 
-a="Version: unknown"&&b="4.3.0"&& \
-                grep -l "$a" `find -name "control"` | xargs sed -i "s#"$a"#"$b"#g"
+dpkg-deb -R $NAME-dev.deb $NAME-dev
+dpkg-deb -R $NAME-libs.deb $NAME-libs
+dpkg-deb -R $NAME-licenses.deb $NAME-licenses
+dpkg-deb -R $NAME-main.deb $NAME-main
+dpkg-deb -R $NAME-python.deb $NAME-python
+dpkg-deb -R $NAME-scripts.deb $NAME-scripts
 
-dpkg-deb -b OpenCV-unknown-aarch64-dev OpenCV-unknown-aarch64-dev.deb
-dpkg-deb -b OpenCV-unknown-aarch64-libs OpenCV-unknown-aarch64-libs.deb
-dpkg-deb -b OpenCV-unknown-aarch64-licenses OpenCV-unknown-aarch64-licenses.deb
-dpkg-deb -b OpenCV-unknown-aarch64-main OpenCV-unknown-aarch64-main.deb
-dpkg-deb -b OpenCV-unknown-aarch64-python  OpenCV-unknown-aarch64-python.deb
-dpkg-deb -b OpenCV-unknown-aarch64-scripts OpenCV-unknown-aarch64-scripts.deb
 
+a="Version: unknown"&&b="Version: $VERSION"&& \
+                grep -l "$a" `find -name "control"` | xargs sed -i "s#$a#$b#g"
+
+
+dpkg-deb -b $NAME-dev $NAME_NEW-dev.deb
+dpkg-deb -b $NAME-libs $NAME_NEW-libs.deb
+dpkg-deb -b $NAME-licenses $NAME_NEW-licenses.deb
+dpkg-deb -b $NAME-main $NAME_NEW-main.deb
+dpkg-deb -b $NAME-python  $NAME_NEW-python.deb
+dpkg-deb -b $NAME-scripts $NAME_NEW-scripts.deb
+
+rm -rf $NAME-dev
+rm -rf $NAME-libs
+rm -rf $NAME-licenses
+rm -rf $NAME-main
+rm -rf $NAME-python
+rm -rf $NAME-scripts
+
+rm $NAME-dev.deb
+rm $NAME-libs.deb
+rm $NAME-licenses.deb
+rm $NAME-main.deb
+rm $NAME-python.deb
+rm $NAME-scripts.deb
