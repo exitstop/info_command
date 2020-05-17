@@ -6,6 +6,8 @@ call plug#begin()
 Plug 'roxma/nvim-completion-manager'
 Plug 'SirVer/ultisnips' "Golang
 Plug 'honza/vim-snippets'
+// сделать :GoUpdateBinaries если перестал работь
+// :GoDef :GoBuildTags "" gd = :GoDef
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } "Golang
 Plug 'mattn/emmet-vim' "Html completer
 Plug 'scrooloose/nerdcommenter'
@@ -16,12 +18,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'ctrlpvim/ctrlp.vim'
-" https://github.com/sebdah/vim-delve
-"Plug 'sebdah/vim-delve'
-Plug 'sebdah/vim-delve'
-" DlvAddBreakpoint 
-" DlvDebug
-"Plug 'kien/ctrlp.vim'
 Plug 'ap/vim-css-color'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 
@@ -33,7 +29,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 "Plug 'vim-python/python-syntax'
 "Plug 'davidhalter/jedi-vim'
 " https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/
-Plug 'zchee/deoplete-jedi'
+"Plug 'zchee/deoplete-jedi'
 " pair () "" []
 "Plug 'jiangmiao/auto-pairs'
 Plug 'sbdchd/neoformat'
@@ -70,13 +66,15 @@ Plug 'prettier/vim-prettier'                                " Prettier - automat
 Plug 'othree/xml.vim'                                       " to work with HTML/XML tags, see https://www.vim.org/scripts/script.php?script_id=1397
 Plug 'othree/html5.vim'                                     " html5
 Plug 'cakebaker/scss-syntax.vim'                            " SCSS syntax
-Plug 'iamcco/markdown-preview.vim'
+Plug 'iamcco/markdown-preview.vim' " :MarkdownPreview
 
 
 call plug#end()
 
 filetype plugin indent on    " requiredn
 filetype plugin on    " requiredn
+
+"https://www.bha.ee/neovim-config-for-frontend-development/
 
 " python
 " Enable alignment
@@ -89,6 +87,9 @@ let g:neoformat_basic_format_trim = 1
 let g:jedi#completions_enabled = 0
 " open the go-to function in split, not another buffer
 let g:jedi#use_splits_not_buffers = "right"
+let g:ycm_filepath_blacklist = {
+      \ 'css': 0,
+      \}
 
 " как прыгать по коду python
 "<leader>d: go to definition
