@@ -207,3 +207,6 @@ int main()
 
 # Или просто передать параметр шаблона
 call_with<int>(print, 42);
+
+# dead lock дед лок game игра
+http://deadlockempire.github.io/
