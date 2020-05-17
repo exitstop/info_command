@@ -6,8 +6,8 @@ call plug#begin()
 Plug 'roxma/nvim-completion-manager'
 Plug 'SirVer/ultisnips' "Golang
 Plug 'honza/vim-snippets'
-// сделать :GoUpdateBinaries если перестал работь
-// :GoDef :GoBuildTags "" gd = :GoDef
+"сделать :GoUpdateBinaries если перестал работь
+":GoDef :GoBuildTags "" gd = :GoDef
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } "Golang
 Plug 'mattn/emmet-vim' "Html completer
 Plug 'scrooloose/nerdcommenter'
@@ -20,6 +20,8 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ap/vim-css-color'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
+
+
 
 " Github Gist
 "Plug 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
@@ -74,7 +76,11 @@ call plug#end()
 filetype plugin indent on    " requiredn
 filetype plugin on    " requiredn
 
+
 "https://www.bha.ee/neovim-config-for-frontend-development/
+
+" Go go golang
+let g:go_def_mode = 'godef'
 
 " python
 " Enable alignment
