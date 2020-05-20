@@ -22,7 +22,7 @@ where
 CUDA_VISIBLE_DEVICES=0,1
 set CUDA_VISIBLE_DEVICES=-1
 
-kernel <\<<40, 32>>> # gridDim.x = 40 blockDim.x = 32  ( blockIdx.x = "текущий блок" threadIdx.x =  "текущий тред" )
+`kernel <\<<40, 32>>> # gridDim.x = 40 blockDim.x = 32  ( blockIdx.x = "текущий блок" threadIdx.x =  "текущий тред" )`
 
 # табличка соответствия драйверов и версии CUDA
 # https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html
@@ -36,3 +36,6 @@ nvidia-persistenced --user user
 
 # автоматически поставить точку останова на вызов cuda ядра
 set cuda break_on_launch
+
+# Посмотреть gpu
+sudo lshw -C display

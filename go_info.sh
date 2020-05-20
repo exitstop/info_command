@@ -97,3 +97,12 @@ https://github.com/googollee/go-engine.io/pull/86/commits/3d906e43a03fd355d6f60c
 
 # logrotate logrus
 https://github.com/natefinch/lumberjack
+
+# live download updater terminal
+https://github.com/gosuri/uilive
+
+# скрывать окна golang
+https://github.com/inconshreveable/go-update/blob/master/hide_windows.go
+
+# go update
+https://github.com/inconshreveable/go-update/blob/master/doc.go
