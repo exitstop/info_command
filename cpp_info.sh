@@ -184,6 +184,7 @@ setlocale(LC_CTYPE,"");
 
 # Трюк Передать лямду как параметр
 
+```cpp
 #include <functional>
 #include <iostream>
 
@@ -198,18 +199,33 @@ void call_with(typename type_identity<std::function<void(T)>>::type f, T val)
 {
 	f(val);
 }
+```
 
+```cpp
 int main()
 {
 	auto print = [] (int x) { std::cout << x; };
 	call_with(print, 42);
 }
+```
 
 # Или просто передать параметр шаблона
+```cpp
 call_with<int>(print, 42);
+```
 
 # dead lock дед лок game игра
 http://deadlockempire.github.io/
 
 # log
 https://github.com/gabime/spdlog
+
+```cpp
+std::vector<char> buf(80);
+for (int i = 0; i < 80; i++) {
+    buf.push_back(static_cast<char>(i & 0xff));
+}
+spdlog::get("cpp")->info("hello");
+spdlog::get("cpp")->info("Binary example: {}", spdlog::to_hex(buf));
+spdlog::get("cpp")->info("Another binary example:{:n}", spdlog::to_hex(std::begin(buf), std::begin(buf) + 10));
+```
