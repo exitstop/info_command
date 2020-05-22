@@ -210,3 +210,6 @@ call_with<int>(print, 42);
 
 # dead lock дед лок game игра
 http://deadlockempire.github.io/
+
+# log
+https://github.com/gabime/spdlog

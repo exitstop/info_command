@@ -73,6 +73,6 @@ wavemon
 
 # hange траблы с ssh
 # добавить в /etc/ssh/sshd_config
-IPQoS 0x00
+IPQoS 0x00 ## ssh speed
 # и перезагрузить ssh service
 sudo service ssh restart

@@ -106,3 +106,9 @@ https://github.com/inconshreveable/go-update/blob/master/hide_windows.go
 
 # go update
 https://github.com/inconshreveable/go-update/blob/master/doc.go
+
+# golang lint chech error
+https://www.youtube.com/watch?v=VlnxsfSs1ms
+go get -u github.com/golangci/golangci-lint
+https://golangci-lint.run/
+golangci-lint run
