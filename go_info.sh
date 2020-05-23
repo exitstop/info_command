@@ -118,7 +118,6 @@ golangci-lint run
 # change const in golang from build -ldflags
 go build -ldflags='-X main.version="$TAG"' -o hello-updater src/hello-updater/main.go
 
-# profile go
+# profile go https://www.youtube.com/watch?v=a8oEETIRpCk
 import _ "net/http/pprof"
-
 go tool pprof -seconds 5 http://server/debug/pprof/profile
