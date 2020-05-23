@@ -106,9 +106,19 @@ https://github.com/inconshreveable/go-update/blob/master/hide_windows.go
 
 # go update
 https://github.com/inconshreveable/go-update/blob/master/doc.go
+# go update from github
+github.com/rhysd/go-github-selfupdate/selfupdate
 
 # golang lint chech error
 https://www.youtube.com/watch?v=VlnxsfSs1ms
 go get -u github.com/golangci/golangci-lint
 https://golangci-lint.run/
 golangci-lint run
+
+# change const in golang from build -ldflags
+go build -ldflags='-X main.version="$TAG"' -o hello-updater src/hello-updater/main.go
+
+# profile go
+import _ "net/http/pprof"
+
+go tool pprof -seconds 5 http://server/debug/pprof/profile
