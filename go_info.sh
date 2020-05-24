@@ -114,6 +114,7 @@ https://www.youtube.com/watch?v=VlnxsfSs1ms
 go get -u github.com/golangci/golangci-lint
 https://golangci-lint.run/
 golangci-lint run
+golangci-lint run --enable-all
 
 # change const in golang from build -ldflags
 go build -ldflags='-X main.version="$TAG"' -o hello-updater src/hello-updater/main.go
