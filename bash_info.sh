@@ -671,8 +671,12 @@ sudo dpkg -r $(dpkg-deb -f foo.deb Package)
 
 # загрузить cpu на 100%
 sudo apt-get install stress-ng
-stress-ng --cpu 6 --cpu-method matrixprod  --metrics-brief --perf -t 60Osudo apt-get install stress-ng
+stress-ng --cpu 6 --cpu-method matrixprod  --metrics-brief --perf -t 60O
+sudo apt-get install stress-ng
 
 # binary diff path бинарый дифф
 http://www.daemonology.net/bsdiff/
 sudo apt install bsdiff
+
+# scrot скриншон screenshot
+scrot MyScreenshot.png
