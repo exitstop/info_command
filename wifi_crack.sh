@@ -32,3 +32,4 @@ pyrit benchmark
 
 password: Unz7ipd*
 
+# hotspot раздать wifi https://github.com/google/link022

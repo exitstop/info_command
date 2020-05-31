@@ -122,3 +122,7 @@ go build -ldflags='-X main.version="$TAG"' -o hello-updater src/hello-updater/ma
 # profile go https://www.youtube.com/watch?v=a8oEETIRpCk
 import _ "net/http/pprof"
 go tool pprof -seconds 5 http://server/debug/pprof/profile
+
+# уменьшить размер бинарника upx
+upx new last
+bincmp -no-symtab old new
