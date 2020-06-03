@@ -680,3 +680,6 @@ sudo apt install bsdiff
 
 # scrot скриншон screenshot
 scrot MyScreenshot.png
+
+# uname -m x86_64 aarch64
+uname -m
