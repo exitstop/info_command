@@ -7,17 +7,27 @@
 #
 # Script to build all of the required software for the Arm NN examples
 #
+#sudo dd if=/dev/zero of=/swapfile bs=64M count=16
+#sudo mkswap /swapfile
+#sudo swapon /swapfile
+
+#That should let you compile your code. But make sure you then revert the swapon after compilation, with these:
+
+#sudo swapoff /swapfile
+#sudo rm /swapfile
+
+#http://tessy.org/wiki/index.php?Firefly%20RK3399
 #git clone https://github.com/rockchip-linux/libmali
 #cd libmali
 #cmake .
 #make
-#sudo make instal 
-#git clone git@github.com:rockchip-linux/libmali.git
+#sudo make install
 #sudo rm /usr/lib/aarch64-linux-gnu/libOpenCL.so
 #sudo cp -p libmali/lib/aarch64-linux-gnu/libmali-midgard-t86x-r13p0-wayland.so /usr/lib/aarch64-linux-gnu/
 #cd /usr/lib/aarch64-linux-gnu/
 #sudo ln -s libmali-midgard-t86x-r13p0.so libOpenCL.so
 #sudo apt install opencl-headers ocl-icd-opencl-dev
+
 
 function IsPackageInstalled() {
     dpkg -s "$1" > /dev/null 2>&1
@@ -74,7 +84,7 @@ while [ -d armnn-devenv/pkg ]; do
     read -p "Do you wish to remove the existing armnn-devenv build environment? " yn
     case $yn in
         [Yy]*) rm -rf armnn-devenv/pkg armnn-devenv/ComputeLibrary armnn-devenv/armnn armnn-devenv/gator ; break ;;
-        [Nn]*) echo "Exiting " ; exit;;
+        [Nn]*) echo "Exiting " ; echo ;;
         *) echo "Please answer yes or no.";;
     esac
 done
@@ -109,6 +119,7 @@ MEM=`awk '/MemTotal/ {print $2}' /proc/meminfo`
 
 # check for Mali device node
 [ -z "$OpenCL" ] && [ -c /dev/mali? ] && OpenCL=1 || OpenCL=0 
+#[ -z "$OpenCL" ] && [ -c /dev/mali? ] && echo 1 || echo 0
 
 # check for Armv8 or Armv7
 # don't override command line and default to aarch64
@@ -255,6 +266,7 @@ $CrossOptions  \
 -DCMAKE_BUILD_TYPE=Debug \
 -DBUILD_SAMPLE_APP=ON \
 -DARMNNREF=ON \
+-DBUILD_UNIT_TESTS=OFF\
 -DSAMPLE_DYNAMIC_BACKEND=ON
 
 if [ $Arch = "armv7l" ] || [ $MEM -lt 2000000 ]; then
