@@ -7,6 +7,17 @@
 #
 # Script to build all of the required software for the Arm NN examples
 #
+#git clone https://github.com/rockchip-linux/libmali
+#cd libmali
+#cmake .
+#make
+#sudo make instal 
+#git clone git@github.com:rockchip-linux/libmali.git
+#sudo rm /usr/lib/aarch64-linux-gnu/libOpenCL.so
+#sudo cp -p libmali/lib/aarch64-linux-gnu/libmali-midgard-t86x-r13p0-wayland.so /usr/lib/aarch64-linux-gnu/
+#cd /usr/lib/aarch64-linux-gnu/
+#sudo ln -s libmali-midgard-t86x-r13p0.so libOpenCL.so
+#sudo apt install opencl-headers ocl-icd-opencl-dev
 
 function IsPackageInstalled() {
     dpkg -s "$1" > /dev/null 2>&1
@@ -241,7 +252,10 @@ $CrossOptions  \
 -DPROTOBUF_LIBRARY_DEBUG=$HOME/armnn-devenv/pkg/install/lib/libprotobuf.so \
 -DPROTOBUF_LIBRARY_RELEASE=$HOME/armnn-devenv/pkg/install/lib/libprotobuf.so \
 -DCMAKE_CXX_FLAGS="-Wno-error=sign-conversion" \
--DCMAKE_BUILD_TYPE=Debug
+-DCMAKE_BUILD_TYPE=Debug \
+-DBUILD_SAMPLE_APP=ON \
+-DARMNNREF=ON \
+-DSAMPLE_DYNAMIC_BACKEND=ON
 
 if [ $Arch = "armv7l" ] || [ $MEM -lt 2000000 ]; then
     # avoid running out of memory on smaller systems 
