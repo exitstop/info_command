@@ -48,7 +48,9 @@ git clone --recursive https://github.com/apache/incubator-mxnet.git
 cd nnvm/tvm
 mkdir build
 cd build
-cmake .. -DUSE_OPENCL=ON -DUSE_LLVM=ON
+#cmake .. -DUSE_OPENCL=ON -DUSE_LLVM=ON
+# Проблемки с LLVM не получилось решить поэтому отключил
+cmake .. -DUSE_OPENCL=ON -DUSE_LLVM=OFF
 make -j$(nproc)
 #make USE_OPENCL=1  LLVM_CONFIG=llvm-config-4.0 -j$(nproc)
 if [ $? -eq 0 ]; then echo -e "[\e[32mOK\e[0m] make tvm"; \

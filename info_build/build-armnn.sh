@@ -23,9 +23,9 @@
 #make
 #sudo make install
 #sudo rm /usr/lib/aarch64-linux-gnu/libOpenCL.so
-#sudo cp -p libmali/lib/aarch64-linux-gnu/libmali-midgard-t86x-r13p0-wayland.so /usr/lib/aarch64-linux-gnu/
+#sudo cp -p libmali/lib/aarch64-linux-gnu/libmali-midgard-t86x-r14p0* /usr/lib/aarch64-linux-gnu/
 #cd /usr/lib/aarch64-linux-gnu/
-#sudo ln -s libmali-midgard-t86x-r13p0.so libOpenCL.so
+#sudo ln -s libmali-midgard-t86x-r14p0.so libOpenCL.so
 #sudo apt install opencl-headers ocl-icd-opencl-dev
 
 
