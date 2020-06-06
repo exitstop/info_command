@@ -65,7 +65,9 @@ cd ../../nnvm
 make -j$(nproc)
 if [ $? -eq 0 ]; then echo -e "[\e[32mOK\e[0m] make nnvm"; \
 else echo -e "[\e[31mERROR\e[0m] make nnvm" >&2; exit 1; fi
-cd ..
+cd python/
+python3.6 setup.py install --user
+cd ../..
 
 
 # build arm compute library
