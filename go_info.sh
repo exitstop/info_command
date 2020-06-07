@@ -109,12 +109,17 @@ https://github.com/inconshreveable/go-update/blob/master/doc.go
 # go update from github
 github.com/rhysd/go-github-selfupdate/selfupdate
 
+# Установка lint
+https://golangci-lint.run/usage/install/
+golangci-lint --version
+curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.27.
 # golang lint chech error
 https://www.youtube.com/watch?v=VlnxsfSs1ms
 go get -u github.com/golangci/golangci-lint
 https://golangci-lint.run/
-golangci-lint run
-golangci-lint run --enable-all
+golangci-lint run --fix
+golangci-lint run --fix --enable-all
+golangci-lint run --fix --enable-all  -new
 
 # change const in golang from build -ldflags
 go build -ldflags='-X main.version="$TAG"' -o hello-updater src/hello-updater/main.go

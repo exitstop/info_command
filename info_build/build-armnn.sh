@@ -27,7 +27,14 @@
 #cd /usr/lib/aarch64-linux-gnu/
 #sudo ln -s libmali-midgard-t86x-r14p0.so libOpenCL.so
 #sudo apt install opencl-headers ocl-icd-opencl-dev
-
+#
+#/etc/udev/rules.d/99-mali.rules
+#KERNEL=="mali0",SUBSYSTEM=="misc",MODE="0777"
+#sudo vim /etc/udev/rules.d/99-mali.rules
+#sudo reboot
+#
+# еще ссылки http://tessy.org/wiki/index.php?Arm#o82da810
+# opencv http://tessy.org/wiki/index.php?Firefly%20RK3399%A4%C7OpenCV3.4.0%A4%F2%A5%D3%A5%EB%A5%C9
 
 function IsPackageInstalled() {
     dpkg -s "$1" > /dev/null 2>&1
