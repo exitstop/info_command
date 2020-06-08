@@ -33,3 +33,15 @@ pyrit benchmark
 password: Unz7ipd*
 
 # hotspot раздать wifi https://github.com/google/link022
+# https://askubuntu.com/questions/490950/create-wifi-hotspot-on-ubuntu
+nmcli device wifi hotspot con-name my-hotspot ssid my-hotspot band bg password jesuisunmotdepasse
+nmcli connection down my-hotspot
+
+# Create a connection
+nmcli connection add type wifi ifname '*' con-name my-hotspot autoconnect no ssid my-local-hotspot
+# Put it in Access Point
+nmcli connection modify my-hotspot 802-11-wireless.mode ap 802-11-wireless.band bg ipv4.method shared
+# Set a WPA password (you should change it)
+nmcli connection modify my-hotspot 802-11-wireless-security.key-mgmt wpa-psk 802-11-wireless-security.psk myhardpassword
+# Enable it (run this command each time you want to enable the access point)
+nmcli connection up my-hotspot
