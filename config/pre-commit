@@ -6,7 +6,7 @@
 # it wants to stop the commit.
 #
 # To enable this hook, rename this file to "pre-commit".
-golangci-lint run --enable-all -new
+golangci-lint run -new
 if [ $? -eq 0 ]; then echo -e "[\e[32mOK\e[0m] OK lint "; \
 else echo -e "[\e[31mERROR\e[0m] failt lint " >&2; exit 1; fi
 
