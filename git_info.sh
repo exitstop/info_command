@@ -97,6 +97,8 @@ git push origin v1.1.002
 
 # delete big file from all history
 https://rtyley.github.io/bfg-repo-cleaner/
+java -jar bfg.jar --strip-blobs-bigger-than 100M .
+git reflog expire --expire=now --all && git gc --prune=now --aggressive
 
 git fetch origin
 git checkout master

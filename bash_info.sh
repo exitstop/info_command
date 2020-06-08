@@ -683,3 +683,6 @@ scrot MyScreenshot.png
 
 # uname -m x86_64 aarch64
 uname -m
+
+# найти файлы по типу и показать их размер и суммировать
+find . -type f -name '*.json' -exec du -ch {} +
