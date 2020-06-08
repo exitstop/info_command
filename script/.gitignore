@@ -1,29 +1,91 @@
-# ignore all
-
-/*
-!src/
-!cert/
-!script/
-
 # C/C++ source files
-!*.c
-!*.cc
-!*.cpp
-!*.h
-!*.hpp
-!*.sh
-!*.bat
+
+# Сперва
+# Запрещаем вообще все
+*
+
+# Затем
+# Разрешаем мониторить эти папки
+!*cmd/
+!*cmd/apiserver/
+!*script/
+!*script/deb
+!*migrations/
+!*internal/
+!*internal/app/
+!*internal/app/api/
+!*internal/app/apiserver/
+!*internal/app/grpcserver/
+!*internal/app/lib/
+!*internal/app/model/
+!*internal/app/store/
+!*internal/app/store/sqlstore/
+!*configs/
+# Эту папку не нужно отслеживать
+#!*storage/
+#!*storage/photos/
+#!*storage/photos/default/
+
+#!storage/photos/default/avatar.png
+#!storage/photos/default/test.ini
+
+# И в этих папках брать только эти форматы
 !*.ini
-!*.pro
-!*.ui
-!CMakeLists.txt
-!.clang-format
+!.golangci.yml
 !.gitignore
-!*.cmake
+!.gitattributes
+!.gitmodules
+!go.mod
+!*.sh
 !*.go
 !*.gohtml
 !*.js
-!*.vue
 !*.css
 !*.mod
 !*.json
+!*.conf
+!*.toml
+!*.vue
+!*.js
+!*.scss
+!*.sql
+# Использутей для этих типв файлов git lfs
+#!*.png
+
+# Запрещаем конкретные файлы
+mix-manifest.json
+
+# Запретили все что в папке
+#storage/photos/default/*
+configs/*
+# Кроме этого
+# Но хранить в гите картинки категорически нельзя,
+# нужно использовать git lfs
+# https://git-lfs.github.com/
+#!storage/photos/default/test.ini
+#!storage/photos/default/avatar.png
+#!configs/*.example.ini
+!configs/*.example.toml
+
+# Запрещаем папки
+public
+
+#temp_dist_pack/
+#configs/terminalgo.toml
+#external_googletest
+build
+node_modules
+storage
+public
+#./public/css/app.css
+#./public/js/app.js
+#./public/mix-manifest.json
+#./start
+#./start_arm
+#./start.exe
+#./start_terminal
+#start
+#!scripts/
+#./configs/terminalgo.toml
+#public/css/app.css
+#public/js/app.js

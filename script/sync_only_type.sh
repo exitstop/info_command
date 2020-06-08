@@ -34,6 +34,7 @@ rsync -avC --delete \
     --include='*.go' \
     --include='*.vue' \
     --include='*.js' \
+    --include='*.md' \
     --exclude='*' \
     --prune-empty-dirs \
     terminalgo_crash/ terminalgo_little/
