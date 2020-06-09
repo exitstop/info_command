@@ -129,6 +129,13 @@ issues:
     - linters:
         - gocritic
       text: "unnecessaryDefer:"
+    - linters:
+        - stylecheck
+      text: "ST1003:"
+
+    #- linters:
+        #- golint
+      #text: "var `"
 
 run:
   skip-dirs:
