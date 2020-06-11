@@ -44,12 +44,12 @@ function IsPackageInstalled() {
     dpkg -s "$1" > /dev/null 2>&1
 }
 
-usage() {
-    echo "Usage: $0 [-a <armv7a|arm64-v8a>] [-o <0|1> ]" 1>&2
+usage() { 
+    echo "Usage: $0 [-a <armv7a|arm64-v8a>] [-o <0|1> ]" 1>&2 
     echo "   default arch is arm64-v8a " 1>&2
     echo "   -o option will enable or disable OpenCL when cross compiling" 1>&2
     echo "      native compile will enable OpenCL if /dev/mali is found and -o is not used" 1>&2
-    exit 1
+    exit 1 
 }
 
 # Simple command line arguments
@@ -83,13 +83,13 @@ exec 2>&1
 echo "Building Arm NN in $HOME/armnn-devenv"
 
 # Start from home directory
-cd $HOME
+cd $HOME 
 
 # if nothing, found make a new diectory
 [ -d armnn-devenv ] || mkdir armnn-devenv
 
 
-# check for previous installation, HiKey 960 is done as a mount point so don't
+# check for previous installation, HiKey 960 is done as a mount point so don't 
 # delete all from top level, drop down 1 level
 while [ -d armnn-devenv/pkg ]; do
     read -p "Do you wish to remove the existing armnn-devenv build environment? " yn
@@ -100,9 +100,9 @@ while [ -d armnn-devenv/pkg ]; do
     esac
 done
 
-cd armnn-devenv
+cd armnn-devenv 
 
-# packages to install
+# packages to install 
 packages="git wget curl autoconf autogen automake libtool scons make cmake gcc g++ unzip bzip2"
 for package in $packages; do
     if ! IsPackageInstalled $package; then
@@ -129,7 +129,7 @@ NPROC=`grep -c ^processor /proc/cpuinfo`
 MEM=`awk '/MemTotal/ {print $2}' /proc/meminfo`
 
 # check for Mali device node
-[ -z "$OpenCL" ] && [ -c /dev/mali? ] && OpenCL=1 || OpenCL=0
+[ -z "$OpenCL" ] && [ -c /dev/mali? ] && OpenCL=1 || OpenCL=0 
 #[ -z "$OpenCL" ] && [ -c /dev/mali? ] && echo 1 || echo 0
 
 # check for Armv8 or Armv7
@@ -147,7 +147,7 @@ fi
 
 # Boost
 
-mkdir -p pkg/boost
+mkdir -p pkg/boost 
 echo "building boost"
 pushd pkg/boost
 
@@ -163,7 +163,7 @@ if [ $CrossCompile = "True" ]; then
     Toolset="toolset=gcc-arm"
 fi
 
-./b2 install link=static cxxflags=-fPIC $Toolset --with-filesystem --with-test --with-log --with-program_options --prefix=$HOME/armnn-devenv/pkg/boost/install
+./b2 install link=static cxxflags=-fPIC $Toolset --with-filesystem --with-test --with-log --with-program_options --prefix=$HOME/armnn-devenv/pkg/boost/install 
 
 popd
 
@@ -177,7 +177,7 @@ else
 fi
 cp gator/daemon/gatord $HOME/
 
-# Arm Compute Library
+# Arm Compute Library 
 git clone https://github.com/ARM-software/ComputeLibrary.git
 
 echo "building Arm CL"
@@ -188,8 +188,8 @@ VER=`gcc -dumpversion | awk 'BEGIN{FS="."} {print $1}'`
 echo "gcc version is $VER"
 
 scons arch=$Arch neon=1 opencl=$OpenCL embed_kernels=$OpenCL Werror=0 \
-    extra_cxx_flags="-fPIC" benchmark_tests=0 examples=0 validation_tests=0 \
-    os=linux gator_dir="$HOME/armnn-devenv/gator" -j $NPROC
+  extra_cxx_flags="-fPIC" benchmark_tests=0 examples=0 validation_tests=0 \
+  os=linux gator_dir="$HOME/armnn-devenv/gator" -j $NPROC
 
 popd
 
@@ -225,11 +225,11 @@ mkdir build ; cd build
 if [ $CrossCompile = "True" ]; then
     ../configure --prefix=$HOME/armnn-devenv/pkg/install --host=arm-linux CC=$PREFIX\gcc CXX=$PREFIX\g++ --with-protoc=$HOME/armnn-devenv/pkg/host/bin/protoc
 else
-    ../configure --prefix=$HOME/armnn-devenv/pkg/install
+    ../configure --prefix=$HOME/armnn-devenv/pkg/install 
 fi
 
 make -j $NPROC
-make install
+make install 
 
 popd
 
@@ -247,36 +247,35 @@ fi
 popd
 
 
-wget -O flatbuffers-1.10.0.tar.gz https://github.com/google/flatbuffers/archive/v1.10.0.tar.gz
+wget -O flatbuffers-1.10.0.tar.gz https://github.com/google/flatbuffers/archive/v1.10.0.tar.gz    
 tar xf flatbuffers-1.10.0.tar.gz
 
-pushd flatbuffers-1.10.0
+pushd flatbuffers-1.10.0         
 rm -f CMakeCache.txt
 rm -rf build
 mkdir build
 cd build
-cmake .. \
-    -DFLATBUFFERS_BUILD_FLATC=1 \
-    -DCMAKE_INSTALL_PREFIX:PATH=$BASEDIR/flatbuffers
-
+cmake .. \         
+-DFLATBUFFERS_BUILD_FLATC=1 \               
+-DCMAKE_INSTALL_PREFIX:PATH=$BASEDIR/flatbuffers
 make all install
 popd
 
 pushd $BASEDIR
 mkdir tflite
 cd tflite
-cp $BASEDIR/tensorflow/tensorflow/lite/schema/schema.fbs .
+cp $BASEDIR/tensorflow/tensorflow/lite/schema/schema.fbs .       
 $BASEDIR/flatbuffers-1.10.0/build/flatc -c --gen-object-api --reflect-types --reflect-names schema.fbs
 popd
 
-git clone https://github.com/onnx/onnx.git
+git clone https://github.com/onnx/onnx.git 
 
 pushd onnx
 git fetch https://github.com/onnx/onnx.git f612532843bd8e24efeab2815e45b436479cc9ab && git checkout FETCH_HEAD
 
 cd $BASEDIR/onnx
 
-export LD_LIBRARY_PATH=$BASEDIR/install/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$BASEDIR/install/lib:$LD_LIBRARY_PATH        
 $BASEDIR/install/bin/protoc onnx/onnx.proto --proto_path=. --proto_path=$BASEDIR/install/include --cpp_out $BASEDIR/onnx
 #$BASEDIR/onnx     AssertZeroExitCode "Building Onnx failed"
 
@@ -289,44 +288,48 @@ mkdir build ; cd build
 CrossOptions=""
 if [ $CrossCompile = "True" ]; then
     CrossOptions="-DCMAKE_LINKER=aarch64-linux-gnu-ld \
-        -DCMAKE_C_COMPILER=aarch64-linux-gnu-gcc \
-        -DCMAKE_CXX_COMPILER=aarch64-linux-gnu-g++ "
+                  -DCMAKE_C_COMPILER=aarch64-linux-gnu-gcc \
+                  -DCMAKE_CXX_COMPILER=aarch64-linux-gnu-g++ "
 fi
 
+$CrossOptions  \
 cmake ..  \
-    $CrossOptions  \
-    -DCMAKE_C_COMPILER_FLAGS=-fPIC \
-    -DARMCOMPUTE_ROOT=$HOME/armnn-devenv/ComputeLibrary/ \
-    -DARMCOMPUTE_BUILD_DIR=$HOME/armnn-devenv/ComputeLibrary/build \
-    -DBOOST_ROOT=$HOME/armnn-devenv/pkg/boost/install/ \
-    -DTF_GENERATED_SOURCES=$HOME/armnn-devenv/pkg/tensorflow-protobuf/  \
-    -DBUILD_TF_PARSER=1 \
-    -DPROTOBUF_ROOT=$HOME/armnn-devenv/pkg/install   \
-    -DPROTOBUF_INCLUDE_DIRS=$HOME/armnn-devenv/pkg/install/include   \
-    -DPROFILING_BACKEND_STREAMLINE=1 \
-    -DGATOR_ROOT=$HOME/armnn-devenv/gator \
-    -DARMCOMPUTENEON=1  \
-    -DARMCOMPUTECL=$OpenCL \
-    -DPROTOBUF_LIBRARY_DEBUG=$HOME/armnn-devenv/pkg/install/lib/libprotobuf.so \
-    -DPROTOBUF_LIBRARY_RELEASE=$HOME/armnn-devenv/pkg/install/lib/libprotobuf.so \
-    -DCMAKE_CXX_FLAGS="-Wno-error=sign-conversion" \
-    -DCMAKE_BUILD_TYPE=Debug \
-    -DBUILD_SAMPLE_APP=ON \
-    -DARMNNREF=ON \
-    -DBUILD_UNIT_TESTS=OFF\
-    -DSAMPLE_DYNAMIC_BACKEND=ON \
-    -DBUILD_TF_LITE_PARSER=ON \
-    -DTF_LITE_GENERATED_PATH=$HOME/armnn-devenv/pkg/tflite \
-    -DTF_LITE_SCHEMA_INCLUDE_PATH=$HOME/armnn-devenv/pkg/tflite \
-    -DBUILD_ONNX_PARSER=1 \
-    -DONNX_GENERATED_SOURCES=$BASEDIR/onnx \
-    -DFLATBUFFERS_ROOT=$BASEDIR/flatbuffers \
-    -DFLATBUFFERS_INCLUDE_PATH=/home/nvidia/armnn-devenv/pkg/flatbuffers/include \
-    -DFLATC_DIR=$BASEDIR/flatbuffers-1.10.0/build
+-DCMAKE_C_COMPILER_FLAGS=-fPIC \
+-DARMCOMPUTE_ROOT=$HOME/armnn-devenv/ComputeLibrary/ \
+-DARMCOMPUTE_BUILD_DIR=$HOME/armnn-devenv/ComputeLibrary/build \
+-DBOOST_ROOT=$HOME/armnn-devenv/pkg/boost/install/ \
+-DTF_GENERATED_SOURCES=$HOME/armnn-devenv/pkg/tensorflow-protobuf/  \
+-DBUILD_TF_PARSER=1 \
+-DPROTOBUF_ROOT=$HOME/armnn-devenv/pkg/install   \
+-DPROTOBUF_INCLUDE_DIRS=$HOME/armnn-devenv/pkg/install/include   \
+-DPROFILING_BACKEND_STREAMLINE=1 \
+-DGATOR_ROOT=$HOME/armnn-devenv/gator \
+-DARMCOMPUTENEON=1  \
+-DARMCOMPUTECL=$OpenCL \
+-DPROTOBUF_LIBRARY_DEBUG=$HOME/armnn-devenv/pkg/install/lib/libprotobuf.so \
+-DPROTOBUF_LIBRARY_RELEASE=$HOME/armnn-devenv/pkg/install/lib/libprotobuf.so \
+-DCMAKE_CXX_FLAGS="-Wno-error=sign-conversion" \
+-DCMAKE_BUILD_TYPE=Debug \
+-DBUILD_SAMPLE_APP=ON \
+-DARMNNREF=ON \
+-DBUILD_UNIT_TESTS=OFF\
+-DSAMPLE_DYNAMIC_BACKEND=ON \
+-DBUILD_TF_LITE_PARSER=ON \
+-DTF_LITE_GENERATED_PATH=$HOME/armnn-devenv/pkg/tflite \
+-DTF_LITE_SCHEMA_INCLUDE_PATH=$HOME/armnn-devenv/pkg/tflite \
+-DBUILD_ONNX_PARSER=1 \
+-DONNX_GENERATED_SOURCES=$BASEDIR/onnx \
+-DBUILD_PYTHON_SRC=1 \
+-DBUILD_PYTHON_WHL=1 \
+-DFLATBUFFERS_ROOT=$BASEDIR/flatbuffers \
+-DFLATBUFFERS_INCLUDE_PATH=/home/nvidia/armnn-devenv/pkg/flatbuffers/include \
+-DSWIG_EXECUTABLE=$HOME/armnn-devenv/swig/build/bin/swig \
+-DSWIG_DIR=$HOME/armnn-devenv/swig/build/bin \
+-DFLATC_DIR=$BASEDIR/flatbuffers-1.10.0/build
 
 
 if [ $Arch = "armv7l" ] || [ $MEM -lt 2000000 ]; then
-    # avoid running out of memory on smaller systems
+    # avoid running out of memory on smaller systems 
     make
 else
     make -j $NPROC
