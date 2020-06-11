@@ -292,8 +292,8 @@ if [ $CrossCompile = "True" ]; then
                   -DCMAKE_CXX_COMPILER=aarch64-linux-gnu-g++ "
 fi
 
-$CrossOptions  \
 cmake ..  \
+$CrossOptions  \
 -DCMAKE_C_COMPILER_FLAGS=-fPIC \
 -DARMCOMPUTE_ROOT=$HOME/armnn-devenv/ComputeLibrary/ \
 -DARMCOMPUTE_BUILD_DIR=$HOME/armnn-devenv/ComputeLibrary/build \
