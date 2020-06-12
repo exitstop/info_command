@@ -120,44 +120,28 @@ setopt pushdignoredups
 ## This reverts the +/- operators.
 setopt pushdminus
 
-alias clip="head -c -1|xclip -selection clipboard"
+alias clip="head -c -1|xclip -i -selection clipboard"
 
-#export GOPATH="$HOME/go_projects"
 
-export CUDA_HOME="/usr/local/cuda-10.1"
-export CUDA_NVCC_EXECUTABLE="$CUDA_HOME/bin/nvcc"
-export CUDA_TOOLKIT_ROOT_DIR="$CUDA_HOME"
-export CUDA_INCLUDE_DIRS="$CUDA_HOME/include"
-export LD_LIBRARY_PATH="$CUDA_HOME/lib64:${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
-export PATH="$CUDA_HOME/bin:$CUDA_HOME/include:$PATH:/usr/local/go/bin:$GOPATH/bin"
-export PATH="/home/user/Documents/local/soft/mxe/usr/bin:$PATH"
-#CUDA_INCLUDE_DIRS 
-#CUDA_CUDART_LIBRARY
-#CUDA_TOOLKIT_ROOT_DIR
-export GOBIN="$GOPATH/bin"
-export GOROOT=/usr/local/go
-export GOPATH=/home/user/Documents/save/sources/golang
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
-export PATH="$HOME/.linuxbrew/bin:$PATH"
-export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
-
-export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
-export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/tools
 
 # emcc
 
-export PATH="/home/user/Documents/save/sources/cpp/emsdk/fastcomp/emscripten:$PATH"
-export PATH="/home/user/Documents/save/sources/cpp/emsdk/node/12.9.1_64bit/bin:$PATH"
+#export PATH="/home/user/Documents/save/sources/cpp/emsdk/fastcomp/emscripten:$PATH"
+#export PATH="/home/user/Documents/save/sources/cpp/emsdk/node/12.9.1_64bit/bin:$PATH"
 
-export EMSDK="/home/user/Documents/save/sources/cpp/emsdk"
-export EM_CONFIG="/home/user/.emscripten"
-export EMSDK_NODE="/home/user/Documents/save/sources/cpp/emsdk/node/12.9.1_64bit/bin/node"
-
-alias clip='xclip -selection clipboard'
+#export EMSDK="/home/user/Documents/save/sources/cpp/emsdk"
+#export EM_CONFIG="/home/user/.emscripten"
+#export EMSDK_NODE="/home/user/Documents/save/sources/cpp/emsdk/node/12.9.1_64bit/bin/node"
+alias clip='xclip -selection clipboard' 
 alias clr='colout -t cmake | colout -t g++'
+alias rd='readlink -f'
+alias cdinfo="cd /home/user/Documents/save/sources/info_command"
+alias cdremote="cd /home/user/Documents/save/sources/golang/src/github.com/remote_ssh_v2/client_daemon_port_master"
+alias cdtx2="cd /home/user/Documents/save/sources/ovision/jetson_tx2/secureboot-tegra/orbitty/Linux_for_Tegra"
+
+
+
 # conda
 #export PATH=~/anaconda3/bin:$PATH
 
@@ -183,3 +167,77 @@ alias clr='colout -t cmake | colout -t g++'
 # <<< conda initialize <<<
 
 #export GO111MODULE=on
+#export TRT_RELEASE=/home/user/Documents/save/sources/cpp/tensorrt_test/TensorRT-5.0.2.6
+#export TRT_SOURCE=/home/user/Documents/save/sources/cpp/tensorrt_test/TensorRT
+export TRT_SOURCE=/home/user/Documents/save/sources/cpp/tensorrt_test/TensorRT_OSS_5.1.5.0
+export TRT_RELEASE=/home/user/Documents/save/sources/cpp/tensorrt_test/TensorRT-5.1.5.0
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$TRT_RELEASE/lib
+export CPATH=$CPATH:/usr/local/cuda/include
+export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/cuda/lib64
+
+export CROSS_COMPILE_ARM=/home/user/Documents/save/sources/ovision/jetson_tx2/cross_compiler/gcc-linaro-7.3.1-2018.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
+export CROSS_COMPILE_AARCH64=/home/user/Documents/save/sources/ovision/jetson_tx2/cross_compiler/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-
+
+QT_DIR=~/Qt/5.13.0/gcc_64/bin
+QT_VERSION=5.13.0
+QT_API=5.13.0
+
+source ~/.gvm/scripts/gvm
+
+[[ -s "/home/user/.gvm/scripts/gvm" ]] && source "/home/user/.gvm/scripts/gvm"
+
+## >>> conda initialize >>>
+## !! Contents within this block are managed by 'conda init' !!
+#__conda_setup="$('/home/user/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+    #eval "$__conda_setup"
+#else
+    #if [ -f "/home/user/anaconda3/etc/profile.d/conda.sh" ]; then
+        #. "/home/user/anaconda3/etc/profile.d/conda.sh"
+    #else
+        #export PATH="/home/user/anaconda3/bin:$PATH"
+    #fi
+#fi
+#unset __conda_setup
+## <<< conda initialize <<<
+#
+export CUDA_HOME="/usr/local/cuda"
+export CUDA_NVCC_EXECUTABLE="$CUDA_HOME/bin/nvcc"
+export CUDA_TOOLKIT_ROOT_DIR="$CUDA_HOME"
+export CUDA_INCLUDE_DIRS="$CUDA_HOME/include"
+export LD_LIBRARY_PATH="$CUDA_HOME/lib64:${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
+export PATH="$CUDA_HOME/bin:$CUDA_HOME/include:$PATH:"
+export PATH="/home/user/Documents/local/soft/mxe/usr/bin:$PATH"
+export CUDA_PATH=/usr/local/cuda
+#CUDA_INCLUDE_DIRS 
+#CUDA_CUDART_LIBRARY
+#CUDA_TOOLKIT_ROOT_DIR
+#export PATH="$PATH:/usr/lib/go-1.12/bin"
+
+export PATH="$HOME/.linuxbrew/bin:$PATH"
+export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+
+export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+
+export GOPATH=$HOME/Documents/save/sources/golang
+export GOBIN=$GOPATH/bin
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+export GO111MODULE=on
+export GOPROXY=direct
+export GOSUMDB=off
+export GOPRIVATE="gitlab.com/FaceChainTeam"
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh  # This loads NVM
+
+#[[ $TERM != "screen" ]] && exec tmux
+#
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+fi
