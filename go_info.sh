@@ -131,3 +131,6 @@ go tool pprof -seconds 5 http://server/debug/pprof/profile
 # уменьшить размер бинарника upx
 upx new last
 bincmp -no-symtab old new
+
+# sudo: furious: command not found
+sudo env "PATH=$PATH" furious
