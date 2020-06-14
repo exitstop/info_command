@@ -134,3 +134,9 @@ bincmp -no-symtab old new
 
 # sudo: furious: command not found
 sudo env "PATH=$PATH" furious
+
+# gogrep
+# https://github.com/mvdan/gogrep
+ # gogrep -r -x 'if $x != nil { $*_ }' cmd/apiserver/main.go
+ find -name '*.go' -exec gogrep -x 'if $x != nil { $*_ }' {} \;
+gogrep -x '$b.($x)' ./...
