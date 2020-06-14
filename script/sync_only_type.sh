@@ -2,7 +2,16 @@
 
 rm -rf terminalgo_little/
 
-rsync -avC --delete \
+var=
+
+if [ -n "$1" ]; then
+  echo "You supplied the first parameter!"
+  var=--delete
+else
+  echo "First parameter not supplied."
+fi
+
+rsync -avC $var \
     --exclude='node_modules/*' \
     --exclude='storage' \
     --exclude='public' \
@@ -37,6 +46,6 @@ rsync -avC --delete \
     --include='*.md' \
     --exclude='*' \
     --prune-empty-dirs \
-    terminalgo_crash/ terminalgo_little/
+    terminalgo/ terminalgo_refresh/
 
-du -h --max-depth=0 terminalgo_little
+du -h --max-depth=0 terminalgo_refresh
