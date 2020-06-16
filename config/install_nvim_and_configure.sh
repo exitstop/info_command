@@ -17,8 +17,14 @@ sudo mv nvim.appimage $CUSTOM_NVIM_PATH
 mkdir -p ~/.config/nvim
 wget https://raw.githubusercontent.com/exitstop/info_command/master/config/init.vim -O ~/.config/nvim/init.vim
 
-# node install
-curl -sL install-node.now.sh/lts | sudo bash
+sudo apt-get install -y build-essential libssl-dev
+curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.35.3/install.sh -o install_nvm.sh
+sudo chmod +x install_nvm.sh
+./install_nvm.sh
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm install v12.18.0
 
 set -u
 sudo update-alternatives --install /usr/bin/ex ex "${CUSTOM_NVIM_PATH}" 110
