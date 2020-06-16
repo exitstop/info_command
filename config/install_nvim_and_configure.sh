@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo apt update
-sudo apt install -y python-neovim
+sudo apt install -y python-neovim curl git
 sudo apt install -y python3-neovim
 
 CUSTOM_NVIM_PATH=/usr/bin/nvim
