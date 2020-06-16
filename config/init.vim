@@ -20,7 +20,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ap/vim-css-color'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
-
+Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 
 
 " Github Gist
