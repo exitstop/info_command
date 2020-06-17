@@ -141,3 +141,6 @@ sudo env "PATH=$PATH" furious
  find -name '*.go' -exec gogrep -x 'if $x != nil { $*_ }' {} \;
 gogrep -x '$b.($x)' ./...
 gogrep -x 'if $x := $_.Create($_).Error; $x != nil { $*_ }' ./...
+
+go test -cpuprofile=cpu.out
+go tool pprof cpu.out
