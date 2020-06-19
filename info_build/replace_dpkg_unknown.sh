@@ -19,8 +19,8 @@ dpkg-deb -R $NAME-dev.deb $NAME-dev
 dpkg-deb -R $NAME-libs.deb $NAME-libs
 dpkg-deb -R $NAME-licenses.deb $NAME-licenses
 dpkg-deb -R $NAME-main.deb $NAME-main
-dpkg-deb -R $NAME-python.deb $NAME-python
 dpkg-deb -R $NAME-scripts.deb $NAME-scripts
+dpkg-deb -R $NAME-python.deb $NAME-python
 
 
 a="Version: unknown"&&b="Version: $VERSION"&& \
@@ -31,8 +31,8 @@ dpkg-deb -b $NAME-dev $NAME_NEW-dev.deb
 dpkg-deb -b $NAME-libs $NAME_NEW-libs.deb
 dpkg-deb -b $NAME-licenses $NAME_NEW-licenses.deb
 dpkg-deb -b $NAME-main $NAME_NEW-main.deb
-dpkg-deb -b $NAME-python  $NAME_NEW-python.deb
 dpkg-deb -b $NAME-scripts $NAME_NEW-scripts.deb
+dpkg-deb -b $NAME-python  $NAME_NEW-python.deb
 
 rm -rf $NAME-dev
 rm -rf $NAME-libs
