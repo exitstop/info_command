@@ -15,12 +15,10 @@ sudo apt install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
 sudo apt install git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
 sudo apt install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev
 sudo apt install libavcodec-dev libavformat-dev libavutil-dev libswscale-dev libavresample-dev
-sudo 
 
 # Иснтрукция по настройкe Cmake
 # https://docs.opencv.org/3.4/d7/d9f/tutorial_linux_install.html
 
-ARCH_BIN=4.3.0
 INSTALL_DIR=/usr/local
 #OPENCV_SOURCE_DIR=${HOME}
 OPENCV_SOURCE_DIR=`pwd`

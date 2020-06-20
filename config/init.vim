@@ -21,6 +21,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ap/vim-css-color'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+Plug 'ludovicchabant/vim-gutentags'
 
 
 " Github Gist
@@ -59,6 +60,7 @@ Plug 'zchee/deoplete-jedi'
 "Plug 'ncm2/ncm2-jedi'
 "
 " vue js
+" Проблемы на aarch64 поэтому убрал по умолчанию
 "Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}  " Completion as in vscode
 Plug 'editorconfig/editorconfig-vim'                        " Editorconfig file support. see https://editorconfig.org/
 Plug 'herringtondarkholme/yats.vim'
@@ -255,3 +257,6 @@ map <F6> :setlocal spell! spelllang=ru_ru<CR>
 let g:mkdp_auto_close = 0
 nnoremap <M-m> :MarkdownPreview<CR>
 let g:mkdp_browser = 'chromium-browser'
+
+set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+set grepformat=%f:%l:%c:%m

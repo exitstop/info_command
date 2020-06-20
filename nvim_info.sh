@@ -48,3 +48,23 @@ Plug 'zchee/deoplete-jedi'
 #<leader>n: show the usage of a name in current file
 #<leader>r: rename a name
 
+
+# рефакторинг
+# https://jdhao.github.io/2020/03/14/nvim_search_replace_multiple_file/
+
+# ищем
+:vimgrep /Neovim/gj **/*
+# потом открываем
+:copen
+:cn -- Go to the next location in the list
+:cp -- Go to the previous location
+:ccl -- Close the quickfix window
+
+# меняем grep на ripgrep
+#set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+#set grepformat=%f:%l:%c:%m
+
+# Ищем
+grep Neovim
+# Меняем
+cfdo %s/Neovim/Nvim/ge | update
