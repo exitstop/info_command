@@ -144,3 +144,5 @@ gogrep -x 'if $x := $_.Create($_).Error; $x != nil { $*_ }' ./...
 
 go test -cpuprofile=cpu.out
 go tool pprof cpu.out
+
+https://flaviocopes.com/golang-profiling/

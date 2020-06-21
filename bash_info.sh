@@ -313,6 +313,10 @@ sudo umount /mnt/folder
 
 echo "password" | sudo sshfs -o password_stdin -o allow_other -o "StrictHostKeyChecking=no" root@192.168.0.150:/home/user/ /mnt/sshmount
 
+# vim ssh sshfs
+mkdir ~/remoteserv
+sshfs -o idmap=user <username>@<ipaddress>:/remotepath ~/remoteserv
+
 systemctl list-units --type=service
 systemctl list-units --type=target
 
