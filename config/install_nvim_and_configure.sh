@@ -16,7 +16,10 @@ sudo chmod u+x nvim.appimage
 sudo mv nvim.appimage $CUSTOM_NVIM_PATH
 mkdir -p ~/.config/nvim
 wget https://raw.githubusercontent.com/exitstop/info_command/master/config/init.vim -O ~/.config/nvim/init.vim
-
+wget https://raw.githubusercontent.com/exitstop/info_command/master/config/.ycm_extra_conf.py -O ~/.config/nvim/.ycm_extra_conf.py
+mkdir -p ~/.config/nvim/UltiSnips/
+wget https://raw.githubusercontent.com/exitstop/info_command/master/config/cpp.snippets -O ~/.config/nvim/UltiSnips/cpp.snippets
+ 
 sudo apt-get install -y build-essential libssl-dev
 curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.35.3/install.sh -o install_nvm.sh
 sudo chmod +x install_nvm.sh

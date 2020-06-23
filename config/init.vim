@@ -1,8 +1,21 @@
 set nocompatible
 filetype off
 
+" (_)_ __ (_) |___   _(_)_ __ ___
+" | | '_ \| | __\ \ / / | '_ ` _ \
+" | | | | | | |_ \ V /| | | | | | |
+" |_|_| |_|_|\__(_)_/ |_|_| |_| |_|
+
+" ==================== VIM PLUG ==================
+
 call plug#begin()
-"Golang Plugin ---------------------------------------------------------
+" Tag
+"Plug 'lyuts/vim-rtags'
+Plug 'marxin/neo-rtags'
+Plug 'ludovicchabant/vim-gutentags'
+" -------------------------------------------------------------------------
+" -------------------------------- Golang Plugin --------------------------
+" -------------------------------------------------------------------------
 Plug 'roxma/nvim-completion-manager'
 Plug 'SirVer/ultisnips' "Golang
 Plug 'honza/vim-snippets'
@@ -10,18 +23,21 @@ Plug 'honza/vim-snippets'
 ":GoDef :GoBuildTags "" gd = :GoDef
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } "Golang
 Plug 'mattn/emmet-vim' "Html completer
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+ 
+" nerd commenter
 Plug 'scrooloose/nerdcommenter'
+
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'sCRooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ap/vim-css-color'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
-Plug 'ludovicchabant/vim-gutentags'
 
 
 " Github Gist
@@ -40,11 +56,43 @@ Plug 'davidhalter/jedi-vim'
 "Plug 'machakann/vim-highlightedyank'
 "Plug 'tmhedberg/SimpylFold'
 
-" C-Family
+" -------------------------------------------------------------------------
+" -------------------------------- C/C++ ----------------------------------
+" -------------------------------------------------------------------------
 "Plug 'bbchung/Clamp' "not work
-"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
-Plug 'tweekmonster/deoplete-clang2'
+" autocompletion (also a linter - diagnostics)
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+"
+" ale - linter / autocompletion / formatter
+Plug 'w0rp/ale'
 
+" auto formatter
+Plug 'rhysd/vim-clang-format'
+
+"Plug 'tweekmonster/deoplete-clang2'
+
+" surround vim
+Plug 'tpope/vim-surround'
+ 
+" enhanced highlight
+Plug 'octol/vim-cpp-enhanced-highlight'
+ 
+" ctags indexer
+Plug 'vim-scripts/DfrankUtil'
+Plug 'vim-scripts/vimprj'
+Plug 'vim-scripts/indexer.tar.gz'
+ 
+" UltiSnips
+Plug 'SirVer/ultisnips'
+ 
+" easy motion
+Plug 'easymotion/vim-easymotion'
+ 
+" A - for switching between source and header files
+Plug 'vim-scripts/a.vim'
+ 
+
+ 
 " Git
 Plug 'tpope/vim-fugitive'
 "Plug 'airblade/vim-gitgutter'
@@ -59,9 +107,10 @@ Plug 'zchee/deoplete-jedi'
 "Plug 'ncm2/ncm2-path'
 "Plug 'ncm2/ncm2-jedi'
 "
-" vue js
-" Проблемы на aarch64 поэтому убрал по умолчанию
-"Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}  " Completion as in vscode
+" -------------------------------------------------------------------------
+" -------------------------------- vue js ----------------------------------
+" -------------------------------------------------------------------------
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}  " Completion as in vscode
 Plug 'editorconfig/editorconfig-vim'                        " Editorconfig file support. see https://editorconfig.org/
 Plug 'herringtondarkholme/yats.vim'
 Plug 'posva/vim-vue'
@@ -96,8 +145,8 @@ let g:jedi#completions_enabled = 0
 " open the go-to function in split, not another buffer
 let g:jedi#use_splits_not_buffers = "right"
 let g:ycm_filepath_blacklist = {
-      \ 'css': 0,
-      \}
+            \ 'css': 0,
+            \}
 
 " как прыгать по коду python
 "<leader>d: go to definition
@@ -110,29 +159,29 @@ hi HighlightedyankRegion cterm=reverse gui=reverse
 
 "" NCM2
 "augroup NCM2
-  "autocmd!
-  "" enable ncm2 for all buffers
-  "autocmd BufEnter * call ncm2#enable_for_buffer()
-  "" :help Ncm2PopupOpen for more information
-  "set completeopt=noinsert,menuone,noselect
-  "" When the <Enter> key is pressed while the popup menu is visible, it only
-  "" hides the menu. Use this mapping to close the menu and also start a new line.
-  "inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
-  "" uncomment this block if you use vimtex for LaTex
-  "" autocmd Filetype tex call ncm2#register_source({
-  ""           \ 'name': 'vimtex',
-  ""           \ 'priority': 8,
-  ""           \ 'scope': ['tex'],
-  ""           \ 'mark': 'tex',
-  ""           \ 'word_pattern': '\w+',
-  ""           \ 'complete_pattern': g:vimtex#re#ncm2,
-  ""           \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-  ""           \ })
+"autocmd!
+"" enable ncm2 for all buffers
+"autocmd BufEnter * call ncm2#enable_for_buffer()
+"" :help Ncm2PopupOpen for more information
+"set completeopt=noinsert,menuone,noselect
+"" When the <Enter> key is pressed while the popup menu is visible, it only
+"" hides the menu. Use this mapping to close the menu and also start a new line.
+"inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+"" uncomment this block if you use vimtex for LaTex
+"" autocmd Filetype tex call ncm2#register_source({
+""           \ 'name': 'vimtex',
+""           \ 'priority': 8,
+""           \ 'scope': ['tex'],
+""           \ 'mark': 'tex',
+""           \ 'word_pattern': '\w+',
+""           \ 'complete_pattern': g:vimtex#re#ncm2,
+""           \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+""           \ })
 "augroup END
 
 set omnifunc=syntaxcomplete#Complete
 let mapleader = ','
-colorscheme slate 
+colorscheme slate
 
 set tabstop=4
 set shiftwidth=4
@@ -151,7 +200,6 @@ if &term == "sCReen"
     set t_Co=256
 endif
 
-map <C-m> :NERDTreeToggle<CR>
 set pastetoggle=<F2>
 set hlsearch
 set nocompatible
@@ -251,7 +299,6 @@ endfunction
 "let g:fugitive_git_executable = 'LANG=en_US.UTF-8 git'
 map <F6> :setlocal spell! spelllang=ru_ru<CR>
 
-
 " markdown
 " do not close the preview tab when switching to other buffers
 let g:mkdp_auto_close = 0
@@ -260,3 +307,169 @@ let g:mkdp_browser = 'chromium-browser'
 
 set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 set grepformat=%f:%l:%c:%m
+
+" ================ Suggestions ======================
+
+" show wild menu (menu of suggestions) when typing commands in command mode
+set path+=**
+set wildmenu
+set showcmd
+
+
+" ================ File management ==================
+
+" Turn off swap files
+set noswapfile
+set nobackup
+set nowb
+
+" TODO: improve behaviour
+" reload files changed outside vim
+set autoread
+" Triger `autoread` when files changes on disk
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+" Notification after file change
+autocmd FileChangedShellPost *
+            \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
+
+" ================ Folds ============================
+
+set foldmethod=indent   "fold based on indent
+set foldnestmax=3       "deepest fold is 3 levels
+set nofoldenable        "dont fold by default
+
+
+" fast scrolling
+nnoremap K 10j
+nnoremap L 10k
+vnoremap K 10j
+vnoremap L 10k
+
+" stay in normal mode after inserting a new line
+noremap o o <Esc>
+noremap O O <Esc>
+ 
+
+"" mapping that opens .vimrc in a split for quick editing
+"nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+"" mapping that sources the vimrc in the current file
+"nnoremap <leader>sv :source $MYVIMRC<CR>
+
+
+" ================ Searching ========================
+
+" Ignorecase when searching
+set ignorecase
+
+" incremental search - Vim starts searching when we start typing
+set incsearch
+
+" When searching try to be smart about cases
+set smartcase
+
+" Highlight search results
+set hlsearch
+
+
+" ================ Performance ======================
+
+" fix slow scrolling that occurs when using mouse and relative numbers
+set lazyredraw
+" vim timeout (forgot why I need this or if I do at all)
+set ttyfast
+set ttimeoutlen=10
+
+set completeopt-=preview
+
+" ################ NERDTree #########################
+
+" shift+i (show hidden files)
+
+" ctrl+n open/closes nerd tree
+noremap <C-h> :NERDTreeToggle<CR>
+
+" quit nerd tree on file open
+let g:NERDTreeQuitOnOpen = 1
+
+" show nerd tree always on the right instead on the left
+let g:NERDTreeWinPos = "left"
+
+
+
+" ################ UltiSnips ########################
+
+" make a dir Ultisnips in: '~/.config/nvim/UltiSnips/'
+" and put your snippets in there
+" eg. cpp.snippets
+
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:UltiSnipsUsePythonVersion = 3
+
+
+" ################ YouCompleteMe ####################
+
+let g:ycm_show_diagnostics_ui = 0
+
+let g:ycm_key_list_select_completion = ['<C-k>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-l>', '<Up>']
+let g:SuperTabDefaulCompletionType = '<C-k>'
+
+" disable annoying ycm confirmation
+let g:ycm_confirm_extra_conf = 0
+
+" add path to ycm_extra_conf.py (you could also copy the file in the home folder)
+" delete '...98' argument from .ycm_extra_conf.py, otherwise syntastic does
+" not work properly
+let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
+
+" autocompletion
+let g:ale_completion_enabled = 1
+
+let g:ale_cpp_clang_executable = 'clang++-5.0'
+
+" linter
+let g:ale_linters = {
+            \   'cpp': ['clang']
+            \}
+let g:ale_cpp_clang_options = '-std=c++1z -O0 -Wextra -Wall -Wpedantic -I /usr/include/eigen3'
+"let g:ale_cpp_clangtidy_options = '-checks="cppcoreguidelines-*"'
+"let g:ale_cpp_cpplint_options = ''
+"let g:ale_cpp_gcc_options = ''
+"let g:ale_cpp_clangcheck_options = ''
+"let g:ale_cpp_cppcheck_options = ''
+
+" ################ Clang format #####################
+
+" Clang format - auto formatting
+
+let g:clang_format#command = 'clang-format-3.8'
+let g:clang_format#style_options = {
+            \ "BreakBeforeBraces" : "Attach",
+            \ "UseTab" : "Never",
+            \ "IndentWidth" : 4,
+            \ "ColumnLimit" : 100,
+            \ "AccessModifierOffset" : -4,
+            \ "AllowShortIfStatementsOnASingleLine" : "false",
+            \ "AllowShortFunctionsOnASingleLine" : "false",
+            \}
+
+" shortcuts for autoformatting the entire file: Ctrl+j
+inoremap <C-j> <Esc>:ClangFormat<CR>a
+nnoremap <C-j> <Esc>:ClangFormat<CR>
+
+" ################ A ################################
+
+" A - switching between files
+
+" header / source
+nnoremap <F4> :A<CR>
+inoremap <F4> <ESC>:A<CR>a
+
+" file under cursor
+nnoremap <F2> :IH<CR>
+inoremap <F2> <ESC>:IH<CR>
+
+let g:indexer_disableCtagsWarning = 1
