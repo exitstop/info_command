@@ -10,12 +10,13 @@ filetype off
 
 call plug#begin()
 " Tag
-"Plug 'lyuts/vim-rtags'
+Plug 'lyuts/vim-rtags'
 Plug 'marxin/neo-rtags'
 Plug 'ludovicchabant/vim-gutentags'
 " -------------------------------------------------------------------------
 " -------------------------------- Golang Plugin --------------------------
 " -------------------------------------------------------------------------
+Plug 'buoto/gotests-vim'
 Plug 'roxma/nvim-completion-manager'
 Plug 'SirVer/ultisnips' "Golang
 Plug 'honza/vim-snippets'
@@ -38,6 +39,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ap/vim-css-color'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+"Plug 'ludovicchabant/vim-gutentags'
+
 
 
 " Github Gist
@@ -213,7 +216,7 @@ autocmd BufRead,BufNewFile *.gohtml set filetype=html
 set clipboard=unnamedplus
 
 let g:vim_tags_use_language_field = 1
-let g:vim_tags_directories = [".git", ".hg", ".svn", ".bzr", "_darcs", "CVS"]
+let g:vim_tags_directories = [".git", ".hg", ".svn", ".bzr", "_darcs", "CVS", "html"]
 let g:vim_tags_ignore_files = ['.gitignore', '.svnignore', '.cvsignore']
 let g:vim_tags_extension = '.tags'
 let g:vim_tags_cache_dir = expand($HOME)
@@ -347,8 +350,8 @@ vnoremap K 10j
 vnoremap L 10k
 
 " stay in normal mode after inserting a new line
-noremap o o <Esc>
-noremap O O <Esc>
+"noremap o o <Esc>
+"noremap O O <Esc>
  
 
 "" mapping that opens .vimrc in a split for quick editing

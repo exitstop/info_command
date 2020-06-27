@@ -146,3 +146,6 @@ go test -cpuprofile=cpu.out
 go tool pprof cpu.out
 
 https://flaviocopes.com/golang-profiling/
+
+# go auto test https://github.com/cweill/gotests
+go get -u github.com/cweill/gotests/...
