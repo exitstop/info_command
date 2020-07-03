@@ -7,11 +7,12 @@
 #
 # Script to build all of the required software for the Arm NN examples
 #
-#sudo dd if=/dev/zero of=/swapfile bs=64M count=16
-#sudo mkswap /swapfile
-#sudo swapon /swapfile
 
-#That should let you compile your code. But make sure you then revert the swapon after compilation, with these:
+sudo fallocate -l 2G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+sudo swapon --show
 
 #sudo swapoff /swapfile
 #sudo rm /swapfile
