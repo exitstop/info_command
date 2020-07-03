@@ -311,7 +311,7 @@ $CrossOptions  \
 -DCMAKE_CXX_FLAGS="-Wno-error=sign-conversion" \
 -DCMAKE_BUILD_TYPE=Debug \
 -DBUILD_SAMPLE_APP=ON \
--DARMNNREF=ON \
+-DARMNNREF=0 \
 -DBUILD_UNIT_TESTS=OFF \
 -DSAMPLE_DYNAMIC_BACKEND=ON \
 -DBUILD_TF_LITE_PARSER=ON \
@@ -319,13 +319,13 @@ $CrossOptions  \
 -DTF_LITE_SCHEMA_INCLUDE_PATH=$HOME/armnn-devenv/pkg/tflite \
 -DBUILD_ONNX_PARSER=1 \
 -DONNX_GENERATED_SOURCES=$BASEDIR/onnx \
--DBUILD_PYTHON_SRC=1 \
--DBUILD_PYTHON_WHL=1 \
+-DBUILD_PYTHON_SRC=0 \
+-DBUILD_PYTHON_WHL=0 \
 -DFLATBUFFERS_ROOT=$BASEDIR/flatbuffers \
 -DFLATBUFFERS_INCLUDE_PATH=/home/nvidia/armnn-devenv/pkg/flatbuffers/include \
--DSWIG_EXECUTABLE=$HOME/armnn-devenv/swig/build/bin/swig \
--DSWIG_DIR=$HOME/armnn-devenv/swig/build/bin \
 -DFLATC_DIR=$BASEDIR/flatbuffers-1.10.0/build
+#-DSWIG_EXECUTABLE=$HOME/armnn-devenv/swig/build/bin/swig \
+#-DSWIG_DIR=$HOME/armnn-devenv/swig/build/bin \
 
 
 if [ $Arch = "armv7l" ] || [ $MEM -lt 2000000 ]; then

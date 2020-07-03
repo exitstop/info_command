@@ -144,8 +144,14 @@ gogrep -x 'if $x := $_.Create($_).Error; $x != nil { $*_ }' ./...
 
 go test -cpuprofile=cpu.out
 go tool pprof cpu.out
+>>> web
 
 https://flaviocopes.com/golang-profiling/
 
 # go auto test https://github.com/cweill/gotests
 go get -u github.com/cweill/gotests/...
+
+# gui golang gio https://gioui.org/
+
+# memory leak
+https://unix.stackexchange.com/questions/36450/how-can-i-find-a-memory-leak-of-a-running-process
