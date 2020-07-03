@@ -1,5 +1,19 @@
 #!/bin/bash
 
+# example run
+# ./build-armnn.sh -o 1 -a arm64-v8a
+# number of CPUs and memory size for make -j
+NPROC=2
+
+#sudo apt-get install -y  git
+#sudo apt-get install -y  scons
+#sudo apt-get install -y  gcc-arm-linux-gnueabihf
+#sudo apt-get install -y  g++-arm-linux-gnueabihf
+#sudo apt-get install -y  curl
+#sudo apt-get install -y  autoconf
+#sudo apt-get install -y  libtool
+#sudo apt-get install -y  cmake
+
 #
 # Copyright (c) 2018-2019 Arm Limited. All rights reserved.
 #
@@ -8,11 +22,11 @@
 # Script to build all of the required software for the Arm NN examples
 #
 
-sudo fallocate -l 2G /swapfile
-sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
-sudo swapon --show
+#sudo fallocate -l 2G /swapfile
+#sudo chmod 600 /swapfile
+#sudo mkswap /swapfile
+#sudo swapon /swapfile
+#sudo swapon --show
 
 #sudo swapoff /swapfile
 #sudo rm /swapfile
@@ -125,8 +139,6 @@ if [ $CrossCompile = "True" ]; then
     done
 fi
 
-# number of CPUs and memory size for make -j
-NPROC=2
 MEM=`awk '/MemTotal/ {print $2}' /proc/meminfo`
 
 # check for Mali device node
@@ -311,20 +323,20 @@ $CrossOptions  \
 -DPROTOBUF_LIBRARY_RELEASE=$HOME/armnn-devenv/pkg/install/lib/libprotobuf.so \
 -DCMAKE_CXX_FLAGS="-Wno-error=sign-conversion" \
 -DCMAKE_BUILD_TYPE=Debug \
--DBUILD_SAMPLE_APP=ON \
+-DBUILD_SAMPLE_APP=OFF \
 -DARMNNREF=0 \
 -DBUILD_UNIT_TESTS=OFF \
 -DSAMPLE_DYNAMIC_BACKEND=ON \
--DBUILD_TF_LITE_PARSER=ON \
--DTF_LITE_GENERATED_PATH=$HOME/armnn-devenv/pkg/tflite \
--DTF_LITE_SCHEMA_INCLUDE_PATH=$HOME/armnn-devenv/pkg/tflite \
--DBUILD_ONNX_PARSER=1 \
--DONNX_GENERATED_SOURCES=$BASEDIR/onnx \
 -DBUILD_PYTHON_SRC=0 \
--DBUILD_PYTHON_WHL=0 \
--DFLATBUFFERS_ROOT=$BASEDIR/flatbuffers \
--DFLATBUFFERS_INCLUDE_PATH=/home/nvidia/armnn-devenv/pkg/flatbuffers/include \
--DFLATC_DIR=$BASEDIR/flatbuffers-1.10.0/build
+-DBUILD_PYTHON_WHL=0
+#-DBUILD_TF_LITE_PARSER=OFF \
+#-DTF_LITE_GENERATED_PATH=$HOME/armnn-devenv/pkg/tflite \
+#-DTF_LITE_SCHEMA_INCLUDE_PATH=$HOME/armnn-devenv/pkg/tflite \
+#-DBUILD_ONNX_PARSER=1 \
+#-DONNX_GENERATED_SOURCES=$BASEDIR/onnx \
+#-DFLATBUFFERS_ROOT=$BASEDIR/flatbuffers \
+#-DFLATBUFFERS_INCLUDE_PATH=/home/nvidia/armnn-devenv/pkg/flatbuffers/include \
+#-DFLATC_DIR=$BASEDIR/flatbuffers-1.10.0/build
 #-DSWIG_EXECUTABLE=$HOME/armnn-devenv/swig/build/bin/swig \
 #-DSWIG_DIR=$HOME/armnn-devenv/swig/build/bin \
 
