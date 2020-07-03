@@ -126,7 +126,7 @@ if [ $CrossCompile = "True" ]; then
 fi
 
 # number of CPUs and memory size for make -j
-NPROC=`grep -c ^processor /proc/cpuinfo`
+NPROC=2
 MEM=`awk '/MemTotal/ {print $2}' /proc/meminfo`
 
 # check for Mali device node
@@ -216,7 +216,7 @@ cd protobuf
 if [ $CrossCompile = "True" ]; then
     mkdir host-build ; cd host-build
     ../configure --prefix=$HOME/armnn-devenv/pkg/host
-    make -j NPROC
+    make -j $NPROC
     make install
     make clean
     cd ..
