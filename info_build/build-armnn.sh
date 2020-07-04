@@ -146,6 +146,7 @@ MEM=`awk '/MemTotal/ {print $2}' /proc/meminfo`
 # check for Mali device node
 [ -z "$OpenCL" ] && [ -c /dev/mali? ] && OpenCL=1 || OpenCL=0 
 #[ -z "$OpenCL" ] && [ -c /dev/mali? ] && echo 1 || echo 0
+OpenCL=1
 
 # check for Armv8 or Armv7
 # don't override command line and default to aarch64
