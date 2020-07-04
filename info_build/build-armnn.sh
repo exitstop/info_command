@@ -1,9 +1,11 @@
 #!/bin/bash
 
+# source https://github.com/ARM-software/Tool-Solutions/blob/master/ml-tool-examples/build-armnn/build-armnn.sh
 # example run
 # ./build-armnn.sh -o 1 -a arm64-v8a
 # number of CPUs and memory size for make -j
 NPROC=2
+
 
 #sudo apt-get install -y  git
 #sudo apt-get install -y  scons
