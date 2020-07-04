@@ -3,7 +3,7 @@
 # example run
 # ./build-armnn.sh -o 1 -a arm64-v8a
 # number of CPUs and memory size for make -j
-NPROC=2
+NPROC=12
 
 #sudo apt-get install -y  git
 #sudo apt-get install -y  scons
@@ -323,7 +323,7 @@ $CrossOptions  \
 -DPROTOBUF_LIBRARY_RELEASE=$HOME/armnn-devenv/pkg/install/lib/libprotobuf.so \
 -DCMAKE_CXX_FLAGS="-Wno-error=sign-conversion" \
 -DCMAKE_BUILD_TYPE=Debug \
--DBUILD_SAMPLE_APP=OFF \
+-DBUILD_SAMPLE_APP=ON \
 -DARMNNREF=0 \
 -DBUILD_UNIT_TESTS=OFF \
 -DSAMPLE_DYNAMIC_BACKEND=ON \
