@@ -21,3 +21,17 @@ https://smyt.ru/blog/flask-webpack-vuejs/
 https://github.com/miguelgrinberg/Flask-SocketIO/tree/master/example
 # vue flask
 https://github.com/oleg-agapov/flask-vue-spa
+
+
+# watch
+#### package.json
+```js
+"watch": "vue-cli-service build --watch --mode development" 
+```
+#### vue.config.js
+```js
+module.exports = {
+  outputDir: '../dist/resources/',
+  assetsDir: '../',
+}
+```
