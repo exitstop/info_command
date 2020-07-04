@@ -3,7 +3,7 @@
 # example run
 # ./build-armnn.sh -o 1 -a arm64-v8a
 # number of CPUs and memory size for make -j
-NPROC=12
+NPROC=2
 
 #sudo apt-get install -y  git
 #sudo apt-get install -y  scons
