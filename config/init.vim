@@ -132,6 +132,8 @@ Plug 'zchee/deoplete-jedi'
 " -------------------------------------------------------------------------
 " -------------------------------- vue js ----------------------------------
 " -------------------------------------------------------------------------
+"  fix bug
+" npm install -g neovim
 "Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}  " Completion as in vscode
 Plug 'editorconfig/editorconfig-vim'                        " Editorconfig file support. see https://editorconfig.org/
 Plug 'herringtondarkholme/yats.vim'

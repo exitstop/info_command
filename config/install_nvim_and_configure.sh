@@ -30,13 +30,13 @@ export NVM_DIR="$HOME/.config/nvm"
 nvm install v12.18.0
 
 set -u
-sudo update-alternatives --install /usr/bin/ex ex "${CUSTOM_NVIM_PATH}" 110
-sudo update-alternatives --install /usr/bin/vi vi "${CUSTOM_NVIM_PATH}" 110
-sudo update-alternatives --install /usr/bin/view view "${CUSTOM_NVIM_PATH}" 110
+#sudo update-alternatives --install /usr/bin/ex ex "${CUSTOM_NVIM_PATH}" 110
+#sudo update-alternatives --install /usr/bin/vi vi "${CUSTOM_NVIM_PATH}" 110
+#sudo update-alternatives --install /usr/bin/view view "${CUSTOM_NVIM_PATH}" 110
 #sudo update-alternatives --install /usr/bin/vim vim "${CUSTOM_NVIM_PATH}" 110
 sudo update-alternatives --install /usr/bin/vimdiff vimdiff "${CUSTOM_NVIM_PATH}" 110
 
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim \
     --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-nvim -c ':PlugInstall' -c ':q!' -c ':q!'
+nvim -c ':PlugInstall' -c ":UpdateRemotePlugins" -c ':q!' -c ':q!'
