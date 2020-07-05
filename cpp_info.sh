@@ -229,3 +229,20 @@ spdlog::get("cpp")->info("hello");
 spdlog::get("cpp")->info("Binary example: {}", spdlog::to_hex(buf));
 spdlog::get("cpp")->info("Another binary example:{:n}", spdlog::to_hex(std::begin(buf), std::begin(buf) + 10));
 ```
+
+# webasembly
+set(CMAKE_TOOLCHAIN_FILE /home/user/Documents/save/sources/cpp/emsdk/fastcomp/emscripten/cmake/Modules/Platform/Emscripten.cmake)
+if (${CMAKE_SYSTEM_NAME} MATCHES "Emscripten")
+    set(CMAKE_C_COMPILER "emcc")
+    set(CMAKE_CXX_COMPILER "em++")
+endif ()
+
+Викторина по синтаксису, что могу спрашивать на собеседованиях http://cppquiz.org/quiz/question/132
+Игра в дедлок, мы играем против программиста и должны завалить код http://deadlockempire.github.io/
+Всякие best practics и иструменты и другое https://github.com/lefticus/cppbestpractices/blob/master/00-Table_of_Contents.md
+Либы https://github.com/fffaraz/awesome-cpp
+Справочник по стандартной библиотеке https://en.cppreference.com/w/
+https://www.youtube.com/watch?v=r5JGDiI22s4&list=PL8lrem_tlBtdrAr2Zvg2CUA3iAL8uIt_o&index=3&t=0s
+Видое как попадать в кэш процессора https://www.youtube.com/watch?v=ugBE79lcuP8
+Мой телеграм канал с книгами https://t.me/joinchat/AAAAAEbdqzgpgWXTEW5VBA
+Мой github, там чутка заметок https://github.com/exitstop/info_command/blob/master/cpp_info.sh

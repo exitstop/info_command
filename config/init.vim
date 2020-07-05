@@ -1,5 +1,6 @@
 set nocompatible
-filetype off
+"filetype off
+filetype on
 
 " (_)_ __ (_) |___   _(_)_ __ ___
 " | | '_ \| | __\ \ / / | '_ ` _ \
@@ -9,6 +10,11 @@ filetype off
 " ==================== VIM PLUG ==================
 
 call plug#begin()
+" VIM
+"Plug 'nelstrom/vim-visual-star-search'
+Plug 'tpope/vim-abolish'
+Plug 'sjl/gundo.vim'
+Plug 'godlygeek/tabular'
 " Tag
 Plug 'lyuts/vim-rtags'
 Plug 'marxin/neo-rtags'
@@ -48,14 +54,24 @@ Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/sy
 "Plug 'mattn/webapi-vim'
 
 "Python plugin ---------------------------------------------------------
-"Plug 'vim-python/python-syntax'
-"Plug 'davidhalter/jedi-vim'
+Plug 'vim-python/python-syntax'
+Plug 'davidhalter/jedi-vim'
 " https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/
-"Plug 'zchee/deoplete-jedi'
+Plug 'zchee/deoplete-jedi'
 " pair () "" []
 "Plug 'jiangmiao/auto-pairs'
 Plug 'sbdchd/neoformat'
 Plug 'davidhalter/jedi-vim'
+"" syntax check
+"Plug 'w0rp/ale'
+"" Autocomplete
+"Plug 'ncm2/ncm2'
+"Plug 'roxma/nvim-yarp'
+"Plug 'ncm2/ncm2-bufword'
+"Plug 'ncm2/ncm2-path'
+"Plug 'ncm2/ncm2-jedi'
+" Formater
+Plug 'Chiel92/vim-autoformat'
 "Plug 'machakann/vim-highlightedyank'
 "Plug 'tmhedberg/SimpylFold'
 
@@ -98,6 +114,9 @@ Plug 'vim-scripts/a.vim'
  
 " Git
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-rhubarb'
+
 "Plug 'airblade/vim-gitgutter'
 "
 " Python
@@ -127,8 +146,30 @@ Plug 'iamcco/markdown-preview.vim' " :MarkdownPreview
 
 call plug#end()
 
+nnoremap <F5> :GundoToggle<CR>
+
+"nnoremap <silent> <F7> :call Preserve()<CR>
+function! Preserve(command)
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  execute a:command
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunction 
+" Убрать пробелы в конце строки строки
+nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
+nmap _= :call Preserve("normal gg=G")<CR>
+" Убрать пустные линии
+nmap _% :call Preserve("g/^$/d")<CR>
+
 filetype plugin indent on    " requiredn
 filetype plugin on    " requiredn
+
+"let g:python3_host_prog='/home/user/anaconda3/bin/python'
 
 
 "https://www.bha.ee/neovim-config-for-frontend-development/
@@ -186,12 +227,6 @@ set omnifunc=syntaxcomplete#Complete
 let mapleader = ','
 colorscheme slate
 
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-
-set smartindent
 set relativenumber "shows relative numbers to current line
 set number "show line numbers
 set laststatus=2 "for airline
@@ -476,3 +511,66 @@ nnoremap <F2> :IH<CR>
 inoremap <F2> <ESC>:IH<CR>
 
 let g:indexer_disableCtagsWarning = 1
+
+" Tabularize
+" Не работает
+"if exists(":Tabularize")
+    "nmap <Leader>a= :Tabularize /=<CR>
+    "vmap <Leader>a= :Tabularize /=<CR>
+    "nmap <Leader>a: :Tabularize /:\zs<CR>
+    "vmap <Leader>a: :Tabularize /:\zs<CR>
+    "nmap <Leader>a| :Tabularize /|\zs<CR>
+    "vmap <Leader>a| :Tabularize /|\zs<CR>
+"endif
+
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
+
+cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
+map <leader>ew :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+map <leader>et :tabe %%
+
+if has("autocmd")
+  " Enable file type detection
+  filetype on
+  " Автообновление настроек
+  autocmd bufwritepost .vimrc source $MYVIMRC
+
+  set tabstop=4
+  set shiftwidth=4
+  set softtabstop=4
+  set expandtab " Только пробелы
+
+  set smartindent
+
+  " go
+  autocmd FileType go setlocal ts=4 sts=4 sw=4 noexpandtab
+
+  " cpp
+  autocmd FileType cpp setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType h setlocal ts=4 sts=4 sw=4 expandtab
+
+  " Syntax of these languages is fussy over tabs Vs spaces
+  autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+  autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+  " Customisations based on house-style (arbitrary)
+  autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
+
+  " Treat .rss files as XML
+  autocmd BufNewFile,BufRead *.rss setfiletype xml
+endif

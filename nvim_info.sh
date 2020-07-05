@@ -68,3 +68,38 @@ Plug 'zchee/deoplete-jedi'
 grep Neovim
 # Меняем
 cfdo %s/Neovim/Nvim/ge | update
+
+# :Git vim-fugitive
+# g? help
+- # stage unstage this fiel
+X # Отменить изменения в этом файле
+= # Открыть diff файла под курсором
+I # добавлять в stage изменения построчно
+
+# http://vimcasts.org/episodes/fugitive-vim-exploring-the-history-of-a-git-repository/
+# Загрузить все фиксации в quickfix list
+Glog -- %
+[q	:cprev	jump to previous quickfix item
+]q	:cnext	jump to next quickfix item
+[Q	:cfirst	jump to first quickfix item
+]Q	:clast	jump to last quickfix item
+
+# http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
+
+# складывание вкладок http://vimcasts.org/episodes/how-to-fold/
+
+# скопировать строку быстрее http://vimcasts.org/episodes/long-range-line-duplication/
+-7t. # (отслюда)t(скопировать сюда в текущую строку)
+
+# как пользоваться Gdiff http://vimcasts.org/episodes/fugitive-vim-working-with-the-git-index/
+:Gdiff
+:diffget
+# :Gwrite
+# :Gread
+# :diffupdate
+
+# history branch g+ g- undo redo (F5 GundoToggle)
+
+# Таблицы выравнивание
+# '<,'>Tabularize /|
+# '<,'>Tabularize /=
