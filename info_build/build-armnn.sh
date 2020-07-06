@@ -316,7 +316,7 @@ $CrossOptions  \
 -DARMCOMPUTE_BUILD_DIR=$HOME/armnn-devenv/ComputeLibrary/build \
 -DBOOST_ROOT=$HOME/armnn-devenv/pkg/boost/install/ \
 -DTF_GENERATED_SOURCES=$HOME/armnn-devenv/pkg/tensorflow-protobuf/  \
--DBUILD_TF_PARSER=1 \
+-DBUILD_TF_PARSER=0 \
 -DPROTOBUF_ROOT=$HOME/armnn-devenv/pkg/install   \
 -DPROTOBUF_INCLUDE_DIRS=$HOME/armnn-devenv/pkg/install/include   \
 -DPROFILING_BACKEND_STREAMLINE=1 \
@@ -334,8 +334,8 @@ $CrossOptions  \
 -DBUILD_ONNX_PARSER=1 \
 -DONNX_GENERATED_SOURCES=$BASEDIR/pkg/onnx \
 -DBUILD_PYTHON_SRC=0 \
--DBUILD_PYTHON_WHL=0
-#-DBUILD_TF_LITE_PARSER=OFF \
+-DBUILD_PYTHON_WHL=0 \
+-DBUILD_TF_LITE_PARSER=OFF
 #-DTF_LITE_GENERATED_PATH=$HOME/armnn-devenv/pkg/tflite \
 #-DTF_LITE_SCHEMA_INCLUDE_PATH=$HOME/armnn-devenv/pkg/tflite \
 #-DFLATBUFFERS_ROOT=$BASEDIR/flatbuffers \
