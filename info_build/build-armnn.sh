@@ -286,6 +286,7 @@ popd
 
 git clone https://github.com/onnx/onnx.git 
 
+mkdir -p pkg/onnx
 pushd onnx
 git fetch https://github.com/onnx/onnx.git f612532843bd8e24efeab2815e45b436479cc9ab && git checkout FETCH_HEAD
 
@@ -330,13 +331,13 @@ $CrossOptions  \
 -DARMNNREF=1 \
 -DBUILD_UNIT_TESTS=OFF \
 -DSAMPLE_DYNAMIC_BACKEND=ON \
+-DBUILD_ONNX_PARSER=1 \
+-DONNX_GENERATED_SOURCES=$BASEDIR/onnx \
 -DBUILD_PYTHON_SRC=0 \
 -DBUILD_PYTHON_WHL=0
 #-DBUILD_TF_LITE_PARSER=OFF \
 #-DTF_LITE_GENERATED_PATH=$HOME/armnn-devenv/pkg/tflite \
 #-DTF_LITE_SCHEMA_INCLUDE_PATH=$HOME/armnn-devenv/pkg/tflite \
-#-DBUILD_ONNX_PARSER=1 \
-#-DONNX_GENERATED_SOURCES=$BASEDIR/onnx \
 #-DFLATBUFFERS_ROOT=$BASEDIR/flatbuffers \
 #-DFLATBUFFERS_INCLUDE_PATH=/home/nvidia/armnn-devenv/pkg/flatbuffers/include \
 #-DFLATC_DIR=$BASEDIR/flatbuffers-1.10.0/build
