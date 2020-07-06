@@ -15,6 +15,7 @@ call plug#begin()
 Plug 'tpope/vim-abolish'
 Plug 'sjl/gundo.vim'
 Plug 'godlygeek/tabular'
+Plug 'tommcdo/vim-fugitive-blame-ext'
 " Tag
 Plug 'lyuts/vim-rtags'
 Plug 'marxin/neo-rtags'

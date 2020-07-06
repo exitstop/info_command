@@ -103,3 +103,17 @@ Glog -- %
 # Таблицы выравнивание
 # '<,'>Tabularize /|
 # '<,'>Tabularize /=
+
+# Перемещение по изменениям http://vimcasts.org/episodes/using-the-changelist-and-jumplist/
+g;
+g,
+:changes
+ctrl-O
+ctrl-I
+:jumps
+
+# vim documentation jumps
+ctrl-]
+
+# вставить vim :0put +
+:0put +
