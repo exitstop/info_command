@@ -105,3 +105,5 @@ git checkout master
 git reset --hard origin/master
 # Удалить неиндексированные файлы и папки.
 git clean -d --force
+
+git pull --rebase origin master
