@@ -401,7 +401,7 @@ vnoremap L 10k
 " ================ Searching ========================
 
 " Ignorecase when searching
-set ignorecase
+"set ignorecase
 
 " incremental search - Vim starts searching when we start typing
 set incsearch
