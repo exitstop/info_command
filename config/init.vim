@@ -24,13 +24,13 @@ Plug 'ludovicchabant/vim-gutentags'
 " -------------------------------- Golang Plugin --------------------------
 " -------------------------------------------------------------------------
 Plug 'buoto/gotests-vim'
-Plug 'roxma/nvim-completion-manager'
-Plug 'SirVer/ultisnips' "Golang
-Plug 'honza/vim-snippets'
+"Plug 'roxma/nvim-completion-manager'
+"Plug 'SirVer/ultisnips' "Golang
+"Plug 'honza/vim-snippets'
 "сделать :GoUpdateBinaries если перестал работь
 ":GoDef :GoBuildTags "" gd = :GoDef
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } "Golang
-Plug 'mattn/emmet-vim' "Html completer
+"Plug 'mattn/emmet-vim' "Html completer
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
  
 " nerd commenter

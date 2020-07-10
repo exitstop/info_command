@@ -293,7 +293,7 @@ git fetch https://github.com/onnx/onnx.git f612532843bd8e24efeab2815e45b436479cc
 cd $BASEDIR/onnx
 
 export LD_LIBRARY_PATH=$BASEDIR/install/lib:$LD_LIBRARY_PATH        
-$BASEDIR/install/bin/protoc onnx/onnx.proto --proto_path=. --proto_path=$BASEDIR/install/include --cpp_out $BASEDIR/onnx
+$BASEDIR/install/bin/protoc ../../onnx/onnx/onnx.proto --proto_path=. --proto_path=$BASEDIR/install/include --cpp_out $BASEDIR/onnx
 #$BASEDIR/onnx     AssertZeroExitCode "Building Onnx failed"
 
 popd
@@ -332,7 +332,7 @@ $CrossOptions  \
 -DBUILD_UNIT_TESTS=OFF \
 -DSAMPLE_DYNAMIC_BACKEND=ON \
 -DBUILD_ONNX_PARSER=1 \
--DONNX_GENERATED_SOURCES=$BASEDIR/pkg/onnx \
+-DONNX_GENERATED_SOURCES=$BASEDIR/onnx \
 -DBUILD_PYTHON_SRC=0 \
 -DBUILD_PYTHON_WHL=0 \
 -DBUILD_TF_LITE_PARSER=OFF

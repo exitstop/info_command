@@ -155,3 +155,30 @@ go get -u github.com/cweill/gotests/...
 
 # memory leak
 https://unix.stackexchange.com/questions/36450/how-can-i-find-a-memory-leak-of-a-running-process
+
+# memory leak prifle
+```go
+import(
+	"net/http"
+	_ "net/http/pprof"
+)
+
+func main() {
+	go func() {
+		log.Fatal(http.ListenAndServe(":8080", nil))
+	}()
+}
+```
+```bash
+curl http://localhost:8080/debug/pprof/heap > heap.0.pprof
+go tool pprof heap.0.pprof
+HEAP=heap.6.pprof && curl http://localhost:8080/debug/pprof/heap > $HEAP && go tool pprof $HEAP
+
+web
+list Track
+top20
+
+sudo apt-get install bpfcc-tools
+sudo memleak-bpfcc -p 25635
+```
+
