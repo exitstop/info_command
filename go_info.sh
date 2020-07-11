@@ -174,6 +174,8 @@ curl http://localhost:8080/debug/pprof/heap > heap.0.pprof
 go tool pprof heap.0.pprof
 HEAP=heap.6.pprof && curl http://localhost:8080/debug/pprof/heap > $HEAP && go tool pprof $HEAP
 
+go tool pprof http://localhost:8080/debug/pprof/heap 
+
 web
 list Track
 top20
