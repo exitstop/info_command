@@ -163,6 +163,8 @@ function! Preserve(command)
   let @/=_s
   call cursor(l, c)
 endfunction 
+
+" delete space
 " Убрать пробелы в конце строки строки
 nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
 nmap _= :call Preserve("normal gg=G")<CR>

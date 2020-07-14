@@ -182,5 +182,18 @@ top20
 
 sudo apt-get install bpfcc-tools
 sudo memleak-bpfcc -p 25635
+
+go build -gcflags=-m main.go
+
+wget -O trace.out http://localhost:8080/debug/pprof/trace
+go tool trace trace.out
 ```
 
+```go
+
+import "github.com/pkg/profile" // v1.5.0
+
+func main() {
+	defer profile.Start(profile.MemProfileRate(2048), profile.ProfilePath("./profiling"), profile.NoShutdownHook).Stop()
+}
+```
