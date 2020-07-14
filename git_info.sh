@@ -107,3 +107,7 @@ git reset --hard origin/master
 git clean -d --force
 
 git pull --rebase origin master
+
+# Восстанавливаем ветку из репозитори
+git fetch --all
+git reset --hard origin/master
