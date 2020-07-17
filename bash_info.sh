@@ -582,7 +582,7 @@ ack '^(?!.*github).(\bprofile\b)'
 # wifi через консоль
 nmcli dev wifi connect $ACCESS_POINT password $PASSWORD
 
-# get chmod получить разрешения файла в виде цифр 755 777
+# get chmod получить разрешения файла в виде цифр 755 777 666 600
 stat --format '%a' /etc/default/
 
 # поиск java
@@ -690,3 +690,19 @@ uname -m
 
 # найти файлы по типу и показать их размер и суммировать
 find . -type f -name '*.json' -exec du -ch {} +
+
+# Сделать дистрибутив из своей системы
+# Не работает
+#https://gitlab.com/remastersys/respin
+#sudo apt-add-repository ppa:sergiomejia666/respin
+#sudo apt-get update
+#sudo apt-get install respin
+#sudo respin
+#sudo respin backup|clean|dist [cdfs|iso] [filename.iso]
+#sudo respin dist filename.iso
+
+# Сделать дистрибутив из своей системы
+https://sourceforge.net/projects/pinguy-os/files/ISO_Builder/
+wget https://vorboss.dl.sourceforge.net/project/pinguy-os/ISO_Builder/pinguybuilder-menu-based_5.2-1_all.deb
+# В пуске появится меню pinguybuilder
+# Нужно жмякнуть backup
