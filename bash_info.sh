@@ -706,3 +706,15 @@ https://sourceforge.net/projects/pinguy-os/files/ISO_Builder/
 wget https://vorboss.dl.sourceforge.net/project/pinguy-os/ISO_Builder/pinguybuilder-menu-based_5.2-1_all.deb
 # В пуске появится меню pinguybuilder
 # Нужно жмякнуть backup
+
+# fix grub
+sudo add-apt-repository ppa:yannubuntu/boot-repair
+sudo apt-get update
+sudo apt-get install -y boot-repair && boot-repair
+
+grub> ls
+grub> ls (hdX, Y)
+grub> set root=(hdX, Y)
+grub> set prefix=(hdX, Y)/boot/grub
+grub> insmod normal
+grub> normal

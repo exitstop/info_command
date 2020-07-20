@@ -45,3 +45,13 @@ nmcli connection modify my-hotspot 802-11-wireless.mode ap 802-11-wireless.band 
 nmcli connection modify my-hotspot 802-11-wireless-security.key-mgmt wpa-psk 802-11-wireless-security.psk myhardpassword
 # Enable it (run this command each time you want to enable the access point)
 nmcli connection up my-hotspot
+
+# show current wifi
+nmcli dev wifi
+nmcli -f ALL dev wifi
+
+IN-USE  SSID              MODE   CHAN  RATE        SIGNAL  BARS  SECURITY 
+*       WIFI_name Infra  149   405 Mbit/s  66      ▂▄▆_  WPA2     
+
+# scan wifi
+sudo iwlist wlo1 scan | grep ESSID
