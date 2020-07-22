@@ -701,7 +701,7 @@ find . -type f -name '*.json' -exec du -ch {} +
 #sudo respin backup|clean|dist [cdfs|iso] [filename.iso]
 #sudo respin dist filename.iso
 
-# Сделать дистрибутив из своей системы
+# Сделать дистрибутив из своей системы НЕ РАБОТАЕТ
 https://sourceforge.net/projects/pinguy-os/files/ISO_Builder/
 wget https://vorboss.dl.sourceforge.net/project/pinguy-os/ISO_Builder/pinguybuilder-menu-based_5.2-1_all.deb
 # В пуске появится меню pinguybuilder
@@ -710,7 +710,8 @@ wget https://vorboss.dl.sourceforge.net/project/pinguy-os/ISO_Builder/pinguybuil
 # fix grub
 sudo add-apt-repository ppa:yannubuntu/boot-repair
 sudo apt-get update
-sudo apt-get install -y boot-repair && boot-repair
+sudo apt-get install -y boot-repair
+boot-repairl
 
 grub> ls
 grub> ls (hdX, Y)
@@ -718,3 +719,16 @@ grub> set root=(hdX, Y)
 grub> set prefix=(hdX, Y)/boot/grub
 grub> insmod normal
 grub> normal
+
+# systemback НЕ РАБОТАЕТ
+https://www.linuxbabe.com/ubuntu/install-systemback-ubuntu-18-04-bionic-18-10
+
+# iso 18.04 НЕ РАБОТАЕТ
+https://sourceforge.net/projects/bodhibuilder/
+
+# Рабочий вариант создать iso для 18.04
+git clone https://github.com/Distroshare/distroshare-ubuntu-imager
+
+cd distroshare-ubuntu-imager
+sudo chmod +x distroshare-ubuntu-imager.sh
+./distroshare-ubuntu-imager.sh
