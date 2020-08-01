@@ -194,6 +194,8 @@ x11vnc -display :0 -rfbport 5901
 # чтобы не выключался
 x11vnc -usepw -display :0 -q -forever -rfbport 5901
 
+vncviewer -PreferredEncoding=ZRLE 192.168.88.143:5901
+
 # qemu
 qemu-system-x86_64 -m 1024 -cdrom lubuntu-16.04.5-desktop-amd64.iso
 # Загрузиться с флешки в эмуляторе
@@ -732,3 +734,5 @@ git clone https://github.com/Distroshare/distroshare-ubuntu-imager
 cd distroshare-ubuntu-imager
 sudo chmod +x distroshare-ubuntu-imager.sh
 ./distroshare-ubuntu-imager.sh
+
+xrandr --output DSI-0 --primary --rotate left --mode 720x1280 --output HDMI-0 --off

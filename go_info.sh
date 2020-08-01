@@ -199,3 +199,9 @@ func main() {
 ```
 
 # go robot https://gobot.io/
+
+# https://habr.com/ru/post/337098/
+Создатель Node.js: «Для серверов я не могу представить другой язык кроме Go»
+
+# вывести структуру go красиво в консоль
+spew.Dump(outRes)

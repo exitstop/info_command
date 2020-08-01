@@ -111,3 +111,9 @@ git pull --rebase origin master
 # Восстанавливаем ветку из репозитори
 git fetch --all
 git reset --hard origin/master
+
+# Skip smudge - We'll download binary files later in a faster batch
+git lfs install --skip-smudge
+git clone ...
+git lfs pull
+git lfs install --force
