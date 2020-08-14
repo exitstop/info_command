@@ -165,6 +165,7 @@ import(
 
 func main() {
 	go func() {
+        runtime.LockOSThread()
 		log.Fatal(http.ListenAndServe(":8080", nil))
 	}()
 }
@@ -172,9 +173,10 @@ func main() {
 ```bash
 curl http://localhost:8080/debug/pprof/heap > heap.0.pprof
 go tool pprof heap.0.pprof
-HEAP=heap.6.pprof && curl http://localhost:8080/debug/pprof/heap > $HEAP && go tool pprof $HEAP
+HEAP=heap.7.pprof && curl http://localhost:8080/debug/pprof/heap > $HEAP && go tool pprof -nodefraction=0 -inuse_objects $HEAP
 
-go tool pprof http://localhost:8080/debug/pprof/heap 
+go tool pprof -nodefraction=0 -inuse_objects http://localhost:8080/debug/pprof/heap 
+nodefraction=0
 
 web
 list Track
@@ -205,3 +207,10 @@ func main() {
 
 # вывести структуру go красиво в консоль
 spew.Dump(outRes)
+
+go build -o main main.go && LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libtcmalloc.so.4 HEAPCHECK=normal HEAPPROFILE=gpt-heapprofile.log ./main
+https://dashboard.stackimpact.com/#/hotspots/memory
+https://www.instana.com/docs/profiling/
+
+# 50 подводных камней
+http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/?ref=hackernoon.com

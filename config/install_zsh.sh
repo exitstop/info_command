@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo apt install -y software-properties-common
 sudo add-apt-repository ppa:csaba-kertesz/random
 sudo apt update
 sudo apt install -y zsh xclip colout

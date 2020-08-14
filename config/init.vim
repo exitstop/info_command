@@ -243,6 +243,8 @@ if &term == "sCReen"
     set t_Co=256
 endif
 
+":set paste
+":set nopaste
 set pastetoggle=<F2>
 set hlsearch
 set nocompatible

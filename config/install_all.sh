@@ -2,6 +2,7 @@
 
 sudo apt update
 sudo apt install -y curl git
+sudo apt install -y software-properties-common
 
 wget https://raw.githubusercontent.com/exitstop/info_command/master/config/install_nvim_and_configure.sh
 wget https://raw.githubusercontent.com/exitstop/info_command/master/config/install_tmux.sh

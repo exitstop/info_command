@@ -86,6 +86,7 @@ git clone --depth 1 # чтобы не скачивать весь репо
 
 # git store large file image png jpg binary bin; хранение больших файлов в гит
 # git-lfs
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
 git lfs install # в каждом новом проекте где нужны большие файлы
 git lfs track "*.psd" # помечаем какие файлы нужно конролировать
 git add .gitattributes

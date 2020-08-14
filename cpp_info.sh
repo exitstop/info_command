@@ -237,6 +237,12 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Emscripten")
     set(CMAKE_CXX_COMPILER "em++")
 endif ()
 
+# Вывести тип в консоль
+```bash
+std::cout << "typeid: " << typeid(undefType).name() << std::endl;
+```
+
+
 Викторина по синтаксису, что могу спрашивать на собеседованиях http://cppquiz.org/quiz/question/132
 Игра в дедлок, мы играем против программиста и должны завалить код http://deadlockempire.github.io/
 Всякие best practics и иструменты и другое https://github.com/lefticus/cppbestpractices/blob/master/00-Table_of_Contents.md
