@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# cd /var/lib/dpkg/info
+# rm unattended*
+
 sudo apt update
 sudo apt install -y curl git
 sudo apt install -y software-properties-common
