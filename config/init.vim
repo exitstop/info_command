@@ -32,7 +32,8 @@ Plug 'buoto/gotests-vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } "Golang
 "Plug 'mattn/emmet-vim' "Html completer
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
- 
+Plug 'sebdah/vim-delve'
+
 " nerd commenter
 Plug 'scrooloose/nerdcommenter'
 
