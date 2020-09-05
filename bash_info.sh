@@ -745,3 +745,19 @@ sudo rm /var/cache/apt/archives/lock
 sudo rm /var/lib/dpkg/lock*
 sudo dpkg --configure -a
 sudo apt update
+
+# auto login ubuntu server
+sudo adduser user
+sudo usermod -aG sudo user
+sudo systemctl edit getty@tty1.service
+
+```bash
+[Service]
+ExecStart=
+ExecStart=-/sbin/agetty --noissue --autologin myusername %I $TERM
+Type=idle
+```
+
+# auto start xsession
+# Добавить в конце файла /home/user/.bashrc
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
