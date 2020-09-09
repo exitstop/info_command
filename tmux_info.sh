@@ -21,3 +21,7 @@ CTRL+A ? list shortcuts
 CTRL+A :  prompt
 
 CTRL+A s # вызываются какое окно
+
+# open terminal failed: missing or unsuitable terminal: xterm-256color
+# можно пофиксить
+export TERM=xterm
