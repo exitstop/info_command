@@ -16,7 +16,8 @@ sudo rsync -avpogP --max-size=500m --exclude=save/sources/ovision/jetson_tx2/ \
     --exclude=save/sources/qt/build-player-Desktop-Release/chrome_config* \
     ~/.ssh \
     save \
-    /media/user/1tb_opacity
+    /media/user/segate_1tb
+    #/media/user/1tb_opacity
 
 #foo.sh /media/user/1tb_wd
 #sudo foo.sh /media/user/1tb_opacity

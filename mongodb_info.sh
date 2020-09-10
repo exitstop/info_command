@@ -163,3 +163,9 @@ show dbs
 use socmed
 # показать всю коллекцию profile
 db.profile.find().pretty()
+
+# Уадалить коллекцию
+db.breakdown.remove({})
+
+# Удалить индекс
+db.breakdown.dropIndex("idtask_0")
