@@ -214,3 +214,6 @@ https://www.instana.com/docs/profiling/
 
 # 50 подводных камней
 http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/?ref=hackernoon.com
+
+# stack trace info
+https://www.ardanlabs.com/blog/2015/01/stack-traces-in-go.html

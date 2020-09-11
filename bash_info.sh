@@ -761,3 +761,4 @@ Type=idle
 # auto start xsession
 # Добавить в конце файла /home/user/.bashrc
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+

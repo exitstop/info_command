@@ -12,15 +12,16 @@ git submodule update --init --recursive
 wget https://github.com/Archiconda/build-tools/releases/download/0.2.3/Archiconda3-0.2.3-Linux-aarch64.sh
 sudo chmod +x Archiconda3-0.2.3-Linux-aarch64.sh
 ./Archiconda3-0.2.3-Linux-aarch64.sh
+source ~/.bashrc
 conda install numpy ninja pyyaml setuptools cmake cffi
 
 sudo apt-get install -y gfortran libatlas-base-dev
 wget https://bootstrap.pypa.io/get-pip.py
 python3 get-pip.py
 conda install pyyaml
-sudo -H pip3 install pyyaml
-sudo -H pip3 install --upgrade cython
-sudo -H pip3 install -U setuptools
+pip3 install pyyaml
+pip3 install --upgrade cython
+pip3 install -U setuptools
 
 export CMAKE_PREFIX_PATH=${CONDA_PREFIX:-"$(dirname $(which conda))/../"}
 #BUILD_CAFFE2_OPS=0 USE_CUDA=0 python3.15 setup.py install --user
