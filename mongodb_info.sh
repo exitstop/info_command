@@ -169,3 +169,21 @@ db.breakdown.remove({})
 
 # Удалить индекс
 db.breakdown.dropIndex("idtask_0")
+
+# найти всех, вывести только поле _id, и отсортировать
+db.users.find({},{_id: 1}).sort({_id: 1})
+
+# change password reset
+https://docs.bitnami.com/bch/apps/lets-chat/administration/change-reset-password/
+
+# create user
+
+
+db.auth("admin", "password")
+
+db.createUser({ user:"admin", 
+                pwd:"password", 
+                roles:[ { role:"readWrite", 
+                          db:"databesename" 
+                        } ]
+              })

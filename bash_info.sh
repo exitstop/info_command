@@ -1,6 +1,6 @@
 прочитать файл по 1 байту(bs=1), 5 байт подряд(count=5),
-#one(if=one) начиная со смещения 0(skip=0) 
-#и записать в файл two(of=two) начиная со смещения 1(seek=1) 
+#one(if=one) начиная со смещения 0(skip=0)
+#и записать в файл two(of=two) начиная со смещения 1(seek=1)
 #и не затирать конец файла two (conv=notrunc)
 dd bs=1 count=5 if=one of=two skip=0 seek=1 conv=notrunc
 #conver webm to mpr
@@ -13,7 +13,7 @@ for FILE in *.webm; do
 done;
 #посмотреть динамические библиотеки забущенного процесса
 lsof -p <pid>
-#удалить имена функций из программы 
+#удалить имена функций из программы
 strip program
 #посмотреть имена функций которые есть в программе
 nm program
@@ -22,7 +22,7 @@ sudo apt install ssh
 sudo systemctl enable ssh
 #рекурсиваня замена во всех файлах
 a=hello&&b=hello2&& grep -rl "$a" | xargs sed -i "s/$a/$b/g"
-#рекурсиваня замена в файлах *.h 
+#рекурсиваня замена в файлах *.h
 a=hello&&b=hello2&& grep -l "$a" `find -name "*.h"` | xargs sed -i "s/$a/$b/g"
 
 # Замена с raw string
@@ -45,7 +45,7 @@ ctrl+h #удалить один символ назад
 ctrl+d #удалить один символ вперед
 
 ctrl+u #удалить символы до курсора
-ctrl+k #удалить символы после курсора 
+ctrl+k #удалить символы после курсора
 
 ctrl+p #вставить удаленное
 
@@ -63,7 +63,7 @@ sudo mount /dev/sdb3/ /mnt/my_dir
 # tab to space recursive
 find . -type f -exec sed -i.orig 's/\t/    /g' {} +
 # tab to space one file
-sed -i.orig 's/\t/    /g' file.cpp 
+sed -i.orig 's/\t/    /g' file.cpp
 # рекурсивно удалить файлы с расширением txt
 find -name "*.txt" -exec rm -rf {} +
 
@@ -99,13 +99,13 @@ scp -i id_rsa -P1026 -o "StrictHostKeyChecking=no" Terminal.tar.gz nvidia@localh
 # вывести только строки от 1 до 18
 sed -n 1,18p file.cpp
 
-# кракозябры 
+# кракозябры
 iconv -f WINDOWS-1251 -t UTF-8 -o converted.txt original.txt
 
-# Загрузка youtube видео через консоль 
+# Загрузка youtube видео через консоль
 # 1. Смотрим возможное разрешение и качество звука.
 youtube-dl -F "https://www.youtube.com/watch?v=2Mi3MRKtg2M"
-# 2. Скачиваем видео и звук 
+# 2. Скачиваем видео и звук
 youtube-dl -f 160+250 "https://www.youtube.com/watch?v=2Mi3MRKtg2M"
 youtube-dl -F "https://www.youtube.com/watch?v=2Mi3MRKtg2M"
 
@@ -164,7 +164,7 @@ sudo apt install biew
 ldd * | grep --color=auto -B100000 -A100000 "utils"
 
 # поиск хексов в бинарных файлах
-grep -Pcr "\x0f\x84\x5d\x01\x00\x00" 
+grep -Pcr "\x0f\x84\x5d\x01\x00\x00"
 
 # авто отключени мышки фикс
 echo 2 | sudo tee /sys/bus/usb/devices/*/power/autosuspend >/dev/null
@@ -218,7 +218,7 @@ qemu-system-x86_64 -hda lubuntu.img -m 1024 -smp 2 -machine type=pc,accel=kvm
 qemu-ppc -cpu e500v2 hello
 
 # посмотерть информацию о файле, и времени модификации, и создания
-stat file.sh 
+stat file.sh
 
 # с какими атрибутами будет создаваться файл
 umask
@@ -255,7 +255,7 @@ sudo userdel -r user
 # как сменить пароль суперпользователя ubuntu без флешки
 # чтобы попасть в gpub жмем esc и держим
 # нажать e во время загрузки дописать в linux сделать rw init=/bin/sh и удалить все что было до ro
-# перемонтировать раздел на чтение запись 
+# перемонтировать раздел на чтение запись
 mount -o remount,rw /
 # поменяем пароль
 passwd user
@@ -293,7 +293,7 @@ picocom -b 115200 /dev/ttyUSB0 --imap lfcrlf
 #screen /dev/ttyUSB0 115200,cs8
 #minicom
 #putty
-#tip -115200 ttyUSB0 
+#tip -115200 ttyUSB0
 
 # ип калькулятор subnet
 ipcalc 192.168.0.102
@@ -494,7 +494,7 @@ sudo apt install psensor
 sudo journalctl --vacuum-size=100M
 
 # Список wifi сетей
-nmcli device wifi 
+nmcli device wifi
 
 # посмотреть mac
 ifconfig -a | grep ether | gawk '{print $2}'
@@ -577,7 +577,7 @@ curl -X POST -F 'username="hello"' -F 'password="itsme"' -c cookie.txt localhost
 # использовать сохраненные куки
 curl -b cookie.txt http://localhost:8081/private/status
 
-#ack поиск 
+#ack поиск
 # найти точное совпадение слова profile чтобы в строке не было слова github
 ack '^(?!.*github).(\bprofile\b)'
 
@@ -606,7 +606,7 @@ sudo make package
 # watch max speed interface
 ethtool enp3s0
 
-# Настройка wifi 
+# Настройка wifi
 nmtui
 
 # bin hex byte search
@@ -656,7 +656,7 @@ sudo iptables --delete sshguard
 
 sudo vi /etc/lightdm/lightdm.conf.d/20-lubuntu.conf
 ```bash
-[SeatDefaults] 
+[SeatDefaults]
 user-session=LXDE
 autologin-user-timeout=0
 #allow-guest=true
@@ -739,7 +739,7 @@ xrandr --output DSI-0 --primary --rotate left --mode 720x1280 --output HDMI-0 --
 
 # E: Could not get lock /var/lib/dpkg/lock-frontend - open (11: Resource temporarily unavailable)
 # E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), is
-another process using it?
+# another process using it?
 sudo rm /var/lib/apt/lists/lock
 sudo rm /var/cache/apt/archives/lock
 sudo rm /var/lib/dpkg/lock*
@@ -761,4 +761,10 @@ Type=idle
 # auto start xsession
 # Добавить в конце файла /home/user/.bashrc
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+
+
+# установить тайм зону
+timedatectl list-timezones | grep Mosc
+sudo timedatectl set-timezone Europe/Moscow
+cat /etc/timezone
 
