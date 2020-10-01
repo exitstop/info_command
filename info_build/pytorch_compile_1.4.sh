@@ -3,18 +3,18 @@
 # arm
 sudo apt update
 sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt install python3.6
+sudo apt install -y python3.8
 wget https://bootstrap.pypa.io/get-pip.py
-sudo python3.6 get-pip.py
+sudo python3.8 get-pip.py
 
 sudo apt install build-essential cmake unzip
-sudo apt-get install python3-dev
+sudo apt-get install -y python3-dev
 sudo apt-get install -y gfortran libatlas-base-dev
-sudo apt install libgtk2.0-dev libgtk-3-dev ffmpeg
-sudo apt install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
-sudo apt install git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
-sudo apt install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev
-sudo apt install libavcodec-dev libavformat-dev libavutil-dev libswscale-dev libavresample-dev
+sudo apt install -y libgtk2.0-dev libgtk-3-dev ffmpeg
+sudo apt install -y libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
+sudo apt install -y git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+sudo apt install -y python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev
+sudo apt install -y libavcodec-dev libavformat-dev libavutil-dev libswscale-dev libavresample-dev
 
 # Иснтрукция по настройкe Cmake
 # https://docs.opencv.org/3.4/d7/d9f/tutorial_linux_install.html
@@ -27,7 +27,7 @@ CMAKE_INSTALL_PREFIX=$INSTALL_DIR
 OPECV_VERSION=4.3.0
 CPACK_PACKAGE_VERSION=$OPECV_VERSION
 
-sudo -H pip3 install --upgrade --force-reinstall numpy==1.16.0
+sudo -H pip3.8 install --upgrade --force-reinstall numpy==1.16.0
 
 cd $OPENCV_SOURCE_DIR
 git clone --recursive https://github.com/pytorch/pytorch
@@ -43,5 +43,5 @@ conda install numpy ninja pyyaml setuptools cmake cffi
 source ~/.bashrc
 
 export CMAKE_PREFIX_PATH=${CONDA_PREFIX:-"$(dirname $(which conda))/../"}
-USE_CUDA=0 USE_NUMPY=ON python3.6 setup.py install --user
-USE_CUDA=0 USE_NUMPY=ON python3.6 setup.py bdist_wheel
+USE_CUDA=0 USE_NUMPY=ON python3.8 setup.py install --user
+USE_CUDA=0 USE_NUMPY=ON python3.8 setup.py bdist_wheel

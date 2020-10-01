@@ -217,3 +217,6 @@ http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/?ref=hack
 
 # stack trace info
 https://www.ardanlabs.com/blog/2015/01/stack-traces-in-go.html
+
+#
+go tool pprof "http://localhost:8081/debug/pprof/profile?seconds=10"

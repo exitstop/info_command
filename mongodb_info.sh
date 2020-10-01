@@ -187,3 +187,5 @@ db.createUser({ user:"admin",
                           db:"databesename" 
                         } ]
               })
+
+Операторы: $lt — меньше, $lte — меньше или равно, $gt — больше, $gte — больше или равно, $ne — не равно.

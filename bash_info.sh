@@ -60,6 +60,18 @@ sudo fdisk -l
 sudo mount
 sudo mount /dev/sdb3/ /mnt/my_dir
 
+# перманетное монтирование
+lsblk
+sudo blkid
+sudo mkfs.ext4 /dev/sdb
+sudo mkdir -p /mnt/mongo_db_base
+sudo chmod 660 /mnt/mongo_db_base
+sudo vim /etc/fstab
+#UUID=cbcc1da9-8f81-404f-8d40-d7bf4af1292b       /mnt/mongo_db_base       ext4   auto,user,rw    0 0
+#UUID=e3c3ce6c-3b39-4701-bce7-85772c2e133f       /rawdata       ext4   auto,user,rw    0 0
+#e3c3ce6c-3b39-4701-bce7-85772c2e133f
+
+
 # tab to space recursive
 find . -type f -exec sed -i.orig 's/\t/    /g' {} +
 # tab to space one file
@@ -358,6 +370,8 @@ cat /etc/fstab
 echo "/dev/sdb1 /mnt/hard_drive auto rw,user,auto,noexec 0 2" >> /etc/fstab
 # или UUID монтирование
 echo "UUID=bbbf3ffd-bca1-1235-1231-141321acb221 /mnt/hard_drive auto rw,user,auto,noexec 0 2" >> /etc/fstab
+#UUID=cbcc1da9-8f81-404f-8d40-d7bf4af1292b       /media/db       ext4    auto,user,rw    0 0
+#lsblk
 
 # узнать версию дистрибутива
 cat /etc/issue
@@ -768,3 +782,5 @@ timedatectl list-timezones | grep Mosc
 sudo timedatectl set-timezone Europe/Moscow
 cat /etc/timezone
 
+# 
+sudo nmap -sn 192.168.88.0/24 > nmap_00 && cat nmap_00 | grep "Nmap scan report for" > nmap_000
