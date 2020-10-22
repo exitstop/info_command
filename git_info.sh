@@ -118,3 +118,6 @@ git lfs install --skip-smudge
 git clone ...
 git lfs pull
 git lfs install --force
+
+git push --delete origin 0.0.0-test
+git tag -d 0.0.0-test

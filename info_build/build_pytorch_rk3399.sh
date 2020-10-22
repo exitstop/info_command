@@ -31,7 +31,7 @@ python3 setup.py clean
 
 # https://gist.github.com/mhubii/1c1049fb5043b8be262259efac4b89d5
 
-sudo fallocate -l 1G /swapfile
+sudo fallocate -l 4G /swapfile
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile

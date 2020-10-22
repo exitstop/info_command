@@ -784,3 +784,7 @@ cat /etc/timezone
 
 # 
 sudo nmap -sn 192.168.88.0/24 > nmap_00 && cat nmap_00 | grep "Nmap scan report for" > nmap_000
+
+# Read-only file system
+fsck -n -f
+sudo mount -o remount,rw -t ext4 /dev/sda2

@@ -66,12 +66,15 @@ db.users.find({}, {_id:0}).sort({name: -1})
 db.users.find({$or: [{name: "john"}, {age: 23}]}, {_id:0})
 db.users.find({name: { $in: ["john2", "mike"]}})
 db.users.find({name: { $all: ["john2", "mike"]}}) 
+
 # $lt: <  $gt: >  $lte: <=  $gte: >= $ne: !=
 db.users.find({$or: [{name: "john"}, {age: {$lt: 24}}]}, {_id:0})
 db.users.find({bithrday: {$exists: true} }, {_id:0})
 db.users.find({child: {$size: 2} }, {_id:0})
 db.users.find({"child.1": "fuck" }, {_id:0})
 db.users.find({child: {$elemMatch: {$lte: "a"}} }, {_id:0})
+# колличество активных api ключей
+db.apikey.find({Status: {$gt: 0} }).count()
 
 # обновить одно значение 
 db.users.updateOne({age:23}, {$set: {age: 25}})
@@ -85,6 +88,9 @@ db.users.updateMany({age:23}, {$push: {arrayField: "-name"}})
 db.users.updateMany({age:23}, {$pop: {arrayField: -1}})
 # add to set добавить массив только там где нет этого поля
 db.users.updateMany({age:23}, {$addToSet: {arrayField: "-name"} })
+
+# Сбросить время для всех кто наперсил меньше 1000
+db.apikey.updateMany({CountUsers: { $lt: 1000 } },{$set: {Time : ISODate("2010-10-01T12:15:41.624Z") } }) 
 
 
 # удалить запись которая 22 >= age >= 38
