@@ -220,3 +220,6 @@ https://www.ardanlabs.com/blog/2015/01/stack-traces-in-go.html
 
 #
 go tool pprof "http://localhost:8081/debug/pprof/profile?seconds=10"
+
+cgo траблы
+https://www.youtube.com/watch?v=bdx8W_gxS3E
