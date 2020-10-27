@@ -788,3 +788,6 @@ sudo nmap -sn 192.168.88.0/24 > nmap_00 && cat nmap_00 | grep "Nmap scan report 
 # Read-only file system
 fsck -n -f
 sudo mount -o remount,rw -t ext4 /dev/sda2
+
+MY_VAR=hello
+xargs -I '{}' echo dir1/'{}' $MY_VAR/'{}'

@@ -223,3 +223,17 @@ go tool pprof "http://localhost:8081/debug/pprof/profile?seconds=10"
 
 cgo траблы
 https://www.youtube.com/watch?v=bdx8W_gxS3E
+
+# vegete
+https://www.youtube.com/watch?v=TVe8pIFn2mY
+
+# оптимизации
+https://www.youtube.com/watch?v=DvkArdKQjBI
+
+# linter revgrep orig/master
+https://www.youtube.com/watch?v=VlnxsfSs1ms
+glonagci-lint run --new-from-rev=orign/master
+
+
+# линтер делает ревью в pull request
+reviewdog
