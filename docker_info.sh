@@ -18,7 +18,7 @@ docker stop $(docker ps -aq)
 docker rm $(docker ps -qa)
 docker system prune -a
 
-sudo docker build -t exitstop/torch1.4opencv_4.3 .
+sudo docker build -t exitstop/torch1.4opencv_4.3sys_small .
 sudo docker build -t exitstop/ubuntu18.04 .
 #docker run --name=linuxconfig-opencv4.5 -d -p 8080:80 linuxconfig/opencv4.4 bash -D FOREGROUND
 docker run --name torch1.4opencv_4.3sys -it exitstop/torch1.4opencv_4.3sys
