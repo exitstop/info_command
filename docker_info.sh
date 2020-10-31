@@ -21,14 +21,16 @@ docker system prune -a
 sudo docker build -t exitstop/torch1.4opencv_4.3sys_small .
 sudo docker build -t exitstop/ubuntu18.04 .
 #docker run --name=linuxconfig-opencv4.5 -d -p 8080:80 linuxconfig/opencv4.4 bash -D FOREGROUND
-docker run --name torch1.4opencv_4.3sys -it exitstop/torch1.4opencv_4.3sys
+docker run --name torch1.4opencv_4.3sys_small -it exitstop/torch1.4opencv_4.3sys_small
 docker exec -it opencv4.5 /bin/bash
 docker ps
 docker ps -a
 docker exec -it b6ad1502a22dc015669e4b91f8c52da59eb6e4df5f0ab3f3af95189d83a974c7 bash
 docker container start b6ad1502a22dc015669e4b91f8c52da59eb6e4df5f0ab3f3af95189d83a974c7
 
-docker push exitstop/torch1.4opencv_4.3
+docker exec -it container-name bash
+
+docker push exitstop/torch1.4opencv_4.3sys_small
 
 # if error
 # Error on build: double free or corruption (out)
