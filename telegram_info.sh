@@ -12,3 +12,8 @@ proxychains bin/telegram-cli -k tg-server.pub -P 8888 -c /home/user/.config/tele
 proxychains bin/telegram-cli -k tg-server.pub -P 8888 -c /home/user/.config/telegram-cli/config -N --permanent-msg-ids
 
 
+# how to install
+cd ~/Downloads
+tar -xJvf tsetup.0.7.2.tar
+sudo mv Telegram /opt/telegram
+sudo ln -sf /opt/telegram/Telegram /usr/bin/telegram
