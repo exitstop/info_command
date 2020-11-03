@@ -234,6 +234,8 @@ https://www.youtube.com/watch?v=DvkArdKQjBI
 https://www.youtube.com/watch?v=VlnxsfSs1ms
 glonagci-lint run --new-from-rev=orign/master
 
+go get golang.org/x/tools/gopls@latest
+
 
 # линтер делает ревью в pull request
 reviewdog

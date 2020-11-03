@@ -65,20 +65,26 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
-  web-search
-  extract
+    git
+    #gitfast
+    web-search
+    extract
+    adb
+    sudo
+    systemd
+    #nmap
+    #npm
 )
 
 source $ZSH/oh-my-zsh.sh
 
 DIRSTACKFILE="$HOME/.dirs"
 if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
-  dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
-  [[ -d $dirstack[1] ]] && cd $dirstack[1]
+    dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
+    [[ -d $dirstack[1] ]] && cd $dirstack[1]
 fi
 chpwd() {
-  print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
+    print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
 }
 
 DIRSTACKSIZE=90
@@ -92,10 +98,33 @@ alias clip="head -c -1|xclip -i -selection clipboard"
 alias clr='colout -t cmake | colout -t g++'
 alias rd='readlink -f'
 
+alias cdinfo="cd /mnt/dt/user/Documents/save/sources/info_command"
+alias cdremote="cd /mnt/dt/user/Documents/save/sources/golang/src/github.com/remote_ssh_v2/client_daemon_port_master"
+alias cdtx2="cd /mnt/dt/user/Documents/save/sources/ovision/jetson_tx2/secureboot-tegra/orbitty/Linux_for_Tegra"
+alias cdfacex2="cd /mnt/dt/user/Documents/save/sources/ovision/rockchip/FACE-RK3399-X1/FACE-X2"
+alias cdovision="cd /mnt/dt/user/Documents/save/sources/ovision"
+alias cdgo="cd /mnt/dt/user/Documents/save/sources/golang/src/github.com/exitstop"
+alias cdgo="cd /home/bg/go/src/github.com/exitstop/speaker"
+alias sphome="cd /home/bg/go/src/github.com/exitstop/speaker; go run cmd/speaker/main.go -ip 192.168.0.133"
+alias spwork="cd /home/bg/go/src/github.com/exitstop/speaker; go run cmd/speaker/main.go -ip 192.168.88.50"
+
+
+
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh  # This loads NVM
 
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux
-fi
+#if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+#exec tmux
+#fi
+
+
+export GOPATH=~/go
+export GOBIN=$GOPATH/bin
+export GO111MODULE=on
+export GOPROXY=direct
+export GOSUMDB=off
+export PATH=$PATH:$GOBIN:/usr/local/go/bin
+
+export ANDROID_HOME=/home/bg/Android/Sdk
+export ANDROID_NDK_HOME=/home/bg/Android/Sdk/ndk/21.3.6528147
