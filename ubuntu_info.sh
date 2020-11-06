@@ -32,10 +32,13 @@ end
 devilspie2 --debug
 
 sudo systemctl restart gdm
+gsettings reset org.gnome.mutter experimental-features
+sudo apt install --reinstall ubuntu-gnome-desktop
 
 sudo vim /etc/default/grub
 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nomodeset"
 update-grub
 sudo reboot
 
-
+gsettings set org.gnome.desktop.wm.preferences resize-with-right-button true
+gsettings set org.gnome.desktop.wm.preferences mouse-button-modifier '<Alt>'
