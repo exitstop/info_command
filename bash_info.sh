@@ -70,6 +70,7 @@ sudo vim /etc/fstab
 #UUID=cbcc1da9-8f81-404f-8d40-d7bf4af1292b       /mnt/mongo_db_base       ext4   auto,user,rw    0 0
 #UUID=e3c3ce6c-3b39-4701-bce7-85772c2e133f       /rawdata       ext4   auto,user,rw    0 0
 #e3c3ce6c-3b39-4701-bce7-85772c2e133f
+#UUID=7262a24b-85c7-449b-b7d6-fe7db4b85860       /rawdata       ext4   auto,user,rw    0 0
 
 
 # tab to space recursive
@@ -207,6 +208,9 @@ x11vnc -display :0 -rfbport 5901
 x11vnc -usepw -display :0 -q -forever -rfbport 5901
 
 vncviewer -PreferredEncoding=ZRLE 192.168.88.143:5901
+
+sudo apt install gvncviewer
+sudo apt install xtightvncviewer
 
 # qemu
 qemu-system-x86_64 -m 1024 -cdrom lubuntu-16.04.5-desktop-amd64.iso

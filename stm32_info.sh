@@ -47,3 +47,6 @@ sudo service udev restart
 
 # с чего начать изучение
 https://www.youtube.com/watch?v=vZVwv-EeHkI
+
+# защита
+https://www.youtube.com/watch?v=S-fOobgttXQ
