@@ -63,6 +63,7 @@ sudo mount /dev/sdb3/ /mnt/my_dir
 # перманетное монтирование
 lsblk
 sudo blkid
+sudo dd if=/dev/zero of=v8_1000G.img bs=1 count=0 seek=1000G
 sudo mkfs.ext4 /dev/sdb
 sudo mkdir -p /mnt/mongo_db_base
 sudo chmod 660 /mnt/mongo_db_base
