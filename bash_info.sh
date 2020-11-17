@@ -71,7 +71,8 @@ sudo vim /etc/fstab
 #UUID=cbcc1da9-8f81-404f-8d40-d7bf4af1292b       /mnt/mongo_db_base       ext4   auto,user,rw    0 0
 #UUID=e3c3ce6c-3b39-4701-bce7-85772c2e133f       /rawdata       ext4   auto,user,rw    0 0
 #e3c3ce6c-3b39-4701-bce7-85772c2e133f
-#UUID=7262a24b-85c7-449b-b7d6-fe7db4b85860       /rawdata       ext4   auto,user,rw    0 0
+#UUID=58411d7d-3f60-4331-8d85-f00c94092965       /rawdata1       ext4   auto,user,rw    0 0
+sudo mkdir -p /rawdata1
 
 
 # tab to space recursive
@@ -796,3 +797,6 @@ sudo mount -o remount,rw -t ext4 /dev/sda2
 
 MY_VAR=hello
 xargs -I '{}' echo dir1/'{}' $MY_VAR/'{}'
+
+# nmap
+nmap -n -Pn 192.168.88.0/24 -p4011,8080 -oG - | grep '/open/'  | awk '/Host:/{print $2}'

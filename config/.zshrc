@@ -99,10 +99,12 @@ alias clr='colout -t cmake | colout -t g++'
 alias rd='readlink -f'
 
 alias cdinfo="cd /mnt/dt/user/Documents/save/sources/info_command"
-alias cdremote="cd /mnt/dt/user/Documents/save/sources/golang/src/github.com/remote_ssh_v2/client_daemon_port_master"
+alias cdovision="cd /home/bg/Documents/save/source/ovision/"
+alias cdremotelast="cd /mnt/dt/user/Documents/save/sources/golang/src/github.com/remote_ssh_v2/client_daemon_port_master"
+alias cdremote="cd /home/bg/go/src/github.com/FaceChainTeam/remote_ssh_v2/client_daemon_port_master"
 alias cdtx2="cd /mnt/dt/user/Documents/save/sources/ovision/jetson_tx2/secureboot-tegra/orbitty/Linux_for_Tegra"
 alias cdfacex2="cd /mnt/dt/user/Documents/save/sources/ovision/rockchip/FACE-RK3399-X1/FACE-X2"
-alias cdovision="cd /mnt/dt/user/Documents/save/sources/ovision"
+#alias cdovision="cd /mnt/dt/user/Documents/save/sources/ovision"
 alias cdgo="cd /mnt/dt/user/Documents/save/sources/golang/src/github.com/exitstop"
 alias cdgo="cd /home/bg/go/src/github.com/exitstop/speaker"
 alias sphome="cd /home/bg/go/src/github.com/exitstop/speaker; go run cmd/speaker/main.go -ip 192.168.0.133"

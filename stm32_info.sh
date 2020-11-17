@@ -50,3 +50,56 @@ https://www.youtube.com/watch?v=vZVwv-EeHkI
 
 # защита
 https://www.youtube.com/watch?v=S-fOobgttXQ
+
+# stm32 to linux atolic
+https://atollic.com/resources/download/linux/linux-archive/?submissionGuid=e4e4689c-0e7f-445e-acb3-95c9d3616cc5
+
+tar -xvf ~/Downloads/Atollic_TrueSTUDIO_for_STM32_linux_x86_64_v9.3.0_20190212-0734.tar.gz
+cd Atollic_TrueSTUDIO_for_STM32_9.3.0_installer && sudo ./install.sh
+d /opt/Atollic_TrueSTUDIO_for_STM32_9.3.0/ide && ./TrueSTUDIO
+# Урок
+https://www.youtube.com/watch?v=FmT1x3PHldk
+
+sudo stm32flash -w HelloWorld.elf -v -g 0x0 /dev/ttyS0
+
+st-flash write HelloWorld.elf 0x8000000
+
+# gdb arm-eabi-gdb
+https://stackoverflow.com/questions/53450745/message-unable-to-run-arm-none-eabi-gdb-cannot-find-libncurses-so-5
+
+```bash
+sudo apt-get install build-essential libncurses5-dev libexpat1-dev texinfo-doc-nonfree
+pushd /tmp
+wget -qO- ftp://ftp.gnu.org/gnu/gdb/gdb-8.2.tar.xz | tar Jxv
+mkdir gdb
+cd gdb
+../gdb-8.2/configure  --enable-tui --with-expat --prefix=/usr/local  --target=arm-eabi --program-prefix=arm-eabi-
+make all
+sudo make  install
+popd
+```
+
+# https://community.st.com/s/question/0D50X0000BTd7Zi/how-to-deal-wirh-could-not-verify-st-device-
+https://community.st.com/s/question/0D50X0000BTd7Zi/how-to-deal-wirh-could-not-verify-st-device-
+
+```
+/opt/st/stm32cubeide_1.4.0/plugins/com.st.stm32cube.ide.mcu.debug.openocd_1.4.0.202007081208/resources/openocd/st_scripts/target/stm32f1x.cfg
+
+Debug Configurations установить Debug Probe = ST-LINK(OpenOCD)
+
+Вместо этого сделайте следующее: >>
+
+В файле stm32f1x.cfg найдите командную строку (около строки 62), начинающуюся с: swj_newdap
+В конце этой командной строки вы увидите: -expected-id $ _CPUTAPID
+Просто измените его на: -expected-id 0
+Ноль указывает OpenOCD игнорировать идентификационные номера, что означает, что все клоны или подлинные MCU будут работать.
+
+Сохраните изменения. Теперь ваша прошивка и отладка должны работать.
+```
+
+```bash
+#define  TICK_INT_PRIORITY            0x0FU /*!< tick interrupt priority */
+uint32_t HAL_GetTick(void) {
+    return TIM2->CNT; // or TIM5->CNT
+}
+```

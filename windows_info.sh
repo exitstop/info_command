@@ -19,3 +19,15 @@ https://github.com/blackrosezy/gui-inspect-tool
 # редактор PE фалов
 Stud_PE
 CFF Explorer
+
+# установка ssh
+# https://winitpro.ru/index.php/2019/10/17/windows-openssh-server/
+Add-WindowsCapability -Online -Name OpenSSH.Server*
+
+Приложения -> Управление дополнительными компонентами -> Добавить компонент). Найдите в списке Open SSH Server и нажмите кнопку Install).
+
+#Чтобы проверить, что OpenSSH сервер установлен, выполните:
+Get-WindowsCapability -Online | ? Name -like 'OpenSSH.Ser*'
+
+Set-Service -Name sshd -StartupType 'Automatic'
+Start-Service sshd

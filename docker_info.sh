@@ -1,3 +1,6 @@
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+sudo apt install docker.io
+
 # смотреть лoги докера
 docker logs --tail 50 --follow --timestamps mediawiki_web_1
 
@@ -16,9 +19,10 @@ docker image rm $(docker images -a -q)
 # удалить все контейнеры
 docker stop $(docker ps -aq)
 docker rm $(docker ps -qa)
-docker system prune -a
+sudo docker system prune -a
 
-sudo docker build -t exitstop/torch1.4opencv_4.3sys_small .
+sudo docker build -t exitstop/torch1.4opencv_4.3_ubuntu_20.04_amd64_sys_small .
+sudo docker build -t exitstop/torch1.4opencv_4.3_ubuntu_18.04_amd64_sys_small .
 sudo docker build -t exitstop/ubuntu18.04 .
 #docker run --name=linuxconfig-opencv4.5 -d -p 8080:80 linuxconfig/opencv4.4 bash -D FOREGROUND
 docker run --name torch1.4opencv_4.3sys_small -it exitstop/torch1.4opencv_4.3sys_small
@@ -31,7 +35,15 @@ docker container start b6ad1502a22dc015669e4b91f8c52da59eb6e4df5f0ab3f3af95189d8
 docker exec -it container-name bash
 
 docker push exitstop/torch1.4opencv_4.3sys_small
+docker push exitstop/torch1.4opencv_4.3_ubuntu_20.04_sys_small
+docker push exitstop/torch1.4opencv_4.3_ubuntu_18.04_sys_small
+docker push exitstop/torch1.4opencv_4.3_ubuntu_20.04_amd64_sys_small
+
 
 # if error
 # Error on build: double free or corruption (out)
 sudo apt remove golang-docker-credential-helpers
+
+# multiarch
+https://github.community/t/testing-against-multiple-architectures/17111/4
+https://github.com/multiarch/qemu-user-static

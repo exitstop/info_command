@@ -1,4 +1,5 @@
-# atl+shit 
+#
+atl+shit 
 sudo apt install gnome-tweaks
 sudo apt install gnome-startup-applications
 
@@ -42,3 +43,6 @@ sudo reboot
 
 gsettings set org.gnome.desktop.wm.preferences resize-with-right-button true
 gsettings set org.gnome.desktop.wm.preferences mouse-button-modifier '<Alt>'
+
+# woe usb
+https://www.how2shout.com/linux/how-to-install-woeusb-on-ubuntu-20-04-lts/
