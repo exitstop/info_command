@@ -1,12 +1,14 @@
 #/bin/bash
-
-apt update  apt -y install sudo rsync wget git md5deep ssh
-apt -y install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good
-gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-doc
-gstreamer1.0-tools gstreamer1.0-x libgstreamer-plugins-base1.0-dev
-libgtk2.0-dev libgtk-3-dev ffmpeg pkg-config libavcodec-dev libavformat-dev libswscale-dev
+TZ=Europe/Moscow
+sudo ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+sudo apt update
+sudo apt -y install sudo rsync wget git md5deep ssh
+sudo apt -y install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good \
+gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-doc \
+gstreamer1.0-tools gstreamer1.0-x libgstreamer-plugins-base1.0-dev \
+libgtk2.0-dev libgtk-3-dev ffmpeg pkg-config libavcodec-dev libavformat-dev libswscale-dev \
 libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libavutil-dev  libavresample-dev
-apt -y install python3.8 build-essential cmake unzip python3.8-dev gfortran libatlas-base-dev
+sudo apt -y install python3.8 build-essential cmake unzip python3.8-dev gfortran libatlas-base-dev
 mkdir -p ~/facechain/install
 cd ~/facechain/install
 git clone --recursive https://github.com/pytorch/pytorch
@@ -35,7 +37,7 @@ make clean
 make deps
 make download
 make build
-make sudo_install
+sudo make sudo_install
 cd ~/facechain/install/pytorch
 git submodule sync
 git submodule update --init --recursive
