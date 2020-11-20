@@ -208,8 +208,11 @@ hte prog
 x11vnc -display :0 -rfbport 5901
 # чтобы не выключался
 x11vnc -usepw -display :0 -q -forever -rfbport 5901
-
 vncviewer -PreferredEncoding=ZRLE 192.168.88.143:5901
+ss -lt
+
+# создать сервис
+sudo vim /lib/systemd/system/x11vnc.service
 
 sudo apt install gvncviewer
 sudo apt install xtightvncviewer
@@ -800,3 +803,8 @@ xargs -I '{}' echo dir1/'{}' $MY_VAR/'{}'
 
 # nmap
 nmap -n -Pn 192.168.88.0/24 -p4011,8080 -oG - | grep '/open/'  | awk '/Host:/{print $2}'
+
+# stress
+stress --cpu 3
+
+

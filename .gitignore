@@ -1,0 +1,19 @@
+# ignore all
+*
+*hack/
+!*/
+!*info_build/
+!*info_build/file/
+!*info_build/file/gocv/
+!*info_build/firefly/
+
+
+# source files
+!*.sh
+!pre-commit
+!.clang-format
+!script/.gitignore
+!.gitignore
+!Makefile
+!Makefile.20.04.arm64
+!*.cfg
