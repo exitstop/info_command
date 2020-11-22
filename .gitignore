@@ -6,6 +6,7 @@
 !*info_build/file/
 !*info_build/file/gocv/
 !*info_build/firefly/
+!*config/nixos_config
 
 
 # source files
@@ -17,3 +18,4 @@
 !Makefile
 !Makefile.20.04.arm64
 !*.cfg
+!*.nix

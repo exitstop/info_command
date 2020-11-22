@@ -106,6 +106,11 @@ uint32_t HAL_GetTick(void) {
 
 # st link v2 + swo для вывода отладки
 https://habr.com/ru/post/402927/
+https://www.youtube.com/watch?v=anop2wrf5rU
+# фикс почему не отлаживается программа
+https://www.youtube.com/watch?v=cVlHYDqnGE0
+# закоментить эту строчку в файле stm32f1xx_hal_msp.c
+//__HAL_AFIO_REMAP_SWJ_NOJTAG();
 
 # nrf24 tutorial
 https://istarik.ru/blog/stm32/127.html
