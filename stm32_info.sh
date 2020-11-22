@@ -103,3 +103,9 @@ uint32_t HAL_GetTick(void) {
     return TIM2->CNT; // or TIM5->CNT
 }
 ```
+
+# st link v2 + swo для вывода отладки
+https://habr.com/ru/post/402927/
+
+# nrf24 tutorial
+https://istarik.ru/blog/stm32/127.html
