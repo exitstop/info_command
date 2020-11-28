@@ -807,4 +807,5 @@ nmap -n -Pn 192.168.88.0/24 -p4011,8080 -oG - | grep '/open/'  | awk '/Host:/{pr
 # stress
 stress --cpu 3
 
-
+# add ssh key to server
+ssh-copy-id user@192.168.0.193

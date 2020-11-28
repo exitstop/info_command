@@ -114,3 +114,11 @@ https://www.youtube.com/watch?v=cVlHYDqnGE0
 
 # nrf24 tutorial
 https://istarik.ru/blog/stm32/127.html
+
+sudo apt install openocd
+#openocd -f stm32f1x.cfg -c "program stm32f103c8t6.bin exit 0x08000000"
+
+# ссылки
+- http://gclabs.org/kb/index.php/How_to_flash_your_stm32
+# st-link
+- https://github.com/stlink-org/stlink/blob/master/doc/compiling.md
