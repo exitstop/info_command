@@ -71,7 +71,7 @@ sudo vim /etc/fstab
 #UUID=cbcc1da9-8f81-404f-8d40-d7bf4af1292b       /mnt/mongo_db_base       ext4   auto,user,rw    0 0
 #UUID=e3c3ce6c-3b39-4701-bce7-85772c2e133f       /rawdata       ext4   auto,user,rw    0 0
 #e3c3ce6c-3b39-4701-bce7-85772c2e133f
-#UUID=58411d7d-3f60-4331-8d85-f00c94092965       /rawdata1       ext4   auto,user,rw    0 0
+#UUID=0736dc01-3146-4e10-a9b3-986f9949c00d-3f60-4331-8d85-f00c94092965       /rawdata1       ext4   auto,user,rw    0 0
 sudo mkdir -p /rawdata1
 
 
@@ -809,3 +809,11 @@ stress --cpu 3
 
 # add ssh key to server
 ssh-copy-id user@192.168.0.193
+
+sudo chmod 775 $(find remotesshv3server -type d)
+sudo chmod 644 $(find pipelinego -type f)
+
+sudo apt install -y cgroup-tools
+sudo cgcreate -a $USER:$USER -t $USER:$USER -g memory:groupChromiumMemLimit
+sudo cgset -r memory.limit_in_bytes=$((256*1024*1024)) groupChromiumMemLimit
+cgexec -g memory:groupChromiumMemLimit chromium-browser
