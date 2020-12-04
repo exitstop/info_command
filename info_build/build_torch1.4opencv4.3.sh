@@ -17,8 +17,9 @@ git checkout v1.4.0
 cd ..
 wget https://bootstrap.pypa.io/get-pip.py
 python3.8 get-pip.py
-#wget https://golang.org/dl/go1.15.3.linux-amd64.tar.gz
-#tar -C /usr/local -xzf go1.15.3.linux-amd64.tar.gz
+mkdir -p $GOPATH
+wget https://golang.org/dl/go1.15.3.linux-amd64.tar.gz
+tar -C /usr/local -xzf go1.15.3.linux-amd64.tar.gz
 #export PATH=$PATH:/usr/local/go/bin
 #export GOPATH=~/go
 #echo "export GOPATH=~/go" >> ~/.bashrc
@@ -27,12 +28,13 @@ python3.8 get-pip.py
 #export GOPATH=/root/go
 #export PATH=$PATH:/usr/local/go/bin
 #export GOPATH=/root/go
-pip3.8 install numpy ninja pyyaml setuptools cmake cffi
-go get -u -d gocv.io/x/gocv
-cd $GOPATH/src/gocv.io/x/gocv
+sudo -H pip3.8 install numpy ninja pyyaml setuptools cmake cffi
+#go get -u -d gocv.io/x/gocv
+#cd $GOPATH/src/gocv.io/x/gocv
+git clone https://github.com/hybridgroup/gocv
+cd gocv
 git checkout v0.23.0
-cp /file/gocv/Makefile.20.04.arm64 $GOPATH/src/gocv.io/x/gocv/Makefile
-cd $GOPATH/src/gocv.io/x/gocv
+cp file/gocv/Makefile.20.04.arm64 $GOPATH/src/gocv.io/x/gocv/Makefile
 make clean
 make deps
 make download
@@ -42,9 +44,9 @@ cd ~/facechain/install/pytorch
 git submodule sync
 git submodule update --init --recursive
 cd ~/facechain/install/pytorch
-USE_CUDA=0 USE_NUMPY=ON python3.8 setup.py install
+sudo USE_NUMPY=ON python3.8 setup.py install
 cd ~/facechain/install/pytorch
-USE_CUDA=0 USE_NUMPY=ON python3.8 setup.py bdist_wheel
+USE_NUMPY=ON python3.8 setup.py bdist_wheel
 cd ~/facechain/
 #rm -rf rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 #rm -rf ~/facechain
