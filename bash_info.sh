@@ -809,3 +809,6 @@ stress --cpu 3
 
 # add ssh key to server
 ssh-copy-id user@192.168.0.193
+
+# скорость набора typing speed
+sudo apt-get install typespeed
