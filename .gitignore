@@ -20,3 +20,4 @@
 !Makefile.20.04.arm64
 !*.cfg
 !*.nix
+!*.md
