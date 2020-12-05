@@ -820,3 +820,8 @@ sudo apt install -y cgroup-tools
 sudo cgcreate -a $USER:$USER -t $USER:$USER -g memory:groupChromiumMemLimit
 sudo cgset -r memory.limit_in_bytes=$((256*1024*1024)) groupChromiumMemLimit
 cgexec -g memory:groupChromiumMemLimit chromium-browser
+
+# Отключить eth0 навсегда
+# https://askubuntu.com/questions/427922/disable-network-permanently
+sudo vim /etc/network/interfaces
+iface eth0 inet manual

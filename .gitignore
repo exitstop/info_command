@@ -21,3 +21,4 @@
 !*.cfg
 !*.nix
 !*.md
+node_modules

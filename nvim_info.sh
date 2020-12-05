@@ -117,3 +117,6 @@ ctrl-]
 
 # вставить vim :0put +
 :0put +
+
+# самые качественные
+asus strix quiet 3090
