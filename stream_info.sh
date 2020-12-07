@@ -50,3 +50,6 @@ socat -T15 udp4-recvfrom:5555,reuseaddr,fork udp:192.168.0.110:6666
 # на машине получателе
 ffplay udp://192.168.0.110:6666 -fflags nobuffer
 
+
+# что купить
+https://www.youtube.com/watch?v=kYrOqSpjNe0
