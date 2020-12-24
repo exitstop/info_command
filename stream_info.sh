@@ -53,3 +53,7 @@ ffplay udp://192.168.0.110:6666 -fflags nobuffer
 
 # что купить
 https://www.youtube.com/watch?v=kYrOqSpjNe0
+
+# сделать подделать камеру obs
+https://obsproject.com/wiki/install-instructions#linux
+https://github.com/CatxFish/obs-v4l2sink
