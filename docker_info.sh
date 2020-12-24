@@ -47,3 +47,8 @@ sudo apt remove golang-docker-credential-helpers
 # multiarch
 https://github.community/t/testing-against-multiple-architectures/17111/4
 https://github.com/multiarch/qemu-user-static
+
+sudo docker build -t exitstop/python3_arm_test .
+
+# ssh key build argument
+https://stackoverflow.com/questions/23391839/clone-private-git-repo-with-dockerfile

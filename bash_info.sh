@@ -825,3 +825,10 @@ cgexec -g memory:groupChromiumMemLimit chromium-browser
 # https://askubuntu.com/questions/427922/disable-network-permanently
 sudo vim /etc/network/interfaces
 iface eth0 inet manual
+
+
+# переустановить desktop
+sudo apt purge gdm gdm3
+sudo apt install gdm3 ubuntu-desktop
+sudo dpkg-reconfigure gdm3
+sudo systemctl restart gdm
