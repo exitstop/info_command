@@ -21,3 +21,6 @@ ping -c1 -I enp0s8 8.8.8.8
 ip link | awk -F: '$0 !~ "lo|vir|wl|^[^0-9]"{print $2;getline}'
 
 iw dev | awk '$1=="Interface"{print $2}'
+
+# nmcli
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-configuring_ip_networking_with_nmcli
