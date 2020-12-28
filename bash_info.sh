@@ -832,3 +832,6 @@ sudo apt purge gdm gdm3
 sudo apt install gdm3 ubuntu-desktop
 sudo dpkg-reconfigure gdm3
 sudo systemctl restart gdm
+
+# graceful shutdown screen
+screen -S windows -X stuff "^C exit\n"
