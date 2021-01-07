@@ -835,3 +835,7 @@ sudo systemctl restart gdm
 
 # graceful shutdown screen
 screen -S windows -X stuff "^C exit\n"
+
+# multi rename
+# change extention
+mmv "*.png" "#1.jpg"

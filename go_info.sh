@@ -239,3 +239,11 @@ go get golang.org/x/tools/gopls@latest
 
 # линтер делает ревью в pull request
 reviewdog
+
+# ~/.bashrc
+export GO111MODULE=on 
+export GOPROXY=direct 
+export GOSUMDB=off    
+
+#И выполнить команду
+git config --global url."ssh://git@github.com".insteadOf "https://github.com"
