@@ -16,6 +16,11 @@ openssl req -x509 -new -nodes -key rootCA.key -sha256 -days 99000 -out rootCA.cr
 
 - chrome://settings/certificates
 
+### Добавить центр rootCA.crt в android
+
+- Настройки -> Биометрия и безопасность -> Другие параметры безопасности ->
+- -> Установить из памяти
+
 ### Подписываем сертификат для нашего домена
 
 ```bash
