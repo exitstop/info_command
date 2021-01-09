@@ -52,3 +52,12 @@ sudo docker build -t exitstop/python3_arm_test .
 
 # ssh key build argument
 https://stackoverflow.com/questions/23391839/clone-private-git-repo-with-dockerfile
+
+# запустить контейнер
+#docker run exitstop/python3_arm_test /bin/sh
+docker run --name exitstop_python3_arm_test -it exitstop/python3_arm_test bash
+# зайти в контейнер
+docker exec -ti exitstop_python3_arm_test /bin/sh
+
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
