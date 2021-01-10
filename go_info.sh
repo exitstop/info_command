@@ -251,3 +251,5 @@ git config --global url."ssh://git@github.com".insteadOf "https://github.com"
 # Установить экспеременатальную go
 https://golang.org/doc/install/source
 
+# performance go
+https://dave.cheney.net/high-performance-go

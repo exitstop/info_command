@@ -16,10 +16,10 @@ sudo apt-get -y install git cmake build-essential g++-4.8 c++-4.8
 sudo apt install -y g++-4.8 gcc-4.8
 sudo update-alternatives --config g++
 sudo update-alternatives --config gcc
-sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 30
-sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 40
-sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 10
-sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 20
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 30
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 40
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 10
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 20
 
 sudo apt-get install software-properties-common
 sudo add-apt-repository ppa:deadsnakes/ppa

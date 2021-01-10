@@ -839,3 +839,30 @@ screen -S windows -X stuff "^C exit\n"
 # multi rename
 # change extention
 mmv "*.png" "#1.jpg"
+
+
+lineinfile() {
+	if grep -q "$2" "$1"; then
+		sed -i 's/'"$2"'/'"$3"'/' "$1"
+	else
+		echo "$3" >> "$1"
+	fi
+}
+
+# Disable root access & password authentication.
+lineinfile "/etc/ssh/sshd_config" "^PermitRootLogin .*" "PermitRootLogin no"
+lineinfile "/etc/ssh/sshd_config" "^PasswordAuthentication .*" "PasswordAuthentication no"
+service sshd restart
+
+# Install systemd service.
+cat <<EOF > /etc/systemd/system/wtfd.service
+[Unit]
+Description=WTF Dial
+[Service]
+User=wtf
+Group=wtf
+Restart=on-failure
+ExecStart=/usr/local/bin/wtfd -config /etc/wtfd/wtfd.conf
+[Install]
+WantedBy=multi-user.target
+EOF
