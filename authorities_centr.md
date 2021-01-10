@@ -24,6 +24,7 @@ openssl req -x509 -new -nodes -key rootCA.key -sha256 -days 99000 -out rootCA.cr
 ### Описание как установить корневой сертификат в разные операционне системы и мобилы
 
 - https://www.bounca.org/tutorials/install_root_certificate.html
+- ссылка взята отсюда https://github.com/malfunkt/hyperfox
 
 ### Подписываем сертификат для нашего домена
 
