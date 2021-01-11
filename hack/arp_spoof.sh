@@ -16,3 +16,11 @@ net.show
 net.probe on
 
 https://hackware.ru/?p=5022
+
+### golang aprfox
+
+- https://github.com/malfunkt/arpfox
+
+### ssh SOCKS 5 socks5 proxy
+
+- https://www.digitalocean.com/community/tutorials/how-to-route-web-traffic-securely-without-a-vpn-using-a-socks-tunnel
