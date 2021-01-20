@@ -23,6 +23,19 @@
 - shared, 100x lower than global memory latency.
 - constant, or texture memory
 
+- http://developer.download.nvidia.com/GTC/PDF/1083_Wang.pdhttp://developer.download.nvidia.com/GTC/PDF/1083_Wang.pdff
+#### Basic arithmetic 6 cycles
+#### Register
+- Spills to local memory
+#### Caches
+— Shared memory 10 cycle(if not conflict)
+— L1 cache
+— L2 cache
+— Constant cache
+— Texture cache
+#### Global memory - 400-800 cycles
+- Нужно объединять доступ по 128byte в одну транзакцию для максимальной эффективности
+
 # Конфликты банков
 
 - Наглядно, вдухмерной проекции https://on-demand.gputechconf.com/gtc/2018/presentation/s81006-volta-architecture-and-performance-optimization.pdf

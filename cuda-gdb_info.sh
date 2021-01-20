@@ -39,3 +39,34 @@ set cuda break_on_launch
 
 # Посмотреть gpu
 sudo lshw -C display
+
+# nvvp не запускается
+
+- error
+
+```bash
+!ENTRY com.nvidia.cuda.ide.editor 4 0 2021-01-20 02:57:49.713
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: com.nvidia.cuda.ide.editor [6]
+  Unresolved requirement: Require-Bundle: org.eclipse.cdt.ui; bundle-version="[5.8.0.nvidia,5.8.1)"
+    -> Bundle-SymbolicName: org.eclipse.cdt.ui; bundle-version="5.8.0.nvidia-qualifier"; singleton:="true"
+       org.eclipse.cdt.ui [71]
+         Unresolved requirement: Require-Bundle: org.eclipse.cdt.core; bundle-version="[5.2.0,6.0.0)"
+           -> Bundle-SymbolicName: org.eclipse.cdt.core; bundle-version="5.7.0.nvidia-qualifier"; singleton:="true"
+              org.eclipse.cdt.core [69]
+                Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+```
+
+```
+sudo apt-get install libcanberra-gtk-module
+```

@@ -251,5 +251,12 @@ git config --global url."ssh://git@github.com".insteadOf "https://github.com"
 # Установить экспеременатальную go
 https://golang.org/doc/install/source
 
+```bash
+git clone https://go.googlesource.com/go goroot
+cd goroot
+git checkout go1.16beta1
+#./make.bash  177,56s user 39,59s system 591% cpu 36,681 total
+```
+
 # performance go
 https://dave.cheney.net/high-performance-go
