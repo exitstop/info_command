@@ -840,7 +840,6 @@ screen -S windows -X stuff "^C exit\n"
 # change extention
 mmv "*.png" "#1.jpg"
 
-<<<<<<< HEAD
 
 lineinfile() {
 	if grep -q "$2" "$1"; then
@@ -872,3 +871,6 @@ xset dpms 0 0 0; xset s noblank; xset s off
 
 # rdp
 xfreerdp /u:user /p:'passowrd' /v:192.168.0.111
+
+# ubuntu server
+https://itdeer.ru/nastrojka-seti-v-ubuntu-server-18-04/

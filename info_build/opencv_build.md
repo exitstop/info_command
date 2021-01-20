@@ -13,3 +13,9 @@ python ./modules/python/src2/gen2.py ./build/modules/python_bindings_generator .
 cd build
 sudo make install
  ```
+
+# удалить opencv
+
+```bash
+sudo apt-get purge libopencv*
+```

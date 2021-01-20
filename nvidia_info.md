@@ -44,7 +44,7 @@ ubuntu-drivers devices
 https://wiki.archlinux.org/index.php/NVIDIA/Troubleshooting
 
 # регулировка скорости fan speed nvidia linux
-sudo nvim /usr/share/X11/xorg.conf.d/10-nvidia.conf
+sudo vim /usr/share/X11/xorg.conf.d/10-nvidia.conf
 
 ```bash
 Section "OutputClass"
@@ -57,10 +57,16 @@ Section "OutputClass"
 EndSection
 ```
 
-nvidia-settings -a "[gpu:0]/GPUFanControlState=1" -a "[fan:0]/GPUTargetFanSpeed=99" --  :0 -once
-nvidia-settings -a "[gpu:0]/GPUFanControlState=1" -a "[fan:1]/GPUTargetFanSpeed=99" --  :0 -once
+nvidia-settings -a "[gpu:0]/GPUFanControlState=1" -a "[fan:0]/GPUTargetFanSpeed=90" --  :1 -once
+nvidia-settings -a "[gpu:0]/GPUFanControlState=1" -a "[fan:1]/GPUTargetFanSpeed=90" --  :1 -once
+
+nvidia-settings -a "[gpu:2]/GPUFanControlState=1" -a "[fan:0]/GPUTargetFanSpeed=90" --  :1 -once
+nvidia-settings -a "[gpu:2]/GPUFanControlState=1" -a "[fan:1]/GPUTargetFanSpeed=90" --  :1 -once
 
 # выключить
 nvidia-settings -a "[gpu:0]/GPUFanControlState=0" -- :0 -once
 
 И делаем logout
+
+# xorg nvidia fucking nvidia
+https://wiki.archlinux.org/index.php/NVIDIA_Optimus#GDM
