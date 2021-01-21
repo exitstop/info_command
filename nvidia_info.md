@@ -70,3 +70,20 @@ nvidia-settings -a "[gpu:0]/GPUFanControlState=0" -- :0 -once
 
 # xorg nvidia fucking nvidia
 https://wiki.archlinux.org/index.php/NVIDIA_Optimus#GDM
+
+# hiveos nvidia
+
+```bash
+modprobe nvidia_drm modeset=1
+nvidia-persistenced --persistence-mode
+```
+
+```bash
+# /hive/etc/edid.bin
+sudo nvidia-xconfig \
+       --enable-all-gpus \
+       --cool-bits=31 \
+       --connected-monitor="DFP-0" \
+       --custom-edid="DFP-0:/home/ed/edid.bin" \
+       --preserve-driver-name
+```

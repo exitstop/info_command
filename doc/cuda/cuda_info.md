@@ -64,3 +64,89 @@ drv.stop_profiler()
 ```
 
 - sudo nvprof python3 test.p
+
+
+```bash
+./deviceQuery Starting...
+
+ CUDA Device Query (Runtime API) version (CUDART static linking)
+
+Detected 1 CUDA Capable device(s)
+
+Device 0: "GeForce RTX 2060 SUPER"
+  CUDA Driver Version / Runtime Version          11.2 / 11.2
+  CUDA Capability Major/Minor version number:    7.5
+  Total amount of global memory:                 7974 MBytes (8361672704 bytes)
+  (34) Multiprocessors, ( 64) CUDA Cores/MP:     2176 CUDA Cores
+  GPU Max Clock rate:                            1710 MHz (1.71 GHz)
+  Memory Clock rate:                             7001 Mhz
+  Memory Bus Width:                              256-bit
+  L2 Cache Size:                                 4194304 bytes
+  Maximum Texture Dimension Size (x,y,z)         1D=(131072), 2D=(131072, 65536), 3D=(16384, 16384, 16384)
+  Maximum Layered 1D Texture Size, (num) layers  1D=(32768), 2048 layers
+  Maximum Layered 2D Texture Size, (num) layers  2D=(32768, 32768), 2048 layers
+  Total amount of constant memory:               65536 bytes
+  Total amount of shared memory per block:       49152 bytes
+  Total shared memory per multiprocessor:        65536 bytes
+  Total number of registers available per block: 65536
+  Warp size:                                     32
+  Maximum number of threads per multiprocessor:  1024
+  Maximum number of threads per block:           1024
+  Max dimension size of a thread block (x,y,z): (1024, 1024, 64)
+  Max dimension size of a grid size    (x,y,z): (2147483647, 65535, 65535)
+  Maximum memory pitch:                          2147483647 bytes
+  Texture alignment:                             512 bytes
+  Concurrent copy and kernel execution:          Yes with 3 copy engine(s)
+  Run time limit on kernels:                     Yes
+  Integrated GPU sharing Host Memory:            No
+  Support host page-locked memory mapping:       Yes
+  Alignment requirement for Surfaces:            Yes
+  Device has ECC support:                        Disabled
+  Device supports Unified Addressing (UVA):      Yes
+  Device supports Managed Memory:                Yes
+  Device supports Compute Preemption:            Yes
+  Supports Cooperative Kernel Launch:            Yes
+  Supports MultiDevice Co-op Kernel Launch:      Yes
+  Device PCI Domain ID / Bus ID / location ID:   0 / 9 / 0
+  Compute Mode:
+     < Default (multiple host threads can use ::cudaSetDevice() with device simultaneously) >
+
+deviceQuery, CUDA Driver = CUDART, CUDA Driver Version = 11.2, CUDA Runtime Version = 11.2, NumDevs = 1
+Result = PASS
+```
+
+
+# Ссылки
+
+- https://developer.nvidia.com/blog/optimizing-gpu-performance-tensor-cores/
+- https://docs.nvidia.com/deeplearning/performance/index.html#quant-effects
+- https://docs.nvidia.com/deeplearning/performance/dl-performance-recurrent/index.html
+- https://docs.nvidia.com/deeplearning/performance/dl-performance-convolutional/index.html
+- `torch.backends.cudnn.benchmark = True`
+- https://docs.nvidia.com/deeplearning/performance/dl-performance-gpu-background/index.html
+- nvprof чтобы узнать используете ли вы тензорные ядра
+- fp16 масштабирование чтобы не потерять данные https://docs.nvidia.com/deeplearning/performance/mixed-precision-training/index.html
+
+```
+As was shown in the previous section, successfully training some networks requires gradient value scaling to keep them from becoming zeros in FP16.
+This can be efficiently achieved with a single multiplication by scaling the loss values computed in the forward pass, prior to starting backpropagation.
+By the chain rule, backpropagation ensures that all the gradient values are scaled by the same amount.
+This requires no extra operations during backpropagation and keeps the relevant gradient values from becoming zeros and losing that gradient information.
+```
+
+- https://ngc.nvidia.com/catalog/containers/nvidia:pytorch
+- https://developer.nvidia.com/automatic-mixed-precision
+
+```bash
+scaler = GradScaler()
+
+with autocast():
+    output = model(input)
+    loss = loss_fn(output, target)
+
+scaler.scale(loss).backward()
+
+scaler.step(optimizer)
+
+scaler.update()
+```
