@@ -134,8 +134,11 @@ By the chain rule, backpropagation ensures that all the gradient values are scal
 This requires no extra operations during backpropagation and keeps the relevant gradient values from becoming zeros and losing that gradient information.
 ```
 
+### Смешанная точность
+
 - https://ngc.nvidia.com/catalog/containers/nvidia:pytorch
 - https://developer.nvidia.com/automatic-mixed-precision
+- https://pytorch.org/docs/stable/amp.html
 
 ```bash
 scaler = GradScaler()
