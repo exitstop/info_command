@@ -2,6 +2,10 @@
 
 - https://developer.nvidia.com/blog/easy-introduction-cuda-c-and-c/?ncid=afm-chs-44270&ranMID=44270&ranEAID=a1LgFw09t88&ranSiteID=a1LgFw09t88-41apaPgITmNiA5SCk4UzEA
 
+# wiki
+
+- https://en.wikipedia.org/wiki/Fermi_(microarchitecture)#Streaming_multiprocessor
+
 # memory
 
 - https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html#memory-optimizations
@@ -140,6 +144,7 @@ This requires no extra operations during backpropagation and keeps the relevant 
 - https://docs.nvidia.com/deeplearning/frameworks/user-guide/index.html#runcontc
 - https://developer.nvidia.com/automatic-mixed-precision
 - https://pytorch.org/docs/stable/amp.html
+- https://pytorch.org/docs/master/notes/amp_examples.html
 
 ```bash
 scaler = GradScaler()
@@ -154,3 +159,8 @@ scaler.step(optimizer)
 
 scaler.update()
 ```
+
+- https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/rel_20-12.html#rel_20-12
+- https://github.com/NVIDIA/PyProf/tree/r20.12
+- https://developer.download.nvidia.com/video/gputechconf/gtc/2020/presentations/s21143-automating-end-to-end-pytorch-profiling.pdf
+- https://www.nvidia.com/en-us/data-center/nvlink/

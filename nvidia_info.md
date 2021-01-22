@@ -2,6 +2,7 @@
 - https://forums.developer.nvidia.com/t/x-freezes-nvidia-gpu-0-wait/70356/3
 sudo nvim /usr/share/X11/xorg.conf.d/10-nvidia.conf
 
+
 ```bash
 Section "OutputClass"
     Identifier     "nvidia-prime"
@@ -86,4 +87,14 @@ sudo nvidia-xconfig \
        --connected-monitor="DFP-0" \
        --custom-edid="DFP-0:/home/ed/edid.bin" \
        --preserve-driver-name
+```
+
+## Отключение libglamoregl.so
+
+```bash
+# disable glamregl extension as it often crashes X server
+[[ -f /usr/lib/xorg/modules/libglamoregl.so ]] &&
+        mv -f /usr/lib/xorg/modules/libglamoregl.so /usr/lib/xorg/modules/libglamoregl.so.disabled
+[[ -f /opt/amdgpu/lib/xorg/modules/libglamoregl.so ]] &&
+        mv -f /opt/amdgpu/lib/xorg/modules/libglamoregl.so /opt/amdgpu/lib/xorg/modules/libglamoregl.so.disabled
 ```
