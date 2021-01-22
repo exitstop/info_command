@@ -49,6 +49,8 @@ ctrl+k #удалить символы после курсора
 
 ctrl+p #вставить удаленное
 
+ctrl+. # вернуть последнее слово от предидущей команды
+
 #конфертирование line end recursive
 find . -type f -print0 | xargs -0 dos2unix
 
@@ -874,3 +876,10 @@ xfreerdp /u:user /p:'passowrd' /v:192.168.0.111
 
 # ubuntu server
 https://itdeer.ru/nastrojka-seti-v-ubuntu-server-18-04/
+
+# no password
+/etc/sudoers.d/90-cloud-init-users
+
+```bash
+nvidia ALL=(ALL) NOPASSWD:ALL
+```

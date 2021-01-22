@@ -120,3 +120,6 @@ ctrl-]
 
 # самые качественные
 asus strix quiet 3090
+
+# syslog set filetype=messages
+set filetype=messages

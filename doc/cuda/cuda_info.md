@@ -137,6 +137,7 @@ This requires no extra operations during backpropagation and keeps the relevant 
 ### Смешанная точность
 
 - https://ngc.nvidia.com/catalog/containers/nvidia:pytorch
+- https://docs.nvidia.com/deeplearning/frameworks/user-guide/index.html#runcontc
 - https://developer.nvidia.com/automatic-mixed-precision
 - https://pytorch.org/docs/stable/amp.html
 
