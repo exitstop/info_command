@@ -61,3 +61,6 @@ docker exec -ti exitstop_python3_arm_test /bin/sh
 
 docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
+
+sudo usermod -aG dialout $(whoami)
+sudo usermod -aG docker $USER
