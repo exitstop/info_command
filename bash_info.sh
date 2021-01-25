@@ -883,3 +883,17 @@ https://itdeer.ru/nastrojka-seti-v-ubuntu-server-18-04/
 ```bash
 nvidia ALL=(ALL) NOPASSWD:ALL
 ```
+
+# 
+sudo grep -i -C2 -E "err|fail|bad|not|fault|denied" /var/log/syslog
+
+# boot who -b
+who -b
+last -x reboot
+last -x reboot | head -1
+last -x shutdown | head -1
+last -Fxn2 shutdown reboot
+
+# set_gracefulshutdown
+https://access.redhat.com/articles/2642741
+https://unix.stackexchange.com/questions/9819/how-to-find-out-from-the-logs-what-caused-system-shutdown
