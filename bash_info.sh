@@ -126,6 +126,11 @@ youtube-dl -F "https://www.youtube.com/watch?v=2Mi3MRKtg2M"
 youtube-dl -f 160+250 "https://www.youtube.com/watch?v=2Mi3MRKtg2M"
 youtube-dl -F "https://www.youtube.com/watch?v=2Mi3MRKtg2M"
 
+# download video
+go run ./cmd/youtubedr download yI9ktDC3HU4
+# extract audio
+ffmpeg -i 'video.mp4' -q:a 0 -map a 'simple.mp3'
+
 sudo ldconfig
 # обновить db locate
 sudo updatedb
