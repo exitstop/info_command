@@ -904,4 +904,5 @@ https://access.redhat.com/articles/2642741
 https://unix.stackexchange.com/questions/9819/how-to-find-out-from-the-logs-what-caused-system-shutdown
 
 # find only directory
-find . -type d | cut -c 3-
+find . -type d | cut -c 3- | sed 's/^/!*/'
+
