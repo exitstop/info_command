@@ -22,8 +22,9 @@ sudo apt install ssh
 sudo systemctl enable ssh
 #рекурсиваня замена во всех файлах
 a=hello&&b=hello2&& grep -rl "$a" | xargs sed -i "s/$a/$b/g"
+a='golang.org\/x\/exp';b='github.com\/FaceChainTeam\/exp'&& grep -rl "$a" | xargs sed -i "s/$a/$b/g"
 #рекурсиваня замена в файлах *.h
-a=hello&&b=hello2&& grep -l "$a" `find -name "*.h"` | xargs sed -i "s/$a/$b/g"
+a=hello&&b=hello2&& grep -l "$a" `find -name "*.go"` | xargs sed -i "s/$a/$b/g"
 
 # Замена с raw string
 a="http:\/\/site.com\/beta\/"&&b="/"&& \
