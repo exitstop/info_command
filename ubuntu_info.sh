@@ -9,6 +9,15 @@ sudo apt install gnome-startup-applications
 
 WaylandEnable=false
 sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+#https://ostechnix.com/linux-tips-disable-suspend-and-hibernation/
+```
+sudo nano /etc/systemd/logind.conf
+[Login] 
+HandleLidSwitch=ignore 
+HandleLidSwitchDocked=ignore
+
+sudo systemctl reload systemd-logind.service
+```
 
 sudo gdm3 -reset # ???
 
