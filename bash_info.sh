@@ -78,6 +78,13 @@ sudo vim /etc/fstab
 sudo mkdir -p /rawdata1
 
 
+# создаем файлы 1G
+dd if=/dev/zero of=./new_img_0 bs=1 count=0 seek=1G; 
+mkfs.ext4 ./new_img_0;
+sudo mount ./new_img_0 ./mounted_img_0 -o loop;
+sudo chown -R $USER:$USER ./mounted_img_0;
+
+
 # tab to space recursive
 find . -type f -exec sed -i.orig 's/\t/    /g' {} +
 # tab to space one file
