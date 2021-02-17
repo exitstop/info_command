@@ -31,3 +31,11 @@ lshw -C network
 
 # network
 /etc/init.d/networking restart
+
+# socket: too many open files
+ss -s
+ss -t -a
+netstat -ao|grep 5000
+
+lsof -i -a
+ls /proc/7285/fd/
