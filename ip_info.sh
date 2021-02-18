@@ -36,6 +36,7 @@ lshw -C network
 ss -s
 ss -t -a
 netstat -ao|grep 5000
+netstat -ao|grep 7777 | wc -l
 
 lsof -i -a
 ls /proc/7285/fd/
