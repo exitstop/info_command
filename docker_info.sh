@@ -1,6 +1,7 @@
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
 sudo apt install docker.io
 
+
 # смотреть лoги докера
 docker logs --tail 50 --follow --timestamps mediawiki_web_1
 
@@ -64,3 +65,4 @@ docker rm $(docker ps -a -q)
 
 sudo usermod -aG dialout $(whoami)
 sudo usermod -aG docker $USER
+

@@ -95,6 +95,9 @@ find -name "*.txt" -exec rm -rf {} +
 # gdb core dump
 ulimit -c unlimited
 
+# open files
+sudo sh -c "ulimit -n 65535"
+
 # ld чтобы библиотека нашлась в текущем каталоге
 export LD_LIBRARY_PATH=.
 export LD_PRELOAD=. # или это
@@ -560,6 +563,7 @@ curl ifconfig.me
 sudo apt-get install ctorrent
 ctorrent -t -u "http://tracker.example.com:6969/announce" -s example.torrent file_or_dir_to_upload
 
+# https://crontab.guru/examples.html
 crontab -e
 # прописать примерно вот это
 #SHELL=/bin/bash
@@ -712,6 +716,9 @@ dpkg-deb -b linuxqq/ linuxqq.deb
 
 # удалить dpkg
 sudo dpkg -r $(dpkg-deb -f foo.deb Package)
+
+# dpkg force
+sudo dpkg -i --force-overwrite
 
 # загрузить cpu на 100%
 sudo apt-get install stress-ng
