@@ -260,3 +260,11 @@ git checkout go1.16beta1
 
 # performance go
 https://dave.cheney.net/high-performance-go
+
+
+#/lib64/libc.so.6: version `GLIBC_2.32' not found (required by ./server)
+# fix
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o server *.go"
+
+# docker build kit
+https://www.docker.com/blog/containerize-your-go-developer-environment-part-1/

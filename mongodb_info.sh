@@ -78,6 +78,8 @@ db.apikey.find({Status: {$gt: 0} }).count()
 
 # обновить одно значение 
 db.users.updateOne({age:23}, {$set: {age: 25}})
+db.users.updateOne({_id:ObjectId("6031d7be302c0301c7b4bb8e")}, {$set: {dataregistration: new Date('ISODate("2021-02-20T03:47:10.561Z")')}})
+db.users.updateOne({_id:ObjectId("6031d7be302c0301c7b4bb8e")}, {$set: {dataregistration: ISODate("2021-02-20T03:47:10.561Z")}})
 # обновить много значений
 db.users.updateMany({age:23}, {$set: {age: 25}})
 # Удалить аттрибут
