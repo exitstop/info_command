@@ -19,7 +19,7 @@ Plug 'tommcdo/vim-fugitive-blame-ext'
 " Tag
 Plug 'lyuts/vim-rtags'
 Plug 'marxin/neo-rtags'
-Plug 'ludovicchabant/vim-gutentags'
+"Plug 'ludovicchabant/vim-gutentags'
 " -------------------------------------------------------------------------
 " -------------------------------- Golang Plugin --------------------------
 " -------------------------------------------------------------------------
@@ -33,6 +33,13 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } "Golang
 "Plug 'mattn/emmet-vim' "Html completer
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'sebdah/vim-delve'
+
+" Снипеты
+"https://dev.to/bhupesh/how-to-use-code-snippets-in-vim-like-a-cowboy-3pig
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsListSnippets="<c-l>"
 
 " nerd commenter
 Plug 'scrooloose/nerdcommenter'
@@ -622,3 +629,5 @@ if &diff
   highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
   highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
 endif
+
+colorscheme ron
