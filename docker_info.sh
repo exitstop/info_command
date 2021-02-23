@@ -14,6 +14,9 @@ docker exec -i terminal-php-fpm bash -c "cd /application/public/upload/&&tar cfv
 # Скопировать файл
 docker cp terminal-php-fpm:/application/public/upload/photos.tar.gz .;
 
+# df size
+docker system df
+
 docker image ls
 docker container ls
 docker image rm $(docker images -a -q)
