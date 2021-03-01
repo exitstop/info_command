@@ -40,3 +40,5 @@ netstat -ao|grep 7777 | wc -l
 
 lsof -i -a
 ls /proc/7285/fd/
+
+sudo systemclt stop daemon_remote_ssh_v2.service
