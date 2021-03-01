@@ -268,3 +268,31 @@ CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o server *.go"
 
 # docker build kit
 https://www.docker.com/blog/containerize-your-go-developer-environment-part-1/
+
+
+#### WrapPanic stack trace
+- https://stackoverflow.com/questions/52103182/how-to-get-the-stacktrace-of-a-panic-and-store-as-a-variable
+```bash
+defer func() {
+if err := recover(); err != nil {
+logrus.WithFields(logrus.Fields{
+"err":   err,
+"debug": string(debug.Stack()),
+}).Fatal("panic")
+}
+}()
+```
+
+#### WrapPanic stack trace
+```bash
+exitStatus, err := panicwrap.BasicWrap(panicHandler)
+if err != nil {
+    logrus.Fatalf("%v\n", err)
+}
+logrus.WithFields(logrus.Fields{
+    "exitStatus": exitStatus,
+}).Warn("exitStatus")
+if exitStatus >= 0 {
+    os.Exit(exitStatus)
+}
+```
