@@ -927,4 +927,4 @@ find . -type d | cut -c 3- | sed 's/^/!*/'
 netstat -anp | grep EST
 
 # force deb
-sudo dpkg -i --force-overwrite pack.db
+sudo dpkg -i --force-overwrite pack.deb
