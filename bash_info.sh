@@ -928,3 +928,7 @@ netstat -anp | grep EST
 
 # force deb
 sudo dpkg -i --force-overwrite pack.deb
+
+# ssh
+# Received disconnect from 192.168.88.116 port 22:2: Too many authentication failures
+ssh -o IdentitiesOnly=yes orangepi@192.168.88.116

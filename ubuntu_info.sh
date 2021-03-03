@@ -55,3 +55,5 @@ gsettings set org.gnome.desktop.wm.preferences mouse-button-modifier '<Alt>'
 
 # woe usb
 https://www.how2shout.com/linux/how-to-install-woeusb-on-ubuntu-20-04-lts/
+
+sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
