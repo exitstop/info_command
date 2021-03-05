@@ -79,6 +79,10 @@ sudo vim /etc/fstab
 #UUID=0736dc01-3146-4e10-a9b3-986f9949c00d-3f60-4331-8d85-f00c94092965       /rawdata1       ext4   auto,user,rw    0 0
 sudo mkdir -p /rawdata1
 
+UUID=661b01e6-720d-4f04-b248-f82445d19429       /16G_0 ext4   auto,user,rw    0 0
+UUID=5f530acb-13de-4872-bce1-18a7649bc164       /16G_1 ext4   auto,user,rw    0 0
+UUID=61f71d0b-fb8e-4345-b462-59e827a20baf       /16G_2 ext4   auto,user,rw    0 0
+
 
 # создаем файлы 1G
 dd if=/dev/zero of=./new_img_0 bs=1 count=0 seek=1G; 
@@ -900,6 +904,7 @@ xfreerdp /u:user /p:'passowrd' /v:192.168.0.111
 https://itdeer.ru/nastrojka-seti-v-ubuntu-server-18-04/
 
 # no password
+# without password /etc/sudoers.d/90-cloud-init-users
 /etc/sudoers.d/90-cloud-init-users
 
 ```bash

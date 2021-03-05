@@ -98,3 +98,13 @@ sudo nvidia-xconfig \
 [[ -f /opt/amdgpu/lib/xorg/modules/libglamoregl.so ]] &&
         mv -f /opt/amdgpu/lib/xorg/modules/libglamoregl.so /opt/amdgpu/lib/xorg/modules/libglamoregl.so.disabled
 ```
+
+
+### install driver version
+wget https://us.download.nvidia.com/XFree86/Linux-x86_64/455.45.01/NVIDIA-Linux-x86_64-455.45.01.run
+sudo chomod +x NVIDIA-Linux-x86_64-455.45.01.run
+sudo ./NVIDIA-Linux-x86_64-455.45.01.run
+
+### cuda 11.2
+wget https://developer.download.nvidia.com/compute/cuda/11.2.1/local_installers/cuda_11.2.1_460.32.03_linux.run
+sudo sh cuda_11.2.1_460.32.03_linux.run

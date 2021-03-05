@@ -38,6 +38,8 @@ ss -t -a
 netstat -ao|grep 5000
 netstat -ao|grep 7777 | wc -l
 
+netstat -atunp 5000|
+
 lsof -i -a
 ls /proc/7285/fd/
 
