@@ -26,6 +26,7 @@ a='golang.org\/x\/exp';b='github.com\/FaceChainTeam\/exp'&& grep -rl "$a" | xarg
 #рекурсиваня замена в файлах *.h
 a=hello&&b=hello2&& grep -l "$a" `find -name "*.go"` | xargs sed -i "s/$a/$b/g"
 a='exitstop\/';b='hello\/' && grep -l "$a" `find  -type f \( -name "*.mod" -o -name "*.go" \)` | xargs sed -i "s/$a/$b/g"
+a='HashRate';b='HashRateEth' && grep -wl "$a" `find  -type f \( -name "*.mod" -o -name "*.go" \)` | xargs sed -i "s/$a/$b/g"
 
 
 # Замена с raw string
@@ -82,6 +83,10 @@ sudo mkdir -p /rawdata1
 UUID=661b01e6-720d-4f04-b248-f82445d19429       /16G_0 ext4   auto,user,rw    0 0
 UUID=5f530acb-13de-4872-bce1-18a7649bc164       /16G_1 ext4   auto,user,rw    0 0
 UUID=61f71d0b-fb8e-4345-b462-59e827a20baf       /16G_2 ext4   auto,user,rw    0 0
+UUID=5f530acb-13de-4872-bce1-18a7649bc164       /15T_0       ext4   auto,user,rw    0 0
+UUID=61f71d0b-fb8e-4345-b462-59e827a20baf       /15T_1       ext4   auto,user,rw    0 0
+UUID=661b01e6-720d-4f04-b248-f82445d19429       /15T_2       ext4   auto,user,rw    0 0
+UUID=1a2277c6-8ed1-4f9c-8ec7-f4f34c64aa26       /2T_2       ext4   auto,user,rw    0 0
 
 
 # создаем файлы 1G
@@ -932,8 +937,16 @@ find . -type d | cut -c 3- | sed 's/^/!*/'
 netstat -anp | grep EST
 
 # force deb
+<<<<<<< Updated upstream
 sudo dpkg -i --force-overwrite pack.deb
 
 # ssh
 # Received disconnect from 192.168.88.116 port 22:2: Too many authentication failures
 ssh -o IdentitiesOnly=yes orangepi@192.168.88.116
+=======
+sudo dpkg -i --force-overwrite pack.db
+
+# lsb_release
+# version ubuntu check
+cat /etc/lsb-release
+>>>>>>> Stashed changes
