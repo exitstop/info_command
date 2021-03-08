@@ -252,3 +252,7 @@ https://www.youtube.com/watch?v=r5JGDiI22s4&list=PL8lrem_tlBtdrAr2Zvg2CUA3iAL8uI
 Видое как попадать в кэш процессора https://www.youtube.com/watch?v=ugBE79lcuP8
 Мой телеграм канал с книгами https://t.me/joinchat/AAAAAEbdqzgpgWXTEW5VBA
 Мой github, там чутка заметок https://github.com/exitstop/info_command/blob/master/cpp_info.sh
+
+
+# компялятор для windows tdm-gcc
+https://jmeubank.github.io/tdm-gcc/

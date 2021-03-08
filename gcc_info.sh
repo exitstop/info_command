@@ -29,3 +29,6 @@ sudo apt-get install manpages-dev
 # man page для C++ 98/11/14/17/20
 https://github.com/Aitjcize/cppman
 sudo apt-get install cppman
+
+# компялятор для windows tdm-gcc
+https://jmeubank.github.io/tdm-gcc/
