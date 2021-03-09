@@ -950,3 +950,6 @@ sudo dpkg -i --force-overwrite pack.db
 # version ubuntu check
 cat /etc/lsb-release
 >>>>>>> Stashed changes
+
+https://habr.com/ru/post/114082/
+sudo apt install -y iptstate iotop htop xentop mytop slabtop dnstop itop powertop iftop iotop htop atop
