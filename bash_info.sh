@@ -937,19 +937,18 @@ find . -type d | cut -c 3- | sed 's/^/!*/'
 netstat -anp | grep EST
 
 # force deb
-<<<<<<< Updated upstream
-sudo dpkg -i --force-overwrite pack.deb
-
 # ssh
 # Received disconnect from 192.168.88.116 port 22:2: Too many authentication failures
 ssh -o IdentitiesOnly=yes orangepi@192.168.88.116
-=======
 sudo dpkg -i --force-overwrite pack.db
 
 # lsb_release
 # version ubuntu check
 cat /etc/lsb-release
->>>>>>> Stashed changes
 
 https://habr.com/ru/post/114082/
 sudo apt install -y iptstate iotop htop xentop mytop slabtop dnstop itop powertop iftop iotop htop atop
+
+
+# woeusb
+https://github.com/WoeUSB/WoeUSB#dependencies
