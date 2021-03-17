@@ -936,6 +936,7 @@ find . -type d | cut -c 3- | sed 's/^/!*/'
 # monitor out put connection
 netstat -anp | grep EST
 
+# force deb
 # ssh
 # Received disconnect from 192.168.88.116 port 22:2: Too many authentication failures
 ssh -o IdentitiesOnly=yes orangepi@192.168.88.116
@@ -947,3 +948,8 @@ cat /etc/lsb-release
 
 https://habr.com/ru/post/114082/
 sudo apt install -y iptstate iotop htop mytop dnstop itop powertop iftop iotop htop atop
+sudo apt install -y iptstate iotop htop xentop mytop slabtop dnstop itop powertop iftop iotop htop atop
+
+
+# woeusb
+https://github.com/WoeUSB/WoeUSB#dependencies
