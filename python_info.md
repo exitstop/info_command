@@ -10,6 +10,8 @@ sudo -H pip3 download --no-deps onnx==1.8.1
 sudo -H pip3 wheel --no-deps onnx-1.8.1.tar.gz
 
 
+sudo -H pip3 install debugpy
+
 set -a
 source /etc/facechain/.pipeline-v2.env
 set +a
