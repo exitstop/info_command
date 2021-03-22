@@ -296,3 +296,10 @@ if exitStatus >= 0 {
     os.Exit(exitStatus)
 }
 ```
+
+# fix
+go mod vendor
+
+```bash
+godef: err: exit status 1: stderr: go: inconsistent vendoring in
+```
