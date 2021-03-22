@@ -35,3 +35,6 @@ module.exports = {
   assetsDir: '../',
 }
 ```
+
+# Vuetify — A Material Design Framework for vue
+https://vuetifyjs.com/en/

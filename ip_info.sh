@@ -44,3 +44,9 @@ lsof -i -a
 ls /proc/7285/fd/
 
 sudo systemclt stop daemon_remote_ssh_v2.service
+
+
+sudo ping -s 1300 -f 192.168.88.1
+ping size=1300 interval=0.1 79.174.188.193
+# Светалан - омега интернет
+89219313709
