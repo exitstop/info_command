@@ -8,3 +8,5 @@ sudo dd if=backup.img of=/dev/sdb
 dd if=/dev/sda of=mbr.img bs=512 count=1
 # восстановить mbr
 dd if=mbr.img of=/dev/sda
+
+#resize2fs -M xxx.img
