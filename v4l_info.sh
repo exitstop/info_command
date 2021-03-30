@@ -12,3 +12,6 @@ v4l2-ctl  -d /dev/video10  -L
 
 v4l2-ctl -d /dev/video10 --set-ctrl exposure=2000
 v4l2-ctl -d /dev/video10 -c exposure=2000
+
+
+v4l2-ctl -d /dev/video10 --set-ctrl exposure_auto=2000

@@ -237,7 +237,7 @@ hte prog
 x11vnc -display :0 -rfbport 5901
 # чтобы не выключался
 x11vnc -usepw -display :0 -q -forever -rfbport 5901
-vncviewer -PreferredEncoding=ZRLE 192.168.88.143:5901
+vncviewer -PreferredEncoding=ZRLE 192.168.88.120:5901
 ss -lt
 
 # создать сервис
