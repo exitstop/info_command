@@ -10,8 +10,16 @@ v4l2-ctl -d /dev/video0 --list-formats-ext
 v4l2-ctl  -d /dev/video10  --set-ctrl gain=24
 v4l2-ctl  -d /dev/video10  -L
 
+
+v4l2-ctl  -d /dev/video10  --set-ctrl brightness=0
+v4l2-ctl  -d /dev/video10  --set-ctrl contrast=48
+v4l2-ctl  -d /dev/video10  --set-ctrl saturation=64
+v4l2-ctl  -d /dev/video10  --set-ctrl power_line_frequency=0
+
 v4l2-ctl -d /dev/video10 --set-ctrl exposure=2000
 v4l2-ctl -d /dev/video10 -c exposure=2000
 
-
 v4l2-ctl -d /dev/video10 --set-ctrl exposure_auto=2000
+
+#low cpu usage
+https://www.youtube.com/watch?v=7EwTMQ3nyNY
