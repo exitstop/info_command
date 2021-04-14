@@ -31,3 +31,6 @@ Get-WindowsCapability -Online | ? Name -like 'OpenSSH.Ser*'
 
 Set-Service -Name sshd -StartupType 'Automatic'
 Start-Service sshd
+
+# woe usb
+https://www.how2shout.com/linux/how-to-install-woeusb-on-ubuntu-20-04-lts/
