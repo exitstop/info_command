@@ -172,6 +172,7 @@ func main() {
 ```
 ```bash
 curl http://localhost:8080/debug/pprof/heap > heap.0.pprof
+curl http://localhost:8080/debug/pprof/cpu > cpu.0.pprof
 go tool pprof heap.0.pprof
 HEAP=heap.7.pprof && curl http://localhost:8080/debug/pprof/heap > $HEAP && go tool pprof -nodefraction=0 -inuse_objects $HEAP
 

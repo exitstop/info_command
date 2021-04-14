@@ -35,6 +35,7 @@ lshw -C network
 # socket: too many open files
 ss -s
 ss -t -a
+ss -t -a | grep CLOSE-WAIT | wc -l
 netstat -ao|grep 5000
 netstat -ao|grep 7777 | wc -l
 

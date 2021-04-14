@@ -88,6 +88,17 @@ UUID=61f71d0b-fb8e-4345-b462-59e827a20baf       /15T_1       ext4   auto,user,rw
 UUID=661b01e6-720d-4f04-b248-f82445d19429       /15T_2       ext4   auto,user,rw    0 0
 UUID=1a2277c6-8ed1-4f9c-8ec7-f4f34c64aa26       /2T_2       ext4   auto,user,rw    0 0
 
+```
+The disk contains an unclean file system (0, 0).
+Metadata kept in Windows cache, refused to mount.
+Falling back to read-only mount because the NTFS partition is in an
+unsafe state. Please resume and shutdown Windows fully (no hibernation
+or fast restarting.)
+Could not mount read-write, trying read-only
+```
+
+sudo mount -o remount,rw '/rawdata0'
+
 
 # создаем файлы 1G
 dd if=/dev/zero of=./new_img_0 bs=1 count=0 seek=1G; 
@@ -903,6 +914,7 @@ EOF
 xset dpms 0 0 0; xset s noblank; xset s off
 
 # rdp
+sudo apt-get install freerdp-x11
 xfreerdp /u:user /p:'passowrd' /v:192.168.0.111
 
 # ubuntu server
