@@ -18,6 +18,7 @@ https://coinmarketcap.com/currencies/darwinia-network/
 https://coinmarketcap.com/currencies/irisnet/
 https://coinmarketcap.com/currencies/santiment/
 https://coinmarketcap.com/currencies/chromia/
+https://coinmarketcap.com/currencies/dia/
 ```
 
 # swap 

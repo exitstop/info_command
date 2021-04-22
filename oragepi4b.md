@@ -27,6 +27,7 @@ sync
 sudo apt install guvcview
 
 sudo dd if=OrangePi_4_debian_stretch_desktop_linux4.4.179_v1.4.img of=/dev/sdb bs=4M status=progress conv=sync
+sudo dd if=TwisterOSArmbianV2-0-1.img of=/dev/sdb bs=4M status=progress conv=sync
 
 # shrink
 # https://superuser.com/questions/610819/how-to-resize-img-file-created-with-dd
@@ -38,3 +39,5 @@ fdisk /dev/loop1
 # enter p
 sudo dd if=/dev/loop1 of=opay_2021.15.03_shrink.img bs=512 count=39462912 status=progress
 sudo losetup -d loop0
+
+cat /sys/devices/virtual/thermal/thermal_zone1/temp

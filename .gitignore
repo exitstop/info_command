@@ -7,11 +7,13 @@
 !*info_build/file/gocv/
 !*info_build/firefly/
 !*config/nixos_config
+!*example/cgo/
 !*embedd/
 
 
 # source files
 !*.sh
+!*.go
 !pre-commit
 !.clang-format
 !script/.gitignore

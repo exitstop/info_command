@@ -27,6 +27,7 @@ a='golang.org\/x\/exp';b='github.com\/FaceChainTeam\/exp'&& grep -rl "$a" | xarg
 a=hello&&b=hello2&& grep -l "$a" `find -name "*.go"` | xargs sed -i "s/$a/$b/g"
 a='exitstop\/';b='hello\/' && grep -l "$a" `find  -type f \( -name "*.mod" -o -name "*.go" \)` | xargs sed -i "s/$a/$b/g"
 a='HashRate';b='HashRateEth' && grep -wl "$a" `find  -type f \( -name "*.mod" -o -name "*.go" \)` | xargs sed -i "s/$a/$b/g"
+a='python3.8';b='python3.6' && grep -wl "$a" `find  -type f -name "*CMakeLists.txt"` | xargs sed -i "s/$a/$b/g"
 
 
 # Замена с raw string
