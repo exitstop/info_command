@@ -77,6 +77,8 @@ git show develop:some-file.js # извлекает файл из другой в
 git revert -n 0fxf077 # создать новый комит который будет отменять другой и добавит его в индекс без коммита
 git revert  [тот хэш]
 
+git revert -m 1 23232323
+
 git add -p # добавить только некоторые изменения из файла
 
 git submodule add git@github.com:exitstop/lfs_test0.git # добавить submodule

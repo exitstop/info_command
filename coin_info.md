@@ -16,6 +16,7 @@ https://coinmarketcap.com/currencies/the-graph/
 https://coinmarketcap.com/currencies/synthetix-network-token/
 https://coinmarketcap.com/currencies/darwinia-network/
 https://coinmarketcap.com/currencies/irisnet/
+https://coinmarketcap.com/currencies/dia/
 ```
 
 # swap 

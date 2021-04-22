@@ -19,7 +19,9 @@ v4l2-ctl  -d /dev/video10  --set-ctrl power_line_frequency=0
 v4l2-ctl -d /dev/video10 --set-ctrl exposure=2000
 v4l2-ctl -d /dev/video10 -c exposure=2000
 
-v4l2-ctl -d /dev/video10 --set-ctrl exposure_auto=2000
+v4l2-ctl -d /dev/video2 --set-ctrl exposure_auto=1
+v4l2-ctl -d /dev/video2 --set-ctrl exposure_absolute=500
+v4l2-ctl -d /dev/video2 --set-ctrl sharpness=50
 
 #low cpu usage
 https://www.youtube.com/watch?v=7EwTMQ3nyNY
