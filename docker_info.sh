@@ -17,6 +17,9 @@ docker cp terminal-php-fpm:/application/public/upload/photos.tar.gz .;
 # df size
 docker system df
 
+# delete docker build cache
+docker builder prune -af
+
 docker image ls
 docker container ls
 docker image rm $(docker images -a -q)
