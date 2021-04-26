@@ -39,3 +39,5 @@ https://www.youtube.com/watch?v=6h1T6r03n8w
 https://www.youtube.com/watch?v=oYxKy9tEPhk
 
 https://www.tensorcharts.com/
+https://studio.glassnode.com/
+https://studio.glassnode.com/metrics?a=BTC&m=addresses.ActiveCount&s=1539878378&u=1598779727&zoom=
