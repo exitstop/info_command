@@ -19,6 +19,13 @@ https://coinmarketcap.com/currencies/irisnet/
 https://coinmarketcap.com/currencies/santiment/
 https://coinmarketcap.com/currencies/chromia/
 https://coinmarketcap.com/currencies/dia/
+https://coinmarketcap.com/currencies/uniswap/
+https://coinmarketcap.com/currencies/avalanche/
+https://coinmarketcap.com/currencies/reef/
+https://coinmarketcap.com/currencies/terra-luna/
+https://coinmarketcap.com/currencies/sifchain/
+https://coinmarketcap.com/currencies/dock/
+https://coinmarketcap.com/currencies/stafi/
 ```
 
 # swap 
