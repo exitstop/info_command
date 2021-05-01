@@ -27,6 +27,7 @@ https://coinmarketcap.com/currencies/sifchain/
 https://coinmarketcap.com/currencies/dock/
 https://coinmarketcap.com/currencies/stafi/
 https://coinmarketcap.com/currencies/bondly/????
+https://coinmarketcap.com/currencies/pancakeswap/
 ```
 
 # swap 
