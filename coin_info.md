@@ -19,6 +19,15 @@ https://coinmarketcap.com/currencies/irisnet/
 https://coinmarketcap.com/currencies/santiment/
 https://coinmarketcap.com/currencies/chromia/
 https://coinmarketcap.com/currencies/dia/
+https://coinmarketcap.com/currencies/uniswap/
+https://coinmarketcap.com/currencies/avalanche/
+https://coinmarketcap.com/currencies/reef/
+https://coinmarketcap.com/currencies/terra-luna/
+https://coinmarketcap.com/currencies/sifchain/
+https://coinmarketcap.com/currencies/dock/
+https://coinmarketcap.com/currencies/stafi/
+https://coinmarketcap.com/currencies/bondly/????
+https://coinmarketcap.com/currencies/pancakeswap/
 ```
 
 # swap 
@@ -41,3 +50,6 @@ https://www.youtube.com/watch?v=oYxKy9tEPhk
 https://www.tensorcharts.com/
 https://studio.glassnode.com/
 https://studio.glassnode.com/metrics?a=BTC&m=addresses.ActiveCount&s=1539878378&u=1598779727&zoom=
+
+# Проекты на долгосрок
+https://www.youtube.com/watch?v=-Xgx6UblkP0
