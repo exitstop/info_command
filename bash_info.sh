@@ -29,6 +29,9 @@ a='exitstop\/';b='hello\/' && grep -l "$a" `find  -type f \( -name "*.mod" -o -n
 a='HashRate';b='HashRateEth' && grep -wl "$a" `find  -type f \( -name "*.mod" -o -name "*.go" \)` | xargs sed -i "s/$a/$b/g"
 a='python3.8';b='python3.6' && grep -wl "$a" `find  -type f -name "*CMakeLists.txt"` | xargs sed -i "s/$a/$b/g"
 
+a='Infaterd';b='Two' && grep -l "$a" `find  -type f \( -name "*.toml" -o -name "*.go" \)` | xargs sed -i "s/$a/$b/g"
+
+
 
 # Замена с raw string
 a="http:\/\/site.com\/beta\/"&&b="/"&& \

@@ -304,3 +304,12 @@ go mod vendor
 ```bash
 godef: err: exit status 1: stderr: go: inconsistent vendoring in
 ```
+
+# duration
+
+```
+start := time.Now()
+end := time.Now()
+duration := end.Sub(start)
+fmt.Printf("t: %v \n", duration)
+```
