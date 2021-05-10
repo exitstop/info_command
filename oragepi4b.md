@@ -1,9 +1,9 @@
 # снять прошивку
-sudo dd if=/dev/sdb of=backup.img
+sudo dd if=/dev/sdb of=backup.img  bs=4M status=progress
 
 # Залить обратно
 sudo dd if=backup.img of=/dev/sdb bs=4M status=progress
-sudo dd if=opay_2021.15.03.img of=/dev/sdb bs=4M status=progress
+sudo dd if=opay_2021.27.04.img of=/dev/sdb bs=4M status=progress
 
 # считать mbr
 dd if=/dev/sda of=mbr.img bs=512 count=1
