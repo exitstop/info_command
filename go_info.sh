@@ -304,3 +304,6 @@ go mod vendor
 ```bash
 godef: err: exit status 1: stderr: go: inconsistent vendoring in
 ```
+
+# python golang
+https://www.ardanlabs.com/blog/2020/08/packaging-python-code.html

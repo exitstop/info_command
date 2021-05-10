@@ -17,3 +17,6 @@ set -a
 source /etc/facechain/.pipeline-v2.env
 set +a
 python3 -m debugpy --listen 0.0.0.0:5678 -m src.run
+
+# python golang
+https://www.ardanlabs.com/blog/2020/08/packaging-python-code.html
