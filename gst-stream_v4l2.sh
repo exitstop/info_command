@@ -9,3 +9,6 @@ v4l2-ctl -d /dev/video2 --list-formats-ext
 lsusb -t
 # посмотреть подробно
 lsusb -s 01:5 -v
+
+# для проверки вебкамер webcam - webcamoid
+webcamoid-8.8.0-x86_64.AppImage
