@@ -28,6 +28,9 @@ https://coinmarketcap.com/currencies/dock/
 https://coinmarketcap.com/currencies/stafi/
 https://coinmarketcap.com/currencies/bondly/????
 https://coinmarketcap.com/currencies/pancakeswap/
+
+https://coinmarketcap.com/currencies/superfarm/markets/
+
 ```
 
 # swap 
