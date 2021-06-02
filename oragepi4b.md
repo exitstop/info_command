@@ -41,3 +41,8 @@ sudo dd if=/dev/loop1 of=opay_2021.15.03_shrink.img bs=512 count=39462912 status
 sudo losetup -d loop0
 
 cat /sys/devices/virtual/thermal/thermal_zone1/temp
+
+```
+dd if=images/opay_pi4b.img of=/dev/sdc conv=sync,noerror
+sync
+```

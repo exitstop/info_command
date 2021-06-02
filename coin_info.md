@@ -56,3 +56,9 @@ https://studio.glassnode.com/metrics?a=BTC&m=addresses.ActiveCount&s=1539878378&
 
 # Проекты на долгосрок
 https://www.youtube.com/watch?v=-Xgx6UblkP0
+
+# 
+
+```
+https://cryptorank.io/heatmaps
+```
