@@ -1,4 +1,5 @@
-#
+# сменить раскладку ubuntu
+# https://www.youtube.com/watch?v=0qXIL8SdDZA&t=223s
 atl+shit 
 sudo apt install gnome-tweaks
 sudo apt install gnome-startup-applications

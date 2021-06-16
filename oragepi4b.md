@@ -43,6 +43,6 @@ sudo losetup -d loop0
 cat /sys/devices/virtual/thermal/thermal_zone1/temp
 
 ```
-dd if=images/opay_pi4b.img of=/dev/sdc conv=sync,noerror
+sudo dd if=opay_pi4b.img of=/dev/sdb conv=sync,noerror status=progress
 sync
 ```
