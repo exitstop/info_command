@@ -46,3 +46,7 @@ cat /sys/devices/virtual/thermal/thermal_zone1/temp
 sudo dd if=opay_pi4b.img of=/dev/sdb conv=sync,noerror status=progress
 sync
 ```
+
+```
+cat /sys/devices/virtual/thermal/thermal_zone0/temp
+```

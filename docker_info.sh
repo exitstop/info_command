@@ -72,3 +72,7 @@ docker rm $(docker ps -a -q)
 sudo usermod -aG dialout $(whoami)
 sudo usermod -aG docker $USER
 
+
+docker run --rm --privileged multiarch/qemu-user-static:register --reset
+sudo docker build -t exitstop/torch1.8.1opencv_4.3_ubuntu_18.04_arm64_sys_small -f Dockerfile.18.04.arm64 .
+
