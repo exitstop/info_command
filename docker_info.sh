@@ -44,6 +44,7 @@ docker exec -it container-name bash
 docker push exitstop/torch1.4opencv_4.3sys_small
 docker push exitstop/torch1.4opencv_4.3_ubuntu_20.04_sys_small
 docker push exitstop/torch1.4opencv_4.3_ubuntu_18.04_sys_small
+docker push exitstop/torch1.8.1opencv_4.3_ubuntu_18.04_arm64_sys_small
 docker push exitstop/torch1.4opencv_4.3_ubuntu_20.04_amd64_sys_small
 
 
@@ -75,4 +76,6 @@ sudo usermod -aG docker $USER
 
 docker run --rm --privileged multiarch/qemu-user-static:register --reset
 sudo docker build -t exitstop/torch1.8.1opencv_4.3_ubuntu_18.04_arm64_sys_small -f Dockerfile.18.04.arm64 .
-
+docker run --name torch1.8.0opencv_4.3_ubuntu_18.04_arm64_sys_small -it exitstop/torch1.8.0opencv_4.3_ubuntu_18.04_arm64_sys_small bash
+docker container start  ab0bbdcab7fb3d1e8c469703725b4fd099931560797a6b5a61aab3173336f62b
+docker attach ab0bbdcab7fb

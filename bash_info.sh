@@ -969,3 +969,6 @@ sudo apt install -y iptstate iotop htop xentop mytop slabtop dnstop itop powerto
 
 # woeusb
 https://github.com/WoeUSB/WoeUSB#dependencies
+
+# serial
+sudo dmidecode -s system-serial-number
