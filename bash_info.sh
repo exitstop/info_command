@@ -972,3 +972,6 @@ https://github.com/WoeUSB/WoeUSB#dependencies
 
 # serial
 sudo dmidecode -s system-serial-number
+
+# когда перезагружался компьютер
+last -x reboot
