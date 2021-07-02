@@ -97,6 +97,7 @@ git add .gitattributes
 git tag -a v1.1.002 -m "version 1.1.002"
 # Пушнуть tag
 git push origin v1.1.002
+git push --force-with-lease # Запушить чтобы не перетереть чужие изменения
 
 # delete big file from all history
 https://rtyley.github.io/bfg-repo-cleaner/
@@ -110,6 +111,8 @@ git reset --hard origin/master
 git clean -d --force
 
 git pull --rebase origin master
+
+git rebase origin/master
 
 # Восстанавливаем ветку из репозитори
 git fetch --all
