@@ -652,7 +652,7 @@ ack '^(?!.*github).(\bprofile\b)'
 # wifi через консоль
 nmcli dev wifi connect $ACCESS_POINT password $PASSWORD
 
-# get chmod получить разрешения файла в виде цифр 755 777 666 600
+# get chmod chown получить разрешения файла в виде цифр 755 777 666 600
 stat --format '%a' /etc/default/
 
 # поиск java
@@ -975,3 +975,9 @@ sudo dmidecode -s system-serial-number
 
 # когда перезагружался компьютер
 last -x reboot
+
+journalctl -f -u pipelinego
+journalctl -f -u panelgo
+
+# 
+sudo systemctl set-default graphical.target
