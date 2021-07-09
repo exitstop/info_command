@@ -126,3 +126,18 @@ set filetype=messages
 
 # golangci-lint-langserver nvim
 https://github.com/nametake/golangci-lint-langserver
+:CocConfig
+
+```
+{
+  "languageserver": {
+    "golangci-lint-languageserver": {
+      "command": "golangci-lint-langserver",
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "command": ["golangci-lint", "run", "--out-format", "json"]
+      }
+    }
+  }
+}
+```
