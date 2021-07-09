@@ -15,4 +15,3 @@ typedef struct
   Elf32_Half	e_shnum;		/* Кол-во элементов в Section header - Section header table entry count */
   Elf32_Half	e_shstrndx;		/* Индекс string table в section header - Section header string table index */
 } Elf32_Ehdr;
-

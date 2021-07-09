@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # arm
-sudo apt update
+sudo apt -y update
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt install -y python3.6
 wget https://bootstrap.pypa.io/get-pip.py
 sudo python3.6 get-pip.py
 
-sudo apt install build-essential cmake unzip
+sudo apt install -y build-essential cmake unzip
 sudo apt-get install -y python3-dev
 sudo apt-get install -y gfortran libatlas-base-dev
 sudo apt install -y libgtk2.0-dev libgtk-3-dev ffmpeg
@@ -45,5 +45,5 @@ conda install numpy ninja pyyaml setuptools cmake cffi
 source ~/.bashrc
 
 export CMAKE_PREFIX_PATH=${CONDA_PREFIX:-"$(dirname $(which conda))/../"}
-MAX_JOBS=3 USE_CUDA=0 USE_NUMPY=ON python3.6 setup.py install --user
-MAX_JOBS=3 USE_CUDA=0 USE_NUMPY=ON python3.6 setup.py bdist_wheel
+MAX_JOBS=3 USE_OPENMP=1 USE_CUDA=0 USE_NUMPY=ON python3.6 setup.py install --user
+MAX_JOBS=3 USE_OPENMP=1 USE_CUDA=0 USE_NUMPY=ON python3.6 setup.py bdist_wheel

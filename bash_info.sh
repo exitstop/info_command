@@ -981,3 +981,6 @@ journalctl -f -u panelgo
 
 # 
 sudo systemctl set-default graphical.target
+
+# create deb from make
+sudo apt install debmake

@@ -126,6 +126,7 @@ git lfs install --force
 
 git push --delete origin 0.0.0-test
 git tag -d 0.0.0-test
+git push --delete origin v1.0.50
 
 # [404] Object does not exist on the server
 git lfs fetch --all
