@@ -123,3 +123,6 @@ asus strix quiet 3090
 
 # syslog set filetype=messages
 set filetype=messages
+
+# golangci-lint-langserver nvim
+https://github.com/nametake/golangci-lint-langserver
